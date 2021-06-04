@@ -20,5 +20,8 @@ public class MemberController {
 	public void join() {
 		
 	}
-
+	@GetMapping("/shrit")
+	public String shrit() {
+		return "/member/list";
+	}
 }
