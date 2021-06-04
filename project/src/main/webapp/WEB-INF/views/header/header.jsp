@@ -100,7 +100,7 @@
 				
 				<li><a class=top>고객센터</a></li>
 				<li><a class=top>장바구니</a></li>
-				<li><a class=top>마이페이지aaa</a></li>
+				<li><a class=top>마이페이지</a></li>
 				<li><a class=top>회원가입</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#myModal">로그인</a></li>
 			
