@@ -88,39 +88,10 @@ body{
 
 <body>
 <header>
-    	<%-- ${pageContext.request.contextPath} --%>
     	<%@ include file="../header/header.jsp" %>
     </header>
 	<div>
 		
-		<div>
-			<ul style="text-align: center;">
-				<li style="display: inline-block">
-					<a class=li_font href="${ pageContext.request.contextPath }/member/join.jsp">BEST</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">OUTER</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">TOP</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">SHIRTS</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">KNIT</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">PANTS</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">SHOES</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">SHOES</a>
-				</li>
-			</ul>
-		</div>
 		<div>
 			<img id=img_main src="https://static1.s123-cdn-static-a.com/uploads/1211103/2000_5b191563a1016.jpg">
 		</div>
