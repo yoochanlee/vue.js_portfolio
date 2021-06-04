@@ -131,7 +131,9 @@ body{
 		</div>
 		<div class=img_mid>
 			<div class=img_cut>
-				<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
+				<a href="http://naver.com">
+					<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
+				</a>
 				<div class=img_cut2>
 					<div>남자 바지</div>
 					<div>4color</div>
@@ -139,7 +141,9 @@ body{
 				</div>
 			</div>
 			<div class=img_cut>
-				<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
+				<a href="http://naver.com">
+					<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
+				</a>
 				<div class=img_cut2>
 					<div>남자 바지</div>
 					<div>4color</div>
@@ -147,7 +151,9 @@ body{
 				</div>
 			</div>
 			<div class=img_cut>
-				<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
+				<a href="http://naver.com">
+					<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
+				</a>
 				<div class=img_cut2>
 					<div>남자 바지</div>
 					<div>4color</div>
@@ -155,41 +161,9 @@ body{
 				</div>
 			</div>
 			<div class=img_cut>
-				<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
-				<div class=img_cut2>
-					<div>남자 바지</div>
-					<div>4color</div>
-					<div>25,300</div>
-				</div>
-			</div>
-		</div>
-		<div class=img_mid>
-			<div class=img_cut>
-				<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
-				<div class=img_cut2>
-					<div>남자 바지</div>
-					<div>4color</div>
-					<div>25,300</div>
-				</div>
-			</div>
-			<div class=img_cut>
-				<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
-				<div class=img_cut2>
-					<div>남자 바지</div>
-					<div>4color</div>
-					<div>25,300</div>
-				</div>
-			</div>
-			<div class=img_cut>
-				<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
-				<div class=img_cut2>
-					<div>남자 바지</div>
-					<div>4color</div>
-					<div>25,300</div>
-				</div>
-			</div>
-			<div class=img_cut>
-				<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
+				<a href="http://naver.com">
+					<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
+				</a>
 				<div class=img_cut2>
 					<div>남자 바지</div>
 					<div>4color</div>
