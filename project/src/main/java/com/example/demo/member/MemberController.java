@@ -20,5 +20,9 @@ public class MemberController {
 	public void join() {
 		
 	}
+	@GetMapping("/list_view")
+	public void list_view() {
+		
+	}
 
 }
