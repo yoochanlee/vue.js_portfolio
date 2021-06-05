@@ -1,23 +1,22 @@
 <template>
   <div id="app">
-    <Header/>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <top></top>
+    <div id="container" class="container">
+        <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-import Header from './components/common/Header';
+import top from './components/header/header.vue';
+
 export default {
   name: 'App',
   components: {
-    Header
-
-    , HelloWorld
+    top
   }
 }
 </script>
 
 <style>
-
 </style>
