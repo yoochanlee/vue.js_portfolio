@@ -5,7 +5,6 @@ import axios from 'axios'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios  //Vue객체에 전역변수 추가
-
 new Vue({
   router,
   render: h => h(App),
