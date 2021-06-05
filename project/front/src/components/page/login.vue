@@ -10,7 +10,7 @@
     <input type="password" id='pwd' v-model='pwd' />
   </div>
   <button v-on:click='login'>login</button>
-  <router-link to='/join'>join</router-link>
+  <router-link to='/loin'>loin</router-link>
 </div>
 </template>
 

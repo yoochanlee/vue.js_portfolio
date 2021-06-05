@@ -6,46 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-/* 상단 로그 이미지 */
-#img_top{
-	display:block;
-	margin: 0px auto;
-	width: 1000px;
-	height: 100px;
-	box-sizing: border-box;
-	opacity: 0.3;
-}
-/* 상단 이미지 */
-#img_main{
-	display:block; 
-	margin: 0px auto;
-	width:1830px;
-	height:400px;
-	box-sizing: border-box;
-}
-/* 상품 분류 태크 폰트 */
-.li_font{
-	color: #999999;
-	font-size: 20pt;
-	text-decoration-line: none;
-	margin-right: 40px;
-}
-/* 상단 sns 이미지 */
-.top_sns{
-	display: inline-block;
-	margin: 0px 5px;
-	width: 20px;
-	height: 20px;
-	box-sizing: border-box;
-}
-/* 맨위 */
-.top{
-	display:block;
-	float:right;
-	font-size:10pt;
-	color: #999999;
-	margin-right: 18px;
-}
 /* 상단 박스 */
 .top_box{
 	width: 1200px;
