@@ -72,6 +72,7 @@
 	box-sizing: border-box;
 	padding: 30px;
 }
+.top_list
 </style>
 </head>
 <body>
@@ -81,12 +82,38 @@
 			<div class=top_aa>
 				<h2>상품이름 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</h2>
 				<h2>가격 적음 33,397</h2>
+				<span>33%</span>
+				<strong>52,900</strong>
+				<div>
+					<strong>쿠폰적용가 42,320</strong>
+					<p>쿠폰 다운로드 후 결제 시 적용 가능합니다.</p>
+					<button>쿠폰 다운로드 ::after</button>
+				</div>
 			</div>
 			<div class=top_aa>
-			
+				<div>
+					<div>적립금</div>
+					<div>529원(1% 적립)</div>
+				</div>
+				<div>
+					<div>배송비</div>
+					<div>전상품 무료배송!</div>
+				</div>
+				<div>
+					<div>리뷰정보</div>
+					<div>
+					<a href="http://naver.com">
+					xx개 리뷰 보기
+					</a>
+					</div>
+				</div>
+				<div>
+					<div>정품인증</div>
+					<div>모든 상품은 100% 정품입니다.</div>
+				</div>
 			</div>
+			
 		</div>
 	</div>
-	https://www.hiver.co.kr/products/27320459
 </body>
 </html>
