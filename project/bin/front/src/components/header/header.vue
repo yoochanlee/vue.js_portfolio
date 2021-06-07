@@ -62,7 +62,14 @@
 <style>
 /* header */
 
+header #form-group {
+  margin: 40px auto;
+  width: 400px;
+}
 
+header #modal-button {
+  margin-bottom: 80px;
+}
 /* 상단 로그 이미지 */
 #img_top {
   display: block;
