@@ -6,7 +6,7 @@
         <nav class="gnb">
         <router-link to="/List_View"><a class="top">고객센터</a></router-link>
         <router-link to="/Cart"><a class="top">장바구니</a></router-link>
-        <a class="top">마이페이지</a>
+        <router-link to="/MyPage"><a class="top">마이페이지</a></router-link>
         <router-link to="/join"><a class="top">회원가입</a></router-link>
         <router-link to="/login"><a class="top">로그인</a></router-link>
         </nav>
@@ -22,45 +22,113 @@
       <div id="center_img">
           <img
             id="img_top"
-            onclick="location.href='/member/main';"
+            onclick="location.href='/';"
             style="cursor: pointer;"
-            src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png"
-          />
-        </div>
-        <div>
-			<ul style="text-align: center;">
-				<li style="display: inline-block">
-					<a class=li_font href="${ pageContext.request.contextPath }/member/join.jsp">BEST</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">OUTER</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">TOP</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href='/member/shrit' >SHIRTS</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">KNIT</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">PANTS</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">SHOES</a>
-				</li>
-				<li style="display: inline-block">
-					<a class=li_font href="http:naver.com">SHOES</a>
-				</li>
-			</ul>
+            src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
+      </div>
+      <div style="text-align: center; margin: 20px">
+   <div class="dropdown">
+		<button class="dropdown-button">BEST</button>
+	</div>
+   <div class="dropdown">
+		<button class="dropdown-button">OUTER</button>
+		<div class="dropdown-content">
+			<a href="#">재킷</a>
+			<a href="#">가디건</a>
+			<a href="#">코트</a>
+			<a href="#">블레이져 </a>
 		</div>
+	</div>
+   <div class="dropdown">
+		<button class="dropdown-button">TOP</button>
+		<div class="dropdown-content">
+			<a href="#">반판티</a>
+			<a href="#">니트</a>
+			<a href="#">맨투맨</a>
+			<a href="#">후드티</a>
+		</div>
+	</div>
+   <div class="dropdown">
+		<button class="dropdown-button">SHIRTS</button>
+		<div class="dropdown-content">
+			<a href="#">기본</a>
+			<a href="#">체크</a>
+			<a href="#">헨리넥</a>
+			<a href="#">스트라이프</a>
+		</div>
+	</div>
+   <div class="dropdown">
+		<button class="dropdown-button">PANTS</button>
+		<div class="dropdown-content">
+			<a href="#">반바지</a>
+			<a href="#">청바지</a>
+			<a href="#">슬렉스</a>
+			<a href="#">트레이닝 </a>
+		</div>
+	</div>
+   <div class="dropdown">
+		<button class="dropdown-button">SHOES</button>
+		<div class="dropdown-content">
+			<a href="#">운동화</a>
+			<a href="#">스니커즈</a>
+			<a href="#">구두/로퍼</a>
+			<a href="#">샌들/슬리퍼</a>
+		</div>
+	</div>
+   <div class="dropdown">
+		<button class="dropdown-button">BAG</button>
+		<div class="dropdown-content">
+			<a href="#">에코백</a>
+			<a href="#">백팩</a>
+			<a href="#">크로스백</a>
+		</div>
+	</div>
+  </div>
     </div>
   </header>
 </template>
 
 <style>
-/* header */
+		.dropdown-button {
+			background-color: #FFFFFF;
+			padding: 8px;
+			font-size: 30px;
+			border: none;
+      margin: 0px 25px;
+		}
+		.dropdown {
+			position: relative;
+      margin: auto;
+			display: inline-block;
+		}
+		.dropdown-content {
+			display: none;
+      text-align: center;
+      margin: 0px auto;
+			position: absolute;
+			background-color: #FFFFFF;
+			min-width: 80px;
+			padding: 5px;
+			box-shadow: 0px 16px 16px 0px rgba(0,0,0,0.3);
+      font-size: 25px;
+		}
+		.dropdown-content a {
+			color: black;
+			padding: 8px;
+			text-decoration: none;
+			display: block;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      text-align: center;
+		}
+		.dropdown-content a:hover { background-color: raba( 255, 255, 255, 0); }
+		.dropdown:hover .dropdown-content { display: block; }
+		.dropdown:hover .dropdown-button { background-color: #FFFFFF; }
+
+
+
 
 header #form-group {
   margin: 40px auto;
