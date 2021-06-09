@@ -93,11 +93,13 @@ table {
 	height: 41px;
 }
 button {
-	background: lime;
+	background: black;
 	margin: 0px auto;
 	width: 200px;
 	height: 40px;
 	box-sizing: border-box;
 	font-weight: bold;
+	font-size: 20px;
+	color:#ffffff;
 }
 </style>
