@@ -130,8 +130,8 @@ body {
 
 .swiper-slide img {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .main_list {
@@ -147,7 +147,7 @@ body {
   background: white;
   width: 100%;
   height: 6000px;
-  padding: 0 100px;
+  
   box-sizing: border-box;
 }
 /* 중간 이미지 */
