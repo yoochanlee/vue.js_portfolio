@@ -1,5 +1,5 @@
 <template>
-	<div>
+		<div>
 		<div class=top_box>
 			<img class=img_top src="https://kr.louisvuitton.com/images/is/image/lv/1/PP_VP_L/%EB%A3%A8%EC%9D%B4-%EB%B9%84%ED%86%B5-%EB%8D%94%EB%B8%94-%EB%B8%8C%EB%A0%88%EC%8A%A4%ED%8B%B0%EB%93%9C-%ED%85%8C%EC%9D%BC%EB%9F%AC%EB%93%9C-%EC%BD%94%ED%8A%B8-%EC%9D%98%EB%A5%98--HHC40EJPX900_PM2_Front%20view.png?wid=656&hei=656">
 			<div class=top_box_cut>
@@ -58,33 +58,36 @@
 			</div>
 		</div>
 		<div class=box01>
-			<div class=box02>상품정보</div>
+			<router-link to="/list_view"><div class=box02>상품정보</div></router-link>
 			<router-link to="/review"><div class=box02>리뷰 96</div></router-link>
 			<router-link to="/qa"><div class=box02>Q&A</div></router-link>
 			<router-link to="/oi"><div class=box02>주문정보</div></router-link>
 		</div>
-		<div class=bt>
-			<img class=bt_img_p src="https://image.brandi.me/common/banner_view_imgwide.png">
-			<img class=bt_img src="https://image.brandi.me/cproductdetail/2021/01/14/26293cf1ab2d46dacd5be308bb59e87f.png">
-			<img class=bt_img src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg">
-			<img class=bt_img src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg">
-			<img class=bt_img src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg">
-			<img class=bt_img src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg">
-			<img class=bt_img2 src="https://image.brandi.me/cproductdetail/2021/06/02/0ad982b20e407b9e94aced7f7db0e54a.png">
+		<div class=re_box>
+			<h3 style="padding-bottom:15px; border-bottom:1px solid black;"> 사진 리뷰 0개</h3><br/>
+			<h4 style="text-align: center;">리뷰글이 없습니다.</h4>
 		</div>
 	</div>
 </template>
 
 <script>
 export default {
-	name:'List_View',
+	name: 'ReView',
 	props: {
-	msg: String
-	}
+    msg: String
+  }
 }
 </script>
 
 <style scoped>
+/* 리뷰 박스 */
+.re_box{
+	width: 1200px;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 50px 20px 0px;
+	margin: auto;
+}
 /* 상단 박스 */
 .top_box{
 	width: 1200px;
@@ -214,31 +217,5 @@ export default {
 	font-size: 17px;
 	text-align: center;
 	color: #000;
-}
-.bt{
-	display: block;
-	width: 1200px;
-	height: 100%;
-	padding: 50px 20px 0px;
-	margin: auto;
-}
-.bt_img_p{
-	display: block;
-	width: 1000px;
-	height: 225px;
-	margin: auto;
-	box-sizing: border-box;
-}
-.bt_img{
-	display: block;
-	width: 1000px;
-	height: 1350px;
-	margin: auto;
-}
-.bt_img2{
-	display: block;
-	width: 1000px;
-	height: 10192px;
-	margin: auto;
 }
 </style>
