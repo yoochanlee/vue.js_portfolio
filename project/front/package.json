@@ -12,12 +12,9 @@
     "bootstrap": "^5.0.1",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
-<<<<<<< HEAD
     "install": "^0.13.0",
     "node-sass": "^6.0.0",
     "sass-loader": "^10.2.0",
-=======
->>>>>>> f73cd68342e57d4ac657a3d3294e8938146517cc
     "swiper": "^5.3.7",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.1.1",
