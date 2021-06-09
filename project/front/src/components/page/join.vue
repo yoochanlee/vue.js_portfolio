@@ -1,5 +1,6 @@
 <template>
 <div>
+	<div class="top_box">
   <div style="text-align: center">
 			회원가입
 		</div>
@@ -28,12 +29,12 @@
 				<li class=li>
 				<label class=font>휴대폰번호</label>
 					<input type="text" name="tel" class=box>
-					<button>인증번호 받기</button>
+					<button class="box3">인증번호 받기</button>
 				</li>
 				<li class=li>
 				<label class=font>SMS 인증번호</label>
 					<input type="text" name="name" class=box>
-					<button>인증번호 확인</button>
+					<button class="box3">인증번호 확인</button>
 				</li>
 			</ul>
 			<ul style="padding: 20px 10px; list-style:none;">
@@ -69,7 +70,8 @@
 				제공 동의를 하지 않으셔도 서비스 이용에는 문제가 없습니다.
 			</div>
 		</div>
-		<button>가입하기</button>
+		<button class="box2">가입하기</button>
+		</div>
   </div>
 </template>
 
@@ -83,6 +85,14 @@ export default {
 </script>
 
 <style scoped>
+/* 회원가입 박스 */
+.top_box{
+	width: 1200px;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 80px 20px 120px;
+	margin: auto;
+}
 /* 회원가입 박스 */
 .ul{
 	border-top: 1px solid black;
@@ -125,9 +135,26 @@ export default {
 /* 가입 박스 */
 .box2{
 	display: block;
-	width: 400px;
-	height: 100px;
+	width: 300px;
+	height: 80px;
 	box-sizing: border-box;
-	
+	background: black;
+	color: #FFFFFF;
+	margin:auto;
+	font-size: 35px;
+	font-weight: 200;
+}
+/* 인증번호박스 */
+.box3{
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	box-sizing: border-box;
+	background: black;
+	color: #FFFFFF;
+	margin:0px 0px 0px 30px;
+	font-size: 13px;
+	font-weight: 200;
+
 }
 </style>

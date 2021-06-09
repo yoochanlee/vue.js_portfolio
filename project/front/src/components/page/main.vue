@@ -1,99 +1,186 @@
 <template>
-  <div>
-		<div>
-			<img id=img_main src="https://static1.s123-cdn-static-a.com/uploads/1211103/2000_5b191563a1016.jpg">
-		</div>
-		<div>
-			<div>
-				<p style="text-align: center">베스트 상품</p>
-			</div>
-		</div>
-		<div class=img_mid>
-			<div class=img_cut>
-				<a href="http://naver.com">
-					<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
-				</a>
-				<div class=img_cut2>
-					<div>남자 바지</div>
-					<div>4color</div>
-					<div>25,300</div>
-				</div>
-			</div>
-			<div class=img_cut>
-				<a href="http://naver.com">
-					<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
-				</a>
-				<div class=img_cut2>
-					<div>남자 바지</div>
-					<div>4color</div>
-					<div>25,300</div>
-				</div>
-			</div>
-			<div class=img_cut>
-				<a href="http://naver.com">
-					<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
-				</a>
-				<div class=img_cut2>
-					<div>남자 바지</div>
-					<div>4color</div>
-					<div>25,300</div>
-				</div>
-			</div>
-			<div class=img_cut>
-				<a href="http://naver.com">
-					<img class=img_s src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png">
-				</a>
-				<div class=img_cut2>
-					<div>남자 바지</div>
-					<div>4color</div>
-					<div>25,300</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="main-container">
+    <swiper class="swiper" :options="swiperOption">
+      <swiper-slide>
+        <img src="http://lorempixel.com/580/250/nature/1" />
+      </swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>Slide 4</swiper-slide>
+      <swiper-slide>Slide 5</swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
+    <div>
+      <div>
+        <p style="text-align: center">베스트 상품</p>
+      </div>
+    </div>
+    <div class="main_list">
+      <div class="img_mid">
+        <div class="img_cut" v-for="person in people" v-bind:key="person.id">
+          <a href="/list_view">
+            <img
+              class="img_s"
+              :src="person.profileUrl"
+            />
+          </a>
+          <div class="img_cut2">
+            <div>남자 바지</div>
+            <div>4color</div>
+            <div>25,300</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Main',
+  name: "Main",
   props: {
     msg: String
+  },
+  data() {
+    return {
+		people: [
+        {
+          // ... 생략
+          profileUrl: require("../../assets/img/123.jpg")
+		},
+		{
+          // ... 생략
+          profileUrl: require("../../assets/img/123.jpg")
+		},
+		{
+          // ... 생략
+          profileUrl: require("../../assets/img/123.jpg")
+		},
+		{
+          // ... 생략
+          profileUrl: require("../../assets/img/123.jpg")
+		}
+		],
+      swiperOption: {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      }
+    };
   }
-}
+};
 </script>
 
 
+
+
 <style>
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 10%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.main_list {
+  overflow: visible;
+  padding: 0 0 80px;
+  margin: 0 48px;
+  margin-right: 1px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+}
+.main-container {
+  display: block;
+  background: white;
+  width: 100%;
+  height: 6000px;
+  padding: 0 100px;
+  box-sizing: border-box;
+}
 /* 중간 이미지 */
-.img_mid{
-	display:inline-bolck;
-	margin: 10px auto;
-	width: 100%;
-	height: 630px;
-	box-sizing: border-box;
-	text-align: center;
+.img_mid {
+  display: inline-bolck;
+  margin: 10px auto;
+  width: 100%;
+  height: 630px;
+  box-sizing: border-box;
+  text-align: center;
+  background: white;
 }
 /* 중간 이미지 세로 분할 */
-.img_cut{
-	display: inline-bolck;
-	float:left;
-	width: 22%;
-	height: 100%;
-	box-sizing: border-box;
-	margin: 0px 26px;
+.img_cut {
+  display: inline-bolck;
+  float: left;
+  width: 20%;
+  height: 80%;
+  box-sizing: border-box;
+  margin: 0px 35px;
 }
 /* 중간 이미지 가로 분할 */
-.img_cut2{
-	display: bolck;
-	width: 100%;
-	height: 15%;
-	box-sizing: border-box;
+.img_cut2 {
+  display: bolck;
+  width: 100%;
+  height: 15%;
+  box-sizing: border-box;
 }
 /* 중간 이미지 */
-.img_s{
-	display: bolck;
-	width: 100%;
-	height: 84%;
-	box-sizing: border-bod;
+.img_s {
+  display: bolck;
+  width: 90%;
+  height: 60%;
+  box-sizing: border-bod;
 }
 </style>
