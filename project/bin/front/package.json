@@ -9,19 +9,8 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "bootstrap": "^5.0.1",
-    "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
-<<<<<<< HEAD
-    "install": "^0.13.0",
-    "node-sass": "^6.0.0",
-    "sass-loader": "^10.2.0",
-=======
->>>>>>> f73cd68342e57d4ac657a3d3294e8938146517cc
-    "swiper": "^5.3.7",
     "vue": "^2.6.11",
-    "vue-awesome-swiper": "^4.1.1",
-    "vue-image-slider": "^1.0.2",
     "vue-router": "^3.5.1",
     "vue-tiny-slider": "^0.1.39"
   },
@@ -32,10 +21,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "expose-loader": "^3.0.0",
-    "i": "^0.3.6",
-    "jquery": "^3.6.0",
-    "npm": "^7.16.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
