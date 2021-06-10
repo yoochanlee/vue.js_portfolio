@@ -91,6 +91,7 @@ export default {
 	margin: auto;
 }
 .font{
+	color: #000;
 	font-size:16px;
 	font-weight: 700;
 	color: #000;

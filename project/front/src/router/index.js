@@ -10,12 +10,17 @@ import ReViewPage from '../components/page/review'
 import OiPage from '../components/page/oi'
 import QaPage from '../components/page/qa'
 import MyPageeditPage from '../components/page/mypageedit'
+<<<<<<< HEAD
 import OrderPage from '../components/page/order'
 import PointPage from '../components/page/point'
 import CouponPage from '../components/page/coupon'
 import CouponaPage from '../components/page/coupona'
 import CouponbPage from '../components/page/couponb'
 import MyPageqaPage from '../components/page/mypageqa'
+=======
+import Productre from '../components/page/productre'
+import ProductEdit from '../components/page/productedit'
+>>>>>>> 3e09276e39aadf5d7e63282c5ee8a19dadcc447c
 
 Vue.use(VueRouter)
 
@@ -37,6 +42,8 @@ export default new VueRouter({
     { path: '/MyPageqa', component: MyPageqaPage },
     { path: '/Oi', component: OiPage },
     { path: '/Qa', component: QaPage },
+    { path: '/productjoin', component: Productre },
+    { path: '/productedit', component: ProductEdit },
     { path: '/', name: 'Main', component: Mainpage }
 
   ]

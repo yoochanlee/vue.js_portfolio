@@ -8,12 +8,16 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { BootstrapVueIcons } from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import { SkeletonPlugin } from 'bootstrap-vue'
+import { FormFilePlugin } from 'bootstrap-vue'
+
+
 
 // require styles
 import 'swiper/css/swiper.css'
-
+Vue.use(FormFilePlugin)
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
-
+Vue.use(SkeletonPlugin)
 Vue.use(BootstrapVueIcons)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
