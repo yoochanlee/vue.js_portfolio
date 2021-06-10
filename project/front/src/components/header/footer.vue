@@ -3,8 +3,8 @@
 		<div class=box>
 			<div class=box_cut>
 				<div class=box_left_top>
-					<a class=box_left_top1>
-				<span>소개</span>
+					<a>
+				<span style="color: #000;">소개</span>
 					</a>
 					<a class=box_left_top1>
 				<span>인재채용</span>
@@ -81,6 +81,7 @@ export default {
 .box_left_top1{
 	margin-left: 8px;
 	padding-left: 15px;	
+	color: #000;
 }
 
 .box_right_top1{

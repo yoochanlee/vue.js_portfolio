@@ -5,25 +5,33 @@
       <router-link to="/mypageedit">
         <div class="a">
           <img class="img" src="../../../dist/img/aa.jpg" />
-          <span class="font">개인정보수정</span>
+          <span class="font1">개인정보수정</span>
         </div>
       </router-link>
-      <div class="a">
-        <img class="img" src="../../../dist/img/car.png" />
-        <span class="font1">주문/배송조회</span>
-      </div>
-      <div class="a">
-        <img class="img" src="../../../dist/img/p.png" />
-        <span class="font1">포인트</span>
-      </div>
-      <div class="a">
-        <img class="img" src="../../../dist/img/cp.png" />
-        <span class="font1">쿠폰</span>
-      </div>
-      <div class="aa">
-        <img class="img" src="../../../dist/img/qa.png" />
-        <span class="font1">Q&A</span>
-      </div>
+      <router-link to="/order">
+        <div class="a">
+          <img class="img" src="../../../dist/img/car.png" />
+          <span class="font1">주문/배송조회</span>
+        </div>
+      </router-link>
+      <router-link to="/point">
+        <div class="a">
+          <img class="img" src="../../../dist/img/p.png" />
+          <span class="font1">포인트</span>
+        </div>
+      </router-link>
+      <router-link to="coupon">
+        <div class="a">
+          <img class="img" src="../../../dist/img/cp.png" />
+          <span class="font1">쿠폰</span>
+        </div>
+      </router-link>
+      <router-link to="mypageqa">
+        <div class="aa">
+          <img class="img" src="../../../dist/img/qa.png" />
+          <span class="font1">Q&A</span>
+        </div>
+      </router-link>
     </div>
     <div class="top_box">
       <div style="text-align: center; font-size:20px;font-weight: bold; ">개 인 정 보 수 정</div>
@@ -118,6 +126,8 @@ export default {
 .font1 {
   font-size: 16px;
   font-weight: 700;
+  color: #000;
+  
 }
 .top_box {
   width: 1200px;
@@ -159,6 +169,7 @@ export default {
   font-weight: bold;
   display: inline-block;
   width: 100px;
+  color: black;
 }
 /* 인증번호박스 */
 .box3 {
