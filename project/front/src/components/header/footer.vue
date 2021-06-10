@@ -22,8 +22,8 @@
 				<span>사업자정보확인</span>
 					</a><br/>
 
-				<h2>회사이름</h2>
-				<h4>
+				<h3>회사이름</h3>
+				<h6>
 				대표이사:xxx | 사업자등록번호: 220-99-15487 | 통신판매업 신고: 2016-서울강남-00468<br/>
 				호스팅 사업자:(주)브랜디 | 주소: 서울 강남구 테헤란로 37길 15(역삼동)<br/>
 				개인정보관리책임자: 박용수(k12j1@naver.com)<br/><br/>>
@@ -31,15 +31,15 @@
 				판매자가 등록한 상품정보 및 거래에 하이버는 책임지지 않습니다.<br/><br/>
 				100%정품<br/>
 				하이버에서 판매되는 모든 브랜드 제품은 정식제조,정식수입원을 통해 유통되는 100%정품입니다.
-				</h4>
+				</h6>
 				</div>
 			</div>
 			<div class=box_cut>
 				
-				<h2> 고객센터 1670-1857</h2><br/>
-				<h4> 영업시간 AM 10:00 ~ PM 17:00 (주말 및 공휴일 휴무)<br/>
+				<h3 class=margin> 고객센터 1670-1857</h3><br/>
+				<h6 class=margin> 영업시간 AM 10:00 ~ PM 17:00 (주말 및 공휴일 휴무)<br/>
 					점심시간 PM 12:30 ~ PM 13:30
-					</h4>
+				</h6>
 			</div>
 		</div>
 	</footer>
@@ -55,11 +55,14 @@ export default {
 .box{
 	display: block;
 	width: 1480px;
-	height: 300px;
+	height: 100%;
 	background: #f4f4f499;
 	margin: 80px 0px 0px 143px;
-	padding: 0px 0px 140px;
+	padding: 0px 0px 0px;
 	font-size: 13px;
+}
+.margin{
+	margin-left: 20px;
 }
 .box_cut{
 	display: inline-block;

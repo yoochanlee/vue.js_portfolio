@@ -6,26 +6,27 @@ import CartPage from '../components/page/cart'
 import List_ViewPage from '../components/page/list_view'
 import Adminpage from '../components/page/adminpage'
 import MyPagePage from '../components/page/mypage'
-import ReViewPage from '../components/page/review.vue'
-import OiPage from '../components/page/oi.vue'
-import QaPage from '../components/page/qa.vue'
-
+import ReViewPage from '../components/page/review'
+import OiPage from '../components/page/oi'
+import QaPage from '../components/page/qa'
+import MyPageeditPage from '../components/page/mypageedit'
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
   mode: 'history',
   routes: [
-        {path :'/Join', component : JoinPage},
-        {path :'/Cart', component : CartPage},
-        {path :'/List_View', component : List_ViewPage},
-        {path :'/admin', component : Adminpage},
-        {path :'/MyPage', component : MyPagePage},
-        {path :'/ReView', component : ReViewPage},
-        {path :'/Oi', component : OiPage},
-        {path :'/Qa', component : QaPage},
-        {path :'/',name:'Main',component : Mainpage}
+    { path: '/Join', component: JoinPage },
+    { path: '/Cart', component: CartPage },
+    { path: '/List_View', component: List_ViewPage },
+    { path: '/admin', component: Adminpage },
+    { path: '/MyPage', component: MyPagePage },
+    { path: '/MyPageedit', component: MyPageeditPage },
+    { path: '/ReView', component: ReViewPage },
+    { path: '/Oi', component: OiPage },
+    { path: '/Qa', component: QaPage },
+    { path: '/', name: 'Main', component: Mainpage }
 
-]
+  ]
 })
 
