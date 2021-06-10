@@ -4,7 +4,7 @@
 		<div id=box>
 			<router-link to="/mypageedit">
 			<div class=a>
-				
+				<img class=img src="../../../dist/img/aa.jpg">
 				<span class=font>개인정보수정</span>
 			</div>
 			</router-link>
@@ -33,13 +33,14 @@
 			</div>
 			</router-link>
 		</div>
+		<div class=font1>주문한 상품이 없습니다.</div>
 	</div>
 
 </template>
 
 <script>
 export default {
-	name: 'MyPage',
+	name: 'Order',
 	props: {
     msg: String
   }
@@ -91,9 +92,15 @@ export default {
 	margin: auto;
 }
 .font{
-	color: #000;
 	font-size:16px;
 	font-weight: 700;
+	color: black;
+}
+.font1{
+	font-size: 20px;
+	font-weight: 700;
 	color: #000;
+	padding-top: 100px;
+	text-align: center;
 }
 </style>
