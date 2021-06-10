@@ -10,6 +10,8 @@ import ReViewPage from '../components/page/review'
 import OiPage from '../components/page/oi'
 import QaPage from '../components/page/qa'
 import MyPageeditPage from '../components/page/mypageedit'
+import Productre from '../components/page/productre'
+import ProductEdit from '../components/page/productedit'
 
 Vue.use(VueRouter)
 
@@ -25,6 +27,8 @@ export default new VueRouter({
     { path: '/ReView', component: ReViewPage },
     { path: '/Oi', component: OiPage },
     { path: '/Qa', component: QaPage },
+    { path: '/productjoin', component: Productre },
+    { path: '/productedit', component: ProductEdit },
     { path: '/', name: 'Main', component: Mainpage }
 
   ]
