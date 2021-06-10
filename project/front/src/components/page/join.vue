@@ -125,7 +125,6 @@ export default {
 	height: 40px;
 	box-sizing: border-box;
 	border: 1px solid #848484;
-	
 }
 .box1{
 	display: linline-block;
@@ -169,6 +168,5 @@ export default {
 	margin:0px 0px 0px 30px;
 	font-size: 13px;
 	font-weight: 200;
-
 }
 </style>

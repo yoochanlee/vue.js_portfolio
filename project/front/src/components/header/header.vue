@@ -20,21 +20,21 @@
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/join">
+          <b-nav-item to="/cart">
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="bucket-fill"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/admin">
+          <b-nav-item to="/mypage">
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="person-lines-fill"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/join">
+          <b-nav-item to="/admin">
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="bell-fill"></b-icon>
