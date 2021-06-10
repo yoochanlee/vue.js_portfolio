@@ -7,35 +7,33 @@
 		<div>
 			<ul class=ul>
 				<li class=li>
-				<label class=font>아이디</label>
-					<input type="text" name="id" class=box>
+				<label for="id" class=font>아이디</label>
+					<input type="text" name="id" id="id" class=box>
 				</li>
 				<li class=li>
-				<label class=font>비밀번호</label>
-					<input type="password" name="pw" class=box>
+				<label for="pwd" class=font>비밀번호</label>
+					<input type="password" name="pwd" id="pwd" class=box>
 				</li>
 				<li class=li>
-				<label class=font>비밀번호 확인</label>
-					<input type="password" name="pw_ok" class=box>
+				<label for="pwd_ok" class=font>비밀번호 확인</label>
+					<input type="password" name="pwd_ok" id="pwd_ok" class=box>
 				</li>
 				<li class=li>
-				<label class=font>이름</label>
-					<input type="text" name="name" class=box>
+				<label for="name" class=font>이름</label>
+					<input type="text" name="name" id="name" class=box>
 				</li>
 				<li class=li>
-				<label class=font>이메일</label>
-					<input type="text" name="email" class=box>
+				<label for="email" class=font>이메일</label>
+					<input type="text" name="email" id="email" class=box>
 				</li>
 				<li class=li>
-				<label class=font>휴대폰번호</label>
-					<input type="text" name="tel" class=box>
-
+				<label for="tel" class=font>휴대폰번호</label>
+					<input type="text" name="tel" id="tel" class=box>
 					<button class=box3>인증번호 받기</button>
-
 				</li>
 				<li class=li>
-				<label class=font>SMS 인증번호</label>
-					<input type="text" name="name" class=box>
+				<label for="sms" class=font>SMS 인증번호</label>
+					<input type="text" name="sms" id="sms" class=box>
 
 					<button class=box3>인증번호 확인</button>
 
@@ -63,15 +61,23 @@
 				</label>
 			</div>
 			<div class=border>
-				<input type="checkbox" name="bb" value="Y">이용약관
-				<input type="checkbox" name="cc" value="Y">개인정보 수집 및 이용 안내
-				<input type="checkbox" name="dd" value="Y">개인정보 처리위탁
+				<label>
+					<input type="checkbox" name="bb" value="Y">이용약관
+				</label>
+				<label>
+					<input type="checkbox" name="cc" value="Y" class=la>개인정보 수집 및 이용 안내
+				</label>
+				<label>
+					<input type="checkbox" name="dd" value="Y" class=la>개인정보 처리위탁
+				</label>
 			</div>
 			<div class=border>
-				<input type="checkbox" name="ee" value="Y">마케팅 수신동의<br/><br/>
-				쇼핑몰에서 제공하는 신상품 소식과 하일쿠폰을 무상으로 보내드립니다!<br/>
-				단, 상품 구매 정보는 수신동의 여부 관계없이 발송됩니다.<br/>
-				제공 동의를 하지 않으셔도 서비스 이용에는 문제가 없습니다.
+				<label>
+					<input type="checkbox" name="ee" value="Y">마케팅 수신동의<br/><br/>
+					쇼핑몰에서 제공하는 신상품 소식과 하일쿠폰을 무상으로 보내드립니다!<br/>
+					단, 상품 구매 정보는 수신동의 여부 관계없이 발송됩니다.<br/>
+					제공 동의를 하지 않으셔도 서비스 이용에는 문제가 없습니다.
+				</label>
 			</div>
 		</div>
 
@@ -91,6 +97,9 @@ export default {
 </script>
 
 <style scoped>
+.la{
+	margin: 20px;
+}
 .top_box{
 	width: 1200px;
 	height: 100%;
