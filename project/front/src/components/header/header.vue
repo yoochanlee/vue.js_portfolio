@@ -51,7 +51,7 @@
           <b-form-input type="text" placeholder="User ID"></b-form-input>
 
           <template v-slot:modal-header>
-            <h5>Modal Header</h5>
+            <h5>Sign Up</h5>
           </template>
 
           <template v-slot:default>

@@ -180,8 +180,8 @@ export default {
 .qa_box{
 	display: inline-block;
 	float: right;
-	width: 100px;
-	height: 30px;
+	width: 200px;
+	height: 40px;
 	box-sizing: border-box;
 	background: #000;
 	color: #ffffff;

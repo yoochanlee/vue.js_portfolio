@@ -35,12 +35,37 @@
         </div>
       </router-link>
     </div>
+    <div id="cp">
+      <div id="cp_div">
+        <ul style="list-style:none;">
+          <li>
+            <label id="cp_font">쿠폰 등록하기</label>
+            <input type="text" name="box" id="cp_box" />
+            <button id="cp_but">등록</button>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <router-link to="/coupona">
+          <li class=li>
+            <a>사용가능 (0)</a>
+          </li>
+          </router-link>
+          <router-link to="/coupona">
+          <li class=li>
+            <a>사용완료 만료 (0)</a>
+          </li>
+          </router-link>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "MyPage",
+  name: "Cupon",
   props: {
     msg: String
   }
@@ -48,6 +73,21 @@ export default {
 </script>
 
 <style scoped>
+ul{
+	list-style: none;
+}
+.li{
+  display: inline-block;
+  width: 50%;
+  height: 100px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+  border: 1px solid #000;
+  text-align: center;
+  padding-top: 30px;
+}
+
 #header {
   display: block;
   width: 100%;
@@ -92,9 +132,48 @@ export default {
   margin: auto;
 }
 .font {
-  color: #000;
   font-size: 16px;
   font-weight: 700;
-  color: #000;
+  color: black;
+}
+#cp {
+  display: block;
+  width: 1200px;
+  height: 100%;
+  box-sizing: border-box;
+  margin: auto;
+  padding-top: 100px;
+}
+#cp_div {
+  display: block;
+  width: 100%;
+  height: 96px;
+  padding: 22px 40px;
+  margin: auto;
+}
+#cp_font {
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+  color: f000;
+}
+#cp_box {
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  padding: 13px 13px 13px 16px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+#cp_but {
+  display: inline-block;
+  width: 20%;
+  height: 49px;
+  margin-left: 20px;
+  background: #000;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
 }
 </style>
