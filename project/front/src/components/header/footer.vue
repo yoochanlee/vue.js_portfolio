@@ -57,12 +57,12 @@ export default {
 	width: 1480px;
 	height: 100%;
 	background: #f4f4f499;
-	margin: 80px 0px 0px 143px;
-	padding: 0px 0px 0px;
+	margin: auto;
+	padding: 100px 0px 0px;
 	font-size: 13px;
 }
 .margin{
-	margin-left: 20px;
+	margin-left: 150px;
 }
 .box_cut{
 	display: inline-block;
@@ -75,8 +75,7 @@ export default {
 	width: 100%;
 	height: 35px;
 	font-size: 15px;
-	color: #000000;
-	
+	color: #000000;	
 }
 .box_left_top1{
 	margin-left: 8px;

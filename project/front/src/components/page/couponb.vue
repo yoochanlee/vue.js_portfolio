@@ -4,7 +4,9 @@
     <div id="box">
       <router-link to="/mypageedit">
         <div class="a">
-          <img class="img" src="../../../dist/img/aa.jpg" />
+          <div>
+            <b-icon icon="person-check" style="width: 80px; height: 80px;" variant="dark"></b-icon>
+          </div>
           <span class="font">개인정보수정</span>
         </div>
       </router-link>

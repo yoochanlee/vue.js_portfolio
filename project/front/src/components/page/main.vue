@@ -155,7 +155,7 @@ body {
   display: block;
   background: white;
   width: 100%;
-  height: 6000px;
+  height: 100%;
   box-sizing: border-box;
 }
 /* 중간 이미지 */
