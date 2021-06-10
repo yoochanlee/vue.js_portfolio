@@ -58,7 +58,11 @@ export default {
 	height: 100%;
 	background: #f4f4f499;
 	margin: auto;
+<<<<<<< HEAD
 	padding: 0px 0px 0px;
+=======
+	padding: 100px 0px 0px;
+>>>>>>> 2027c4ae8d6b3a6eb43758a7458247f4420cb62a
 	font-size: 13px;
 }
 .margin{
@@ -75,8 +79,7 @@ export default {
 	width: 100%;
 	height: 35px;
 	font-size: 15px;
-	color: #000000;
-	
+	color: #000000;	
 }
 .box_left_top1{
 	margin-left: 8px;

@@ -93,10 +93,10 @@
       </div>
       <div id="center_img">
         <img
-          id="img_top"
+          id=img_top
           onclick="location.href='/';"
           style="cursor: pointer;"
-          src="http://www.vekni.org/files/attach/images/39227/840/042/986027f50f02ddbf51417d799b3ff60a.png"
+          src="../../../dist/img/main.png"
         />
       </div>
       <div style="text-align: center; margin: 20px">
@@ -221,11 +221,10 @@ export default {
 /* 상단 로그 이미지 */
 #img_top {
   display: block;
-  margin: 20px 430px;
-  width: 1000px;
+  width: 100%;
   height: 100px;
   box-sizing: border-box;
-  opacity: 0.3;
+  
 }
 /* 상단 이미지 */
 #img_main {

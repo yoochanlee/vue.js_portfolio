@@ -112,7 +112,7 @@ th {
   display: inline-block;
 }
 .fc {
-  font-size: 24px;
+  font-size: 30px;
   color: #d3a164;
   font-weight: 700;
   padding: 0px 0px 0px 32px;

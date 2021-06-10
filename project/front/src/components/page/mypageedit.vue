@@ -44,26 +44,26 @@
             <input type="text" name="id" class="box01" />
           </li>
           <li class="li">
-            <label class="font">비밀번호</label>
-            <input type="password" name="pw" class="box" />
+            <label for="pwd" class="font">비밀번호</label>
+            <input type="password" name="pwd" id="pwd" class="box" />
           </li>
           <li class="li">
-            <label class="font">비밀번호 확인</label>
-            <input type="password" name="pw_ok" class="box" />
+            <label for="pwd_ok" class="font">비밀번호 확인</label>
+            <input type="password" name="pwd_ok" id="pwd_ok" class="box" />
             <button class="box3">수정</button>
           </li>
           <li class="li">
-            <label class="font">이름</label>
-            <input type="text" name="name" class="box01" />
+            <label for="name" class="font">이름</label>
+            <input type="text" name="name" id="name" class="box01" />
           </li>
           <li class="li">
-            <label class="font">이메일</label>
-            <input type="text" name="email" class="box" />
+            <label for="email" class="font">이메일</label>
+            <input type="text" name="email" id="email" class="box" />
             <button class="box3">수정</button>
           </li>
           <li class="li">
-            <label class="font">휴대폰번호</label>
-            <input type="text" name="tel" class="box" />
+            <label for="tel" class="font">휴대폰번호</label>
+            <input type="text" name="tel" id="tel" class="box" />
             <button class="box3">수정</button>
           </li>
         </ul>
@@ -129,7 +129,6 @@ export default {
   font-size: 16px;
   font-weight: 700;
   color: #000;
-  
 }
 .top_box {
   width: 1200px;
