@@ -12,25 +12,25 @@
       </router-link>
       <router-link to="/order">
         <div class="a">
-          <img class="img" src="../../../dist/img/car.png" />
+          <img class="img" src="../../assets/img/car.png" />
           <span class="font1">주문/배송조회</span>
         </div>
       </router-link>
       <router-link to="/point">
         <div class="a">
-          <img class="img" src="../../../dist/img/p.png" />
+          <img class="img" src="../../assets/img/p.png" />
           <span class="font1">포인트</span>
         </div>
       </router-link>
       <router-link to="coupon">
         <div class="a">
-          <img class="img" src="../../../dist/img/cp.png" />
+          <img class="img" src="../../assets/img/cp.png" />
           <span class="font1">쿠폰</span>
         </div>
       </router-link>
       <router-link to="mypageqa">
         <div class="aa">
-          <img class="img" src="../../../dist/img/qa.png" />
+          <img class="img" src="../../assets/img/qa.png" />
           <span class="font1">Q&A</span>
         </div>
       </router-link>
