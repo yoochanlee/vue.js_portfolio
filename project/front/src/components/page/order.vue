@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <p id="header">마이페이지</p>
-    <div id="box">
-      <router-link to="/mypageedit">
-        <div class="a">
-          <div>
+	<div>
+		<p id=header>마이페이지</p>
+		<div id=box>
+			<router-link to="/mypageedit">
+			<div class=a>
+				<div>
             <b-icon icon="person-check" style="width: 80px; height: 80px;" variant="dark"></b-icon>
           </div>
           <span class="font">개인정보수정</span>
