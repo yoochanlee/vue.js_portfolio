@@ -96,7 +96,7 @@
           id=img_top
           onclick="location.href='/';"
           style="cursor: pointer;"
-          src="../../../dist/img/main.png"
+          src="../../assets/img/main.png"
         />
       </div>
       <div style="text-align: center; margin: 20px">
