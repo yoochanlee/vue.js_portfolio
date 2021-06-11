@@ -7,23 +7,23 @@
         <ul class="ul">
           <li class="li">
             <label for="id" class="font">아이디</label>
-            <input type="text" name="id" id="id" class="box" />
+            <input type="text" name="m_id" id="id" v-model="m_id" class="box" />
           </li>
           <li class="li">
             <label for="pwd" class="font">비밀번호</label>
-            <input type="password" name="pwd" id="pwd" class="box" />
+            <input type="password" v-model="m_pwd" id="pwd" class="box" />
           </li>
           <li class="li">
             <label for="pwd_ok" class="font">비밀번호 확인</label>
-            <input type="password" name="pwd_ok" id="pwd_ok" class="box" />
+            <input type="password" v-model="pwd_ok" name="pwd_ok" id="pwd_ok" class="box" />
           </li>
           <li class="li">
             <label for="name" class="font">이름</label>
-            <input type="text" name="name" id="name" class="box" />
+            <input type="text" name="m_name" v-model="m_name" id="name" class="box" />
           </li>
           <li class="li">
             <label for="email" class="font">이메일</label>
-            <input type="text" name="email" id="email" class="box" />
+            <input type="text" name="m_email" v-model="m_email" id="email" class="box" />
           </li>
           <li class="li2">
             <label for="adr" class="font">우편번호</label>
@@ -36,14 +36,14 @@
           </li>
           <li class="li">
             <label for="tel" class="font">휴대폰번호</label>
-            <input type="text" name="tel" id="tel" class="box" />
-            <button class="box3">인증번호 받기</button>
+            <input type="text" name="m_phone" v-model="m_phone" id="tel" class="box" />
+            <!-- <button class="box3">인증번호 받기</button> -->
           </li>
-          <li class="li">
+          <!-- <li class="li">
             <label for="sms" class="font">SMS 인증번호</label>
             <input type="text" name="sms" id="sms" class="box" />
             <button class="box3">인증번호 확인</button>
-          </li>
+          </li>-->
         </ul>
         <ul style="padding: 20px 10px; list-style:none;">
           <li>
@@ -88,7 +88,7 @@
         </div>
       </div>
 
-      <button class="box2">가 입 하 기</button>
+      <button class="box2" v-on:click="join">가 입 하 기</button>
     </div>
   </div>
 </template>
@@ -97,9 +97,67 @@
 export default {
   name: "join",
   data() {
-    return { zip: "", addr1: "" };
+    return {
+      zip: "",
+      addr1: "",
+      m_id: "",
+      m_name: "",
+      m_pwd: "",
+      pwd_ok: "",
+      m_email: "",
+      m_phone: "",
+      m_grade: 1
+    };
   },
   methods: {
+    join: function() {
+      var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+      var pwdReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g;
+      var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+      var telReg = /^\d{3}-\d{3,4}-\d{4}$/;
+      var m_addr = this.zip + this.addr1; // eslint-disable-line no-unused-vars
+      if (!idReg.test(this.m_id)) {
+        alert(
+          "아이디는 영문자로 시작하는 6~20자 영문자 숫자조합 이어야 합니다."
+        );
+        return;
+      }
+      if (!pwdReg.test(this.m_pwd)) {
+        alert(
+          "비밀번호는 최소 8자, 최소 하나의 문자 및 하나의 숫자를 조합해야됩니다."
+        );
+        return;
+      }
+      if (!(this.m_pwd == this.pwd_ok)) {
+        alert("비밀번호가 일치하지 않습니다.");
+        this.pwd_ok = "";
+        return;
+      }
+      if (!emailReg.test(this.m_email)) {
+        alert("이메일 형식이 다릅니다.");
+        return;
+      }
+      if (!telReg.test(this.m_phone)) {
+        alert("전화번호 형식이 다릅니다. -붙여주세요.");
+        return;
+      }
+      const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
+      form.append("m_id", this.m_id);
+      form.append("m_name", this.m_name);
+      form.append("m_pwd", this.m_pwd);
+      form.append("m_email", this.m_email);
+      form.append("m_grade", this.m_grade);
+      form.append("m_addr", m_addr);
+      form.append("m_phone", this.m_phone);
+      this.$axios.post("/members", form).then(res => {
+        if (res.data.result) {
+          alert("suceess");
+          this.$router.replace("/");
+        } else {
+          alert("fail");
+        }
+      });
+    },
     showApi() {
       new window.daum.Postcode({
         oncomplete: data => {
