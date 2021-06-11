@@ -64,7 +64,7 @@
                   <b-input-group-prepend is-text>
                     <b-icon icon="person-fill"></b-icon>
                   </b-input-group-prepend>
-                  <b-form-input id="input-small" size="sm" placeholder="Enter your Id"></b-form-input>
+                  <b-form-input id="input-small" size="sm" v-model="m_id" placeholder="Enter your Id"></b-form-input>
                 </b-input-group>
               </b-col>
             </b-row>
@@ -77,7 +77,7 @@
                   <b-input-group-prepend is-text>
                     <b-icon icon="lock-fill"></b-icon>
                   </b-input-group-prepend>
-                  <b-form-input id="input-small" size="sm" placeholder="Enter your password"></b-form-input>
+                  <b-form-input id="input-small" size="sm" v-model="m_pwd" placeholder="Enter your password"></b-form-input>
                 </b-input-group>
               </b-col>
             </b-row>
@@ -85,7 +85,7 @@
 
           <template v-slot:modal-footer="{ ok, cancel}">
             <b-button-group style="margin: auto;">
-              <b-button style="margin-right: 15px;" size="sm" @click="ok()">Sign</b-button>
+              <b-button style="margin-right: 15px;" size="sm" v-on:click="login">Sign</b-button>
               <b-button size="sm" @click="cancel()">Cancel</b-button>
             </b-button-group>
           </template>
@@ -162,7 +162,26 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      m_id:"",
+      m_pwd:""
+    };
+  },
   methods: {
+    login() {
+      if(this.m_id=="" || null){
+        alert("아이디를 입력해주세요");
+        this.m_id="";
+        return;
+      }
+      if(this.m_pwd=="" || null){
+        alert("비밀번호를 입력해주세요");
+        this.m_pwd="";
+        return;
+      }
+      const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
+    },
     showModal() {
       this.$root.$emit("bv::show::modal", "modal-1");
     }

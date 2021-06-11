@@ -115,7 +115,7 @@ export default {
       var pwdReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g;
       var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
       var telReg = /^\d{3}-\d{3,4}-\d{4}$/;
-      var m_addr = this.zip + this.addr1; // eslint-disable-line no-unused-vars
+      var m_addr = this.zip + this.addr1; 
       if (!idReg.test(this.m_id)) {
         alert(
           "아이디는 영문자로 시작하는 6~20자 영문자 숫자조합 이어야 합니다."
@@ -141,7 +141,7 @@ export default {
         alert("전화번호 형식이 다릅니다. -붙여주세요.");
         return;
       }
-      const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
+      const form = new URLSearchParams(); 
       form.append("m_id", this.m_id);
       form.append("m_name", this.m_name);
       form.append("m_pwd", this.m_pwd);
