@@ -1,34 +1,35 @@
 package com.example.demo.member;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("")
 public class MemberController {
 	
 	@Autowired
 	private MemberService service;
 	
-	@GetMapping("/main")
-	public void main() {
+	@PostMapping("")
+	public Map join(Member m) {
+		Map map = new HashMap();
 		
-	}
-	@GetMapping("/join")
-	public void join() {
+		boolean result = false;
 		
-	}
-
-	@GetMapping("/shrit")
-	public String shrit() {
-		return "/member/list";
-	}
-
-	@GetMapping("/list_view")
-	public void list_view() {
+		try {
+			service.join(m);
+			result = true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		map.put("result", result);
 		
+		return map;
 	}
-
 }
