@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 	<div>
 		<p id=header>마이페이지</p>
 		<div id=box>
@@ -38,47 +37,6 @@
 		</div>
 		<div class=font1>주문한 상품이 없습니다.</div>
 	</div>
-
-=======
-  <div>
-    <p id="header">마이페이지</p>
-    <div id="box">
-      <router-link to="/mypageedit">
-        <div class="a">
-          <div>
-            <b-icon icon="person-check" style="width: 80px; height: 80px;" variant="dark"></b-icon>
-          </div>
-          <span class="font">개인정보수정</span>
-        </div>
-      </router-link>
-      <router-link to="/order">
-        <div class="a">
-          <img class="img" src="../../../dist/img/car.png" />
-          <span class="font">주문/배송조회</span>
-        </div>
-      </router-link>
-      <router-link to="/point">
-        <div class="a">
-          <img class="img" src="../../../dist/img/p.png" />
-          <span class="font">포인트</span>
-        </div>
-      </router-link>
-      <router-link to="coupon">
-        <div class="a">
-          <img class="img" src="../../../dist/img/cp.png" />
-          <span class="font">쿠폰</span>
-        </div>
-      </router-link>
-      <router-link to="mypageqa">
-        <div class="aa">
-          <img class="img" src="../../../dist/img/qa.png" />
-          <span class="font">Q&A</span>
-        </div>
-      </router-link>
-    </div>
-    <div class="font1">주문한 상품이 없습니다.</div>
-  </div>
->>>>>>> 2027c4ae8d6b3a6eb43758a7458247f4420cb62a
 </template>
 
 <script>

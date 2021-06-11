@@ -34,9 +34,7 @@
 				<li class=li>
 				<label for="sms" class=font>SMS 인증번호</label>
 					<input type="text" name="sms" id="sms" class=box>
-
 					<button class=box3>인증번호 확인</button>
-
 				</li>
 			</ul>
 			<ul style="padding: 20px 10px; list-style:none;">
