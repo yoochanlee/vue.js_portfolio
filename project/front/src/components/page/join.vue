@@ -26,6 +26,15 @@
 				<label for="email" class=font>이메일</label>
 					<input type="text" name="email" id="email" class=box>
 				</li>
+				<li class=li2>
+				<label for="adr" class=font>우편번호</label>
+					<input type="text" name="adr" id="adr" class=box01>
+					<button class=box4>우편번호 검색</button>
+				</li>
+				<li class=li1>
+				<label for="addres" class=font>주소</label>
+					<input type="text" name="addres" id="addres" class=box>
+				</li>
 				<li class=li>
 				<label for="tel" class=font>휴대폰번호</label>
 					<input type="text" name="tel" id="tel" class=box>
@@ -127,10 +136,26 @@ export default {
 	border-bottom: 1px solid #BDBDBD;
 	padding: 15px 0px;
 }
+.li2{
+	border-top: 1px solid #BDBDBD;
+	padding: 15px 0px;
+}
+.li1{
+	
+	border-bottom: 1px solid #BDBDBD;
+	padding: 15px 0px;
+}
 /* 회원가입 박스 */
 .box{
 	display: inline-block;
 	width: 300px;
+	height: 40px;
+	box-sizing: border-box;
+	border: 1px solid #848484;
+}
+.box01{
+	display: inline-block;
+	width: 150px;
 	height: 40px;
 	box-sizing: border-box;
 	border: 1px solid #848484;
@@ -170,6 +195,17 @@ export default {
 .box3{
 	display: inline-block;
 	width: 100px;
+	height: 40px;
+	box-sizing: border-box;
+	background: black;
+	color: #FFFFFF;
+	margin:0px 0px 0px 30px;
+	font-size: 13px;
+	font-weight: 200;
+}
+.box4{
+	display: inline-block;
+	width: 120px;
 	height: 40px;
 	box-sizing: border-box;
 	background: black;
