@@ -19,7 +19,6 @@ import MyPageqaPage from '../components/page/mypageqa'
 import Productre from '../components/page/productre'
 import ProductEdit from '../components/page/productedit'
 
-
 Vue.use(VueRouter)
 
 export default new VueRouter({

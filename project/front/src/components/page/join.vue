@@ -8,14 +8,17 @@
           <li class="li">
             <label for="id" class="font">아이디</label>
             <input type="text" name="m_id" id="id" v-model="m_id" class="box" />
+            <span class=error_te></span>
           </li>
           <li class="li">
             <label for="pwd" class="font">비밀번호</label>
             <input type="password" v-model="m_pwd" id="pwd" class="box" />
+            <span class=error_te></span>
           </li>
           <li class="li">
             <label for="pwd_ok" class="font">비밀번호 확인</label>
             <input type="password" v-model="pwd_ok" name="pwd_ok" id="pwd_ok" class="box" />
+            <span class=error_te></span>
           </li>
           <li class="li">
             <label for="name" class="font">이름</label>
@@ -24,6 +27,7 @@
           <li class="li">
             <label for="email" class="font">이메일</label>
             <input type="text" name="m_email" v-model="m_email" id="email" class="box" />
+            <span class=error_te></span>
           </li>
           <li class="li2">
             <label for="adr" class="font">우편번호</label>
@@ -35,8 +39,9 @@
             <input type="text" :value="addr1" name="addres" id="addres" class="box" />
           </li>
           <li class="li">
-            <label for="tel" class="font">휴대폰번호</label>
-            <input type="text" name="m_phone" v-model="m_phone" id="tel" class="box" />
+            <label for="phone" class="font">휴대폰번호</label>
+            <input type="text" name="m_phone" v-model="m_phone" id="phone" class="box" />
+            <span class=error_te></span>
             <!-- <button class="box3">인증번호 받기</button> -->
           </li>
           <!-- <li class="li">
@@ -92,8 +97,77 @@
     </div>
   </div>
 </template>
-
 <script>
+      window.onload = function () {
+        /* 변수 선언 */
+      var id = document.querySelector('#id');
+      var pwd = document.querySelector('#pwd');
+      var pwd_ok = document.querySelector('#pwd_ok')
+      var email = document.querySelector('#email');
+      var phone = document.querySelector('#phone'); 
+      var error = document.querySelectorAll('.error_te');
+      
+      /* 이벤트 핸들러 연결 */
+      id.addEventListener("focusout", checkId);
+      pwd.addEventListener("focusout", checkPwd);
+      pwd_ok.addEventListener("focusout", checkPwd_ok);
+      email.addEventListener("focusout", checkEmail);
+      phone.addEventListener("focusout", checkPhone); 
+
+     function checkId() {
+      var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+      if (!idReg.test(id.value)) {
+        error[0].innerHTML = "아이디는 영문자로 시작하는 6~20자 영문자 숫자조합 이어야 합니다."
+        error[0].style.display = "block";
+       } else {
+        error[0].innerHTML = "사용 가능한 아이디입니다!!";
+        error[0].style.color = "#08A600";
+        error[0].style.display = "block";
+       }
+    }
+     function checkPwd(){
+       var pwdReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g;
+      if (!pwdReg.test(pwd.value)) {
+        error[1].innerHTML = "비밀번호는 최소 8자, 최소 하나의 문자 및 하나의 숫자를 조합해야됩니다."
+        error[1].style.display = "block";
+      } else { 
+        error[1].style.display = "none";
+      }
+    }
+    function checkPwd_ok(){
+      if (!(pwd.value == pwd_ok.value)) {
+        error[2].innerHTML = "비밀번호가 일치하지 않습니다."
+        error[2].style.display = "block";
+        this.pwd_ok = "";
+      } else {
+        error[2].innerHTML = "사용 가능한 비밀번호 입니다."
+        error[2].style.color = "#08A600";
+        error[2].style.display = "block";        
+      }
+    }
+    function checkEmail(){
+      var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+      if (!emailReg.test(email.value)) {
+        error[3].innerHTML = "이메일 형식이 다릅니다."
+        error[3].style.display = "block";
+      } else {
+        error[3].innerHTML = "사용 가능한 이메일 입니다." 
+        error[3].style.color = "#08A600";
+        error[3].style.display = "block";
+      }
+      }
+    function checkPhone(){
+      var telReg = /^\d{3}-\d{3,4}-\d{4}$/;
+      if (!telReg.test(phone.value)) {
+        error[4].innerHTML = "전화번호 형식이 다릅니다. -붙여주세요."
+        error[4].style.display = "block";
+      } else {
+        error[4].innerHTML = "사용 가능한 전화번호입니다." 
+        error[4].style.color = "#08A600";
+        error[4].style.display = "block";
+      }
+    } 
+    }
 export default {
   name: "join",
   data() {
@@ -110,37 +184,11 @@ export default {
     };
   },
   methods: {
+      /* $(document).ready */
+      
     join: function() {
-      var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
-      var pwdReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g;
-      var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-      var telReg = /^\d{3}-\d{3,4}-\d{4}$/;
+      
       var m_addr = this.zip + this.addr1; // eslint-disable-line no-unused-vars
-      if (!idReg.test(this.m_id)) {
-        alert(
-          "아이디는 영문자로 시작하는 6~20자 영문자 숫자조합 이어야 합니다."
-        );
-        return;
-      }
-      if (!pwdReg.test(this.m_pwd)) {
-        alert(
-          "비밀번호는 최소 8자, 최소 하나의 문자 및 하나의 숫자를 조합해야됩니다."
-        );
-        return;
-      }
-      if (!(this.m_pwd == this.pwd_ok)) {
-        alert("비밀번호가 일치하지 않습니다.");
-        this.pwd_ok = "";
-        return;
-      }
-      if (!emailReg.test(this.m_email)) {
-        alert("이메일 형식이 다릅니다.");
-        return;
-      }
-      if (!telReg.test(this.m_phone)) {
-        alert("전화번호 형식이 다릅니다. -붙여주세요.");
-        return;
-      }
       const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
       form.append("m_id", this.m_id);
       form.append("m_name", this.m_name);
@@ -305,5 +353,21 @@ export default {
   margin: 0px 0px 0px 30px;
   font-size: 13px;
   font-weight: 200;
+}
+.error_te {
+    margin-top: 9px;
+    margin-left: 100px;
+    font-size: 12px;
+    color: red;    
+    display: none;
+}
+
+.error_t {
+    position: absolute;
+    top: 19px;
+    right: 38px;
+    font-size: 12px;
+    color: red;
+    display: none;
 }
 </style>

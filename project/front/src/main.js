@@ -11,8 +11,6 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import { SkeletonPlugin } from 'bootstrap-vue'
 import { FormFilePlugin } from 'bootstrap-vue'
 
-
-
 // require styles
 import 'swiper/css/swiper.css'
 Vue.use(FormFilePlugin)
