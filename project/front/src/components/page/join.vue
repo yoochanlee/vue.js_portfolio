@@ -7,23 +7,27 @@
         <ul class="ul">
           <li class="li">
             <label for="id" class="font">아이디</label>
-            <input type="text" name="id" id="id" class="box" />
+            <input type="text" name="m_id" id="id" v-model="m_id" class="box" />
+            <span class=error_te></span>
           </li>
           <li class="li">
             <label for="pwd" class="font">비밀번호</label>
-            <input type="password" name="pwd" id="pwd" class="box" />
+            <input type="password" v-model="m_pwd" id="pwd" class="box" />
+            <span class=error_te></span>
           </li>
           <li class="li">
             <label for="pwd_ok" class="font">비밀번호 확인</label>
-            <input type="password" name="pwd_ok" id="pwd_ok" class="box" />
+            <input type="password" v-model="pwd_ok" name="pwd_ok" id="pwd_ok" class="box" />
+            <span class=error_te></span>
           </li>
           <li class="li">
             <label for="name" class="font">이름</label>
-            <input type="text" name="name" id="name" class="box" />
+            <input type="text" name="m_name" v-model="m_name" id="name" class="box" />
           </li>
           <li class="li">
             <label for="email" class="font">이메일</label>
-            <input type="text" name="email" id="email" class="box" />
+            <input type="text" name="m_email" v-model="m_email" id="email" class="box" />
+            <span class=error_te></span>
           </li>
           <li class="li2">
             <label for="adr" class="font">우편번호</label>
@@ -35,15 +39,16 @@
             <input type="text" :value="addr1" name="addres" id="addres" class="box" />
           </li>
           <li class="li">
-            <label for="tel" class="font">휴대폰번호</label>
-            <input type="text" name="tel" id="tel" class="box" />
-            <button class="box3">인증번호 받기</button>
+            <label for="phone" class="font">휴대폰번호</label>
+            <input type="text" name="m_phone" v-model="m_phone" id="phone" class="box" />
+            <span class=error_te></span>
+            <!-- <button class="box3">인증번호 받기</button> -->
           </li>
-          <li class="li">
+          <!-- <li class="li">
             <label for="sms" class="font">SMS 인증번호</label>
             <input type="text" name="sms" id="sms" class="box" />
             <button class="box3">인증번호 확인</button>
-          </li>
+          </li>-->
         </ul>
         <ul style="padding: 20px 10px; list-style:none;">
           <li>
@@ -88,18 +93,119 @@
         </div>
       </div>
 
-      <button class="box2">가 입 하 기</button>
+      <button class="box2" v-on:click="join">가 입 하 기</button>
     </div>
   </div>
 </template>
-
 <script>
+      window.onload = function () {
+        /* 변수 선언 */
+      var id = document.querySelector('#id');
+      var pwd = document.querySelector('#pwd');
+      var pwd_ok = document.querySelector('#pwd_ok')
+      var email = document.querySelector('#email');
+      var phone = document.querySelector('#phone'); 
+      var error = document.querySelectorAll('.error_te');
+      
+      /* 이벤트 핸들러 연결 */
+      id.addEventListener("focusout", checkId);
+      pwd.addEventListener("focusout", checkPwd);
+      pwd_ok.addEventListener("focusout", checkPwd_ok);
+      email.addEventListener("focusout", checkEmail);
+      phone.addEventListener("focusout", checkPhone); 
+
+     function checkId() {
+      var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+      if (!idReg.test(id.value)) {
+        error[0].innerHTML = "아이디는 영문자로 시작하는 6~20자 영문자 숫자조합 이어야 합니다."
+        error[0].style.display = "block";
+       } else {
+        error[0].innerHTML = "사용 가능한 아이디입니다!!";
+        error[0].style.color = "#08A600";
+        error[0].style.display = "block";
+       }
+    }
+     function checkPwd(){
+       var pwdReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g;
+      if (!pwdReg.test(pwd.value)) {
+        error[1].innerHTML = "비밀번호는 최소 8자, 최소 하나의 문자 및 하나의 숫자를 조합해야됩니다."
+        error[1].style.display = "block";
+      } else { 
+        error[1].style.display = "none";
+      }
+    }
+    function checkPwd_ok(){
+      if (!(pwd.value == pwd_ok.value)) {
+        error[2].innerHTML = "비밀번호가 일치하지 않습니다."
+        error[2].style.display = "block";
+        this.pwd_ok = "";
+      } else {
+        error[2].innerHTML = "사용 가능한 비밀번호 입니다."
+        error[2].style.color = "#08A600";
+        error[2].style.display = "block";        
+      }
+    }
+    function checkEmail(){
+      var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+      if (!emailReg.test(email.value)) {
+        error[3].innerHTML = "이메일 형식이 다릅니다."
+        error[3].style.display = "block";
+      } else {
+        error[3].innerHTML = "사용 가능한 이메일 입니다." 
+        error[3].style.color = "#08A600";
+        error[3].style.display = "block";
+      }
+      }
+    function checkPhone(){
+      var telReg = /^\d{3}-\d{3,4}-\d{4}$/;
+      if (!telReg.test(phone.value)) {
+        error[4].innerHTML = "전화번호 형식이 다릅니다. -붙여주세요."
+        error[4].style.display = "block";
+      } else {
+        error[4].innerHTML = "사용 가능한 전화번호입니다." 
+        error[4].style.color = "#08A600";
+        error[4].style.display = "block";
+      }
+    } 
+    }
 export default {
   name: "join",
   data() {
-    return { zip: "", addr1: "" };
+    return {
+      zip: "",
+      addr1: "",
+      m_id: "",
+      m_name: "",
+      m_pwd: "",
+      pwd_ok: "",
+      m_email: "",
+      m_phone: "",
+      m_grade: 1
+    };
   },
   methods: {
+      /* $(document).ready */
+      
+    join: function() {
+      
+      var m_addr = this.zip + this.addr1; // eslint-disable-line no-unused-vars
+      const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
+      form.append("m_id", this.m_id);
+      form.append("m_name", this.m_name);
+      form.append("m_pwd", this.m_pwd);
+      form.append("m_email", this.m_email);
+      form.append("m_grade", this.m_grade);
+      form.append("m_addr", m_addr);
+      form.append("m_phone", this.m_phone);
+      this.$axios.post("/members", form).then(res => {
+        if (res.data.result) {
+          alert("suceess");
+          this.$router.replace("/");
+        } else {
+          alert("fail");
+        }
+      });
+    },
     showApi() {
       new window.daum.Postcode({
         oncomplete: data => {
@@ -247,5 +353,21 @@ export default {
   margin: 0px 0px 0px 30px;
   font-size: 13px;
   font-weight: 200;
+}
+.error_te {
+    margin-top: 9px;
+    margin-left: 100px;
+    font-size: 12px;
+    color: red;    
+    display: none;
+}
+
+.error_t {
+    position: absolute;
+    top: 19px;
+    right: 38px;
+    font-size: 12px;
+    color: red;
+    display: none;
 }
 </style>

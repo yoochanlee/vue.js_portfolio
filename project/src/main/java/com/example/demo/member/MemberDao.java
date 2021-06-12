@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface MemberDao {
 	// 한사람 추가 insert()
-	@Insert("insert into s_member values(member_seq.NEXTVAL,#{m_id},#{m_pwd},#{m_name},#{m_email},#{m_phone},#{m_addr})")
+	@Insert("insert into s_member values(member_seq.NEXTVAL,#{m_id},#{m_name},#{m_pwd},#{m_grade},#{m_email},#{m_phone},#{m_addr})")
 	void insert(Member m);
 
 	// 한사람 검색 select(String id) id로 검색
