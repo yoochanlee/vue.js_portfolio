@@ -38,36 +38,34 @@
     <div class="top_box">
       <div style="text-align: center; font-size:20px;font-weight: bold; ">개 인 정 보 수 정</div>
       <div>
-        <ul class="ul">
+         <ul class="ul">
           <li class="li">
-            <label class="font">아이디</label>
-            <input type="text" name="id" class="box01" />
+            <label for="id" class="font">아이디</label>
+            <input type="text" name="m_id" id="id" v-model="m_id" class="box" />
           </li>
           <li class="li">
             <label for="pwd" class="font">비밀번호</label>
-            <input type="password" name="pwd" id="pwd" class="box" />
+            <input type="password" v-model="m_pwd" id="pwd" class="box" />
           </li>
           <li class="li">
             <label for="pwd_ok" class="font">비밀번호 확인</label>
-            <input type="password" name="pwd_ok" id="pwd_ok" class="box" />
-            <button class="box3">수정</button>
+            <input type="password" v-model="pwd_ok" name="pwd_ok" id="pwd_ok" class="box" />
           </li>
           <li class="li">
             <label for="name" class="font">이름</label>
-            <input type="text" name="name" id="name" class="box01" />
+            <input type="text" name="m_name" v-model="m_name" id="name" class="box" />
           </li>
           <li class="li">
             <label for="email" class="font">이메일</label>
-            <input type="text" name="email" id="email" class="box" />
-            <button class="box3">수정</button>
+            <input type="text" name="m_email" v-model="m_email" id="email" class="box" />
           </li>
           <li class="li">
-            <label for="tel" class="font">휴대폰번호</label>
-            <input type="text" name="tel" id="tel" class="box" />
-            <button class="box3">수정</button>
+            <label for="phone" class="font">휴대폰번호</label>
+            <input type="text" name="m_phone" v-model="m_phone" id="phone" class="box" />
           </li>
         </ul>
       </div>
+            <button class="box2" v-on:click="edit">수정하기</button>
     </div>
   </div>
 </template>
@@ -75,9 +73,30 @@
 <script>
 export default {
   name: "MyPageedit",
-  props: {
-    msg: String
-  }
+    data(){
+      return {
+      m_pwd: "",
+      pwd_ok: ""
+    };
+    },
+    method:{
+      edit:function(){
+      const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
+      form.append("m_id", this.m_id);
+      form.append("m_pwd", this.m_pwd);
+      form.append("m_email", this.m_email);
+      form.append("m_phone", this.m_phone);
+      this.$axios.put("/members" + this.m_id, form)
+      .then(function(res){
+        if (res.data.m.result) {
+          alert("suceess");
+          this.$router.push("/");
+        } else {
+          alert("fail");
+        }
+      });
+      }
+    }
 };
 </script>
 
@@ -162,7 +181,7 @@ export default {
   height: 40px;
   box-sizing: border-box;
   border: 1px solid #848484;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 /* 회원가입 폰트 */
 .font {
@@ -182,6 +201,18 @@ export default {
   color: #ffffff;
   margin: 0px 0px 0px 30px;
   font-size: 13px;
+  font-weight: 200;
+}
+/* 수정 박스 */
+.box2 {
+  display: block;
+  width: 300px;
+  height: 60px;
+  box-sizing: border-box;
+  background: black;
+  color: #ffffff;
+  margin: auto;
+  font-size: 30px;
   font-weight: 200;
 }
 </style>
