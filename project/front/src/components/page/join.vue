@@ -185,7 +185,6 @@ export default {
   },
   methods: {
     join: function() {
-      
       var m_addr = this.zip + this.addr1; // eslint-disable-line no-unused-vars
       const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
       form.append("m_id", this.m_id);

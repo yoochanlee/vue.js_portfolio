@@ -16,6 +16,29 @@ export default {
     Header,
     Footer
 
-  }
+  },
+  data(){
+    return{
+      login_flag:true
+    };
+  },
+  created:function(){
+    var login_id = sessionStorage.getItem("login_id");
+    if(login_id=='' || login_id==null){
+      this.login_flag=true;
+    }else {
+      this.login_flag=false;
+    }
+  },
+  methods:{
+    setflag:function(flag){
+      this.login_flag=flag;
+   },
+    logout:function(){
+      this.login_flag=true;
+      sessionStorage.removeItem("login_id");
+      sessionStorage.removeItem("grade");
+   }
+  }   
 }
 </script>

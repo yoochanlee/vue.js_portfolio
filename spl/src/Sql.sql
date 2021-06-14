@@ -17,6 +17,7 @@ create table s_member
 	
 
 );
+
 ALTER TABLE s_member MODIFY(m_addr VARCHAR2(4000));
 select * from s_member;
 ALTER TABLE s_member MODIFY (m_id NOT NULL);

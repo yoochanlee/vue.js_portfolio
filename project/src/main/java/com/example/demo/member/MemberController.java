@@ -5,8 +5,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,28 +35,21 @@ public class MemberController {
 		map.put("result", result);
 		return map;
 	}
-	
-	@PutMapping("/{id}")
-	public Map editMember(Member m) {
+	@GetMapping("/{m_id}")//id로 하나 검색. json반환(처리결과(result:true/false), 검색 결과 Member객체(m))
+	public Map getMember(@PathVariable("m_id") String m_id) {
 		Map map = new HashMap();
-		Member mm = service.getMember(m.getM_id());
-		mm.setM_id(m.getM_id());
-		mm.setM_pwd(m.getM_pwd());
-		mm.setM_email(m.getM_email());
-		mm.setM_phone(m.getM_phone());
 		boolean result = false;
+		Member m = null;
 		try {
-			service.editMember(mm);
+			m = service.getMember(m_id);
+			if(m!=null) {
 			result = true;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			}
+		}catch(Exception e) {
+			System.out.println(e);
 		}
-		
 		map.put("result", result);
+		map.put("m", m);
 		return map;
 	}
 }
-
-
-
