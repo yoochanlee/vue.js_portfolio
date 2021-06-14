@@ -6,35 +6,42 @@
         <b-navbar-brand href="/">Men`s Clothing shore</b-navbar-brand>
         <div style="width: 1390px;"></div>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item @click="showModal">
+          <b-nav-item @click="showModal" v-if='this.$parent.login_flag'>
             <a class="top">
               <p class="h4 mb-2">
                 <b-icon icon="box-arrow-in-right"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/join">
+          <b-nav-item @click="this.$parent.logout" v-if='!this.$parent.login_flag'>
+            <a class="top">
+              <p class="h4 mb-2">
+                <b-icon icon="arrow-left-square-fill"></b-icon>
+              </p>
+            </a>
+          </b-nav-item>
+          <b-nav-item to="/join" v-if='!this.$parent.login_flag'>
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="person-square"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/cart">
+          <b-nav-item to="/cart" v-if='!this.$parent.login_flag'>
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="bucket-fill"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/mypage">
+          <b-nav-item to="/mypage" v-if='!this.$parent.login_flag'>
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="person-lines-fill"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/admin">
+          <b-nav-item to="/admin" v-if='!this.$parent.login_flag'>
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="bell-fill"></b-icon>
@@ -64,7 +71,12 @@
                   <b-input-group-prepend is-text>
                     <b-icon icon="person-fill"></b-icon>
                   </b-input-group-prepend>
-                  <b-form-input id="input-small" size="sm" v-model="m_id" placeholder="Enter your Id"></b-form-input>
+                  <b-form-input
+                    id="input-small"
+                    size="sm"
+                    v-model="m_id"
+                    placeholder="Enter your Id"
+                  ></b-form-input>
                 </b-input-group>
               </b-col>
             </b-row>
@@ -77,7 +89,12 @@
                   <b-input-group-prepend is-text>
                     <b-icon icon="lock-fill"></b-icon>
                   </b-input-group-prepend>
-                  <b-form-input id="input-small" size="sm" v-model="m_pwd" placeholder="Enter your password"></b-form-input>
+                  <b-form-input
+                    id="input-small"
+                    size="sm"
+                    v-model="m_pwd"
+                    placeholder="Enter your password"
+                  ></b-form-input>
                 </b-input-group>
               </b-col>
             </b-row>
@@ -93,7 +110,7 @@
       </div>
       <div id="center_img">
         <img
-          id=img_top
+          id="img_top"
           onclick="location.href='/';"
           style="cursor: pointer;"
           src="../../assets/img/main.png"
@@ -157,33 +174,56 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
   </header>
 </template>
 <script>
 export default {
   data() {
     return {
-      m_id:"",
-      m_pwd:""
+      m_id: "",
+      m_pwd: ""
     };
   },
   methods: {
-    login() {
-      if(this.m_id=="" || null){
-        alert("아이디를 입력해주세요");
-        this.m_id="";
-        return;
-      }
-      if(this.m_pwd=="" || null){
-        alert("비밀번호를 입력해주세요");
-        this.m_pwd="";
-        return;
-      }
-      const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
-    },
     showModal() {
       this.$root.$emit("bv::show::modal", "modal-1");
+    },
+    hideModal() {
+      this.$root.$emit('bv::hide::modal', 'modal-1');
+    },
+    login: function() {
+      if (this.m_id == "" || null) {
+        alert("아이디를 입력해주세요");
+        this.m_id = "";
+        return;
+      }
+      if (this.m_pwd == "" || null) {
+        alert("비밀번호를 입력해주세요");
+        this.m_pwd = "";
+        return;
+      }
+      const self = this;
+      this.$axios.get("/members/" + self.m_id).then(function(res) {
+        if (res.data.result) {
+          if (res.data.m == null) {
+            alert("아이디가 없음");
+          } else {
+            if (res.data.m.m_pwd == self.m_pwd){
+               sessionStorage.setItem('grade', res.data.m.m_grade);
+               sessionStorage.setItem('m_idx', res.data.m.m_idx);
+               sessionStorage.setItem("login_id", self.m_id);
+               self.$parent.setflag(false);
+               self.$router.push('/');
+               self.hideModal();
+            } else {
+              alert('비밀번호 다름');
+            }
+          }
+        }else{
+          alert('로그인 실패');
+        }
+      });
     }
   }
 };
@@ -211,7 +251,7 @@ export default {
   padding: 5px;
   box-shadow: 0px 16px 16px 0px rgba(0, 0, 0, 0.3);
   font-size: 25px;
-   z-index: 9999;
+  z-index: 9999;
 }
 .dropdown-content a {
   color: black;
@@ -243,7 +283,6 @@ export default {
   width: 100%;
   height: 100px;
   box-sizing: border-box;
-  
 }
 /* 상단 이미지 */
 #img_main {

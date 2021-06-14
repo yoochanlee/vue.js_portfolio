@@ -12,8 +12,8 @@ public class MemberService {
 	public void join(Member m) {
 		dao.insert(m);
 	}
-	public Member getMember(String id) {
-		return dao.select(id);
+	public Member getMember(String m_id) {
+		return dao.select(m_id);
 	}
 	public void editMember(Member m) {
 		dao.update(m);

@@ -41,33 +41,32 @@
         <ul class="ul">
           <li class="li">
             <label class="font">아이디</label>
-            <input type="text" name="id" class="box01" />
+            <input type="text" name="m_id" class="box01" v-model="m_id" />
           </li>
           <li class="li">
             <label for="pwd" class="font">비밀번호</label>
-            <input type="password" name="pwd" id="pwd" class="box" />
+            <input type="password" name="m_pwd" id="pwd" class="box" v-model="m_pwd" />
           </li>
           <li class="li">
             <label for="pwd_ok" class="font">비밀번호 확인</label>
             <input type="password" name="pwd_ok" id="pwd_ok" class="box" />
-            <button class="box3">수정</button>
           </li>
           <li class="li">
             <label for="name" class="font">이름</label>
-            <input type="text" name="name" id="name" class="box01" />
+            <input type="text" name="m_name" id="name" class="box01" v-model="m_name" />
           </li>
           <li class="li">
             <label for="email" class="font">이메일</label>
-            <input type="text" name="email" id="email" class="box" />
-            <button class="box3">수정</button>
+            <input type="text" name="m_email" id="email" class="box" v-model="m_email"/>
           </li>
           <li class="li">
             <label for="tel" class="font">휴대폰번호</label>
-            <input type="text" name="tel" id="tel" class="box" />
-            <button class="box3">수정</button>
+            <input type="text" name="m_phone" id="tel" class="box" v-model="m_phone"/>
           </li>
         </ul>
       </div>
+      <button class="box2" v-on:click="edit">수 정 하 기</button>
+      <button class="box2" v-on:click="del">탈 퇴 하 기</button>
     </div>
   </div>
 </template>
@@ -75,9 +74,6 @@
 <script>
 export default {
   name: "MyPageedit",
-  props: {
-    msg: String
-  }
 };
 </script>
 
@@ -182,6 +178,17 @@ export default {
   color: #ffffff;
   margin: 0px 0px 0px 30px;
   font-size: 13px;
+  font-weight: 200;
+}
+.box2 {
+  display: inline-block;
+  width: 300px;
+  height: 80px;
+  box-sizing: border-box;
+  background: black;
+  color: #ffffff;
+  margin-left: 30px;
+  font-size: 35px;
   font-weight: 200;
 }
 </style>

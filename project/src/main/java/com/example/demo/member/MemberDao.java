@@ -14,8 +14,8 @@ public interface MemberDao {
 	void insert(Member m);
 
 	// 한사람 검색 select(String id) id로 검색
-	@Select("select * from s_member where id=#{id}")
-	Member select(@Param("id") String id);
+	@Select("select * from s_member where m_id=#{m_id}")
+	Member select(@Param("m_id") String m_id);
 
 	// 한사람 수정 update(member m) id로 검색해서 pwd 수정
 	@Update("update s_member set pwd=#{pwd} where m_idx=#{m_idx}")
