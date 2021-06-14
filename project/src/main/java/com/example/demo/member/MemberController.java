@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/members")
+
 public class MemberController {
 	
 	@Autowired
 	private MemberService service;
 	
+
 	@PostMapping("")//Member db에 저장. json반환(처리결과(result:true/false))
 	public Map join(Member m) {
 		Map map = new HashMap();
@@ -28,6 +30,7 @@ public class MemberController {
 			result = true;
 		}catch(Exception e) {
 			System.out.println(e);
+
 		}
 		map.put("result", result);
 		return map;

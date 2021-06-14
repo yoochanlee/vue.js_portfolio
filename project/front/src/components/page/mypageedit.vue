@@ -38,7 +38,7 @@
     <div class="top_box">
       <div style="text-align: center; font-size:20px;font-weight: bold; ">개 인 정 보 수 정</div>
       <div>
-        <ul class="ul">
+         <ul class="ul">
           <li class="li">
             <label class="font">아이디</label>
             <input type="text" name="m_id" class="box01" v-model="m_id" />
@@ -158,7 +158,7 @@ export default {
   height: 40px;
   box-sizing: border-box;
   border: 1px solid #848484;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 /* 회원가입 폰트 */
 .font {
@@ -189,6 +189,7 @@ export default {
   color: #ffffff;
   margin-left: 30px;
   font-size: 35px;
+
   font-weight: 200;
 }
 </style>
