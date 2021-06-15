@@ -41,11 +41,11 @@
          <ul class="ul">
           <li class="li">
             <label class="font">아이디</label>
-            <input type="text" name="m_id" class="box01" v-model="m_id" />
+            <input type="text" name="m_id" class="box01" v-model="m.m_id" />
           </li>
           <li class="li">
             <label for="pwd" class="font">비밀번호</label>
-            <input type="password" name="m_pwd" id="pwd" class="box" v-model="m_pwd" />
+            <input type="password" name="m_pwd" id="pwd" class="box" v-model="m.m_pwd" />
           </li>
           <li class="li">
             <label for="pwd_ok" class="font">비밀번호 확인</label>
@@ -53,15 +53,16 @@
           </li>
           <li class="li">
             <label for="name" class="font">이름</label>
-            <input type="text" name="m_name" id="name" class="box01" v-model="m_name" />
+            <input type="text" name="m_name" id="name" class="box01" v-model="m.m_name" />
           </li>
           <li class="li">
             <label for="email" class="font">이메일</label>
-            <input type="text" name="m_email" id="email" class="box" v-model="m_email"/>
+            <input type="text" name="m_email" id="email" class="box" v-model="m.m_email"/>
           </li>
           <li class="li">
             <label for="tel" class="font">휴대폰번호</label>
-            <input type="text" name="m_phone" id="tel" class="box" v-model="m_phone"/>
+            <input type="text" name="m_phone" id="tel" class="box" v-model="m.m_phone"/>
+            <input type="hidden" name="m_idx" id="tel" class="box" v-model="m.m_idx"/>
           </li>
         </ul>
       </div>
@@ -74,6 +75,55 @@
 <script>
 export default {
   name: "MyPageedit",
+  data(){
+		return{
+      id:'',
+			m:null
+		};
+	},
+  created:function() {
+    const self = this;
+    self.id = sessionStorage.getItem("login_id");
+    this.$axios.get('/members/' + self.id)
+      .then(function(res){
+        if (res.data.result) {
+          self.m = res.data.m;
+        } else {
+          alert('fail');
+        }
+      });
+  },
+  methods:{
+    edit:function(){
+      const form = new URLSearchParams();
+			form.append('m_id', this.m.m_id);
+			form.append('m_pwd', this.m.m_pwd);
+      form.append('m_email', this.m.m_email);
+      form.append('m_phone', this.m.m_phone);
+			this.$axios.put('/members/'+this.m.m_idx, form)
+			.then(res => {
+        if(res.data.result){
+          this.$router.go(this.$router.push('/mypage'));
+        }else{
+          alert('fail');
+        }
+      });
+    },
+    del:function(){
+      this.$axios.delete('/members/'+this.m.m_idx)
+      .then(res => {
+        if(res.data.result){
+          this.login_flag=true;
+          sessionStorage.removeItem("login_id");
+          sessionStorage.removeItem("grade");
+          sessionStorage.removeItem('m_idx');
+          this.$router.go(this.$router.push('/'));
+        }else{
+          alert('fail');
+        }
+      });
+    }
+  }
 };
 </script>
 

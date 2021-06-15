@@ -5,9 +5,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,6 +52,32 @@ public class MemberController {
 		}
 		map.put("result", result);
 		map.put("m", m);
+		return map;
+	}
+	@PutMapping("/{m_idx}")//수정. json반환(처리결과(result:true/false))
+	public Map editMember(Member m) {
+		Map map = new HashMap();
+		boolean result = false;
+		try {
+			service.editMember(m);
+			result = true;
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		map.put("result", result);
+		return map;
+	}
+	@DeleteMapping("/{m_idx}")//삭제. json반환(처리결과(result:true/false))
+	public Map delMember(@PathVariable("m_idx") int m_idx) {
+		Map map = new HashMap();
+		boolean result = false;
+		try {
+			service.delMember(m_idx);
+			result = true;
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		map.put("result", result);
 		return map;
 	}
 }
