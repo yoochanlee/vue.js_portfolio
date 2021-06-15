@@ -18,7 +18,7 @@ public interface MemberDao {
 	Member select(@Param("m_id") String m_id);
 
 	// 한사람 수정 update(member m) id로 검색해서 pwd 수정
-	@Update("update s_member set m_pwd=#{m_pwd}, m_email=#{m_email}, m_phone=#{m_phone} where m_id=#{m_id}")
+	@Update("update s_member set m_pwd=#{m_pwd}, m_email=#{m_email}, m_phone=#{m_phone} where m_idx=#{m_idx}")
 	void update(Member m);
 
 	// 한사람 삭제 delete(String id) id로 검색해서 삭제

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-        <router-view></router-view>
+        <router-view ></router-view>
     <Footer></Footer>
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {
       this.login_flag=true;
       sessionStorage.removeItem("login_id");
       sessionStorage.removeItem("grade");
+      sessionStorage.removeItem('m_idx');
    }
   }   
 }
