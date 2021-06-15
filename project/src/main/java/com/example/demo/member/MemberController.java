@@ -5,9 +5,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,6 +52,39 @@ public class MemberController {
 		}
 		map.put("result", result);
 		map.put("m", m);
+		return map;
+	}
+	@PutMapping("{/m_id}")
+	public Map editMember(@PathVariable("m_id") Member m) {
+		Map map = new HashMap();
+		Member mm = service.getMember(m.getM_id());
+		mm.setM_pwd(m.getM_pwd());
+		mm.setM_email(m.getM_email());
+		mm.setM_phone(m.getM_phone());
+		boolean result = false;
+		try {
+			service.editMember(mm);
+			result = true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		map.put("result", result);
+		return map;
+	}
+	
+	@DeleteMapping("{m_idx}")
+	public Map delMember(@PathVariable("m_id") int m_idx) {
+		Map map = new HashMap();
+		boolean result = false;
+		try {
+			service.delMember(m_idx);
+			result = true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		map.put("result", result);
 		return map;
 	}
 }
