@@ -75,21 +75,21 @@
 <script>
 export default {
   name: "MyPageedit",
+
   data(){
 		return{
       id:'',
 			m:null
 		};
 	},
+
   created:function() {
     const self = this;
     self.id = sessionStorage.getItem("login_id");
     this.$axios.get('/members/' + self.id)
-      .then(function(res){
+      .then(function(res) {
         if (res.data.result) {
           self.m = res.data.m;
-        } else {
-          alert('fail');
         }
       });
   },

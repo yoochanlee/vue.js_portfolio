@@ -120,7 +120,7 @@
         error[0].innerHTML = "아이디는 영문자로 시작하는 6~20자 영문자 숫자조합 이어야 합니다."
         error[0].style.display = "block";
        } else {
-        error[0].innerHTML = "사용 가능한 아이디입니다!!y";
+        error[0].innerHTML = "사용 가능한 아이디입니다!";
         error[0].style.color = "#08A600";
         error[0].style.display = "block";
        }
@@ -356,15 +356,6 @@ export default {
     margin-left: 100px;
     font-size: 12px;
     color: red;    
-    display: none;
-}
-
-.error_t {
-    position: absolute;
-    top: 19px;
-    right: 38px;
-    font-size: 12px;
-    color: red;
     display: none;
 }
 </style>

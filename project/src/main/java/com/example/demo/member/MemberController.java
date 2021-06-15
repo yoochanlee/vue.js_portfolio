@@ -54,6 +54,8 @@ public class MemberController {
 		map.put("m", m);
 		return map;
 	}
+
+
 	@PutMapping("/{m_idx}")//수정. json반환(처리결과(result:true/false))
 	public Map editMember(Member m) {
 		Map map = new HashMap();
@@ -67,6 +69,7 @@ public class MemberController {
 		map.put("result", result);
 		return map;
 	}
+
 	@DeleteMapping("/{m_idx}")//삭제. json반환(처리결과(result:true/false))
 	public Map delMember(@PathVariable("m_idx") int m_idx) {
 		Map map = new HashMap();
@@ -74,8 +77,9 @@ public class MemberController {
 		try {
 			service.delMember(m_idx);
 			result = true;
-		}catch(Exception e) {
-			System.out.println(e);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		map.put("result", result);
 		return map;
