@@ -62,6 +62,7 @@
           <li class="li">
             <label for="tel" class="font">휴대폰번호</label>
             <input type="text" name="m_phone" id="tel" class="box" v-model="m.m_phone"/>
+            <input type="hidden" name="m_idx" id="tel" class="box" v-model="m.m_idx"/>
           </li>
         </ul>
       </div>
@@ -74,14 +75,14 @@
 <script>
 export default {
   name: "MyPageedit",
-  data() {
-    return {
-      m_id: '',
-      m_pwd: '',
-      pwd_ok: '',
-      m: null
-    };
-  },
+
+  data(){
+		return{
+      id:'',
+			m:null
+		};
+	},
+
   created:function() {
     const self = this;
     self.id = sessionStorage.getItem("login_id");
@@ -92,20 +93,33 @@ export default {
         }
       });
   },
-  methods: {
-    edit: function() {
-      const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
-      form.append('m_id', this.m.m_id);
-      form.append('m_pwd', this.m.m_pwd);
+  methods:{
+    edit:function(){
+      const form = new URLSearchParams();
+			form.append('m_id', this.m.m_id);
+			form.append('m_pwd', this.m.m_pwd);
       form.append('m_email', this.m.m_email);
       form.append('m_phone', this.m.m_phone);
-      this.$axios.put('/members/'+this.m.m_id, form)
-        .then(res => {
-        if (res.data.result) {
-          alert("suceess");
-          this.$router.replace('/');
-        } else {
-          alert("fail");
+			this.$axios.put('/members/'+this.m.m_idx, form)
+			.then(res => {
+        if(res.data.result){
+          this.$router.go(this.$router.push('/mypage'));
+        }else{
+          alert('fail');
+        }
+      });
+    },
+    del:function(){
+      this.$axios.delete('/members/'+this.m.m_idx)
+      .then(res => {
+        if(res.data.result){
+          this.login_flag=true;
+          sessionStorage.removeItem("login_id");
+          sessionStorage.removeItem("grade");
+          sessionStorage.removeItem('m_idx');
+          this.$router.go(this.$router.push('/'));
+        }else{
+          alert('fail');
         }
       });
     }

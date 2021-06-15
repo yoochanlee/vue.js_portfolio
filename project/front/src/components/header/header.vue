@@ -20,7 +20,7 @@
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/join" v-if='!this.$parent.login_flag'>
+          <b-nav-item to="/join">
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="person-square"></b-icon>

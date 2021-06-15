@@ -54,27 +54,24 @@ public class MemberController {
 		map.put("m", m);
 		return map;
 	}
-	@PutMapping("{/m_id}")
-	public Map editMember(@PathVariable("m_id") Member m) {
+
+
+	@PutMapping("/{m_idx}")//수정. json반환(처리결과(result:true/false))
+	public Map editMember(Member m) {
 		Map map = new HashMap();
-		Member mm = service.getMember(m.getM_id());
-		mm.setM_pwd(m.getM_pwd());
-		mm.setM_email(m.getM_email());
-		mm.setM_phone(m.getM_phone());
 		boolean result = false;
 		try {
-			service.editMember(mm);
+			service.editMember(m);
 			result = true;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}catch(Exception e) {
+			System.out.println(e);
 		}
 		map.put("result", result);
 		return map;
 	}
-	
-	@DeleteMapping("{m_idx}")
-	public Map delMember(@PathVariable("m_id") int m_idx) {
+
+	@DeleteMapping("/{m_idx}")//삭제. json반환(처리결과(result:true/false))
+	public Map delMember(@PathVariable("m_idx") int m_idx) {
 		Map map = new HashMap();
 		boolean result = false;
 		try {
