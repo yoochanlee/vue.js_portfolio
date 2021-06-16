@@ -11,8 +11,8 @@ public class ProductService {
 	@Autowired
 	private ProductDao dao;
 	
-	public void join(Product p) {
-		dao.insert(p);
+	public Product join(Product p) {
+		return dao.insert(p);
 	}
 	public Product getProduct(String p_name) {
 		return dao.select(p_name);

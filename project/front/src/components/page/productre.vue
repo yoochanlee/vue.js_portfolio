@@ -50,10 +50,18 @@
         ></b-form-group>
         <b-row class="my-1">
           <b-col sm="1">
+            <label for="input-default">idx</label>
+          </b-col>
+          <b-col sm="8">
+            <b-form-input id="input-default" v-model="p_idx" placeholder="Enter product name" ></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row class="my-1">
+          <b-col sm="1">
             <label for="input-default">상품이름</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input id="input-default" placeholder="Enter product name"></b-form-input>
+            <b-form-input id="input-default" v-model="p_name" placeholder="Enter product name" ></b-form-input>
           </b-col>
         </b-row>
 
@@ -62,7 +70,7 @@
             <label for="price">상품가격</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input id="price" placeholder="Enter product price"></b-form-input>
+            <b-form-input id="price" v-model="p_amount" placeholder="Enter product price"></b-form-input>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -70,7 +78,7 @@
             <label for="amount">상품수량</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input id="amount" placeholder="Enter product amount"></b-form-input>
+            <b-form-input id="amount" v-model="p_price" placeholder="Enter product amount"></b-form-input>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -78,7 +86,7 @@
             <label for="p_img">카테고리</label>
           </b-col>
           <b-col sm="7">
-            <b-form-select v-model="selected" :options="options" size="lg" class="mt-3"></b-form-select>
+            <b-form-select v-model="p_category" :options="options" size="lg" class="mt-3"></b-form-select>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -91,6 +99,7 @@
               :file-name-formatter="formatNames"
               ref="fileinput"
               placeholder="Choose a file or drop it here..."
+              v-model="p_img"
             ></b-form-file>
           </b-col>
           <b-col sm="1">
@@ -104,6 +113,7 @@
           <b-col sm="8">
             <b-form-textarea
               id="textarea-auto-height"
+              v-model="p_info"
               placeholder="Enter Product info"
               rows="3"
               max-rows="8"
@@ -113,7 +123,7 @@
         <b-row class="my-1">
           <b-col lg="5" sm="1">
             <b-button variant="dark" style="margin-right:10px;">뒤로</b-button>
-            <b-button variant="dark">등록</b-button>
+            <b-button variant="dark" v-on:click="join1">등록</b-button>
           </b-col>
         </b-row>
       </b-card>
@@ -124,7 +134,13 @@
 export default {
   data() {
     return {
-      selected: null,
+      p_idx:'',
+      p_name:'',
+      p_amount:'',
+      p_price:'',
+      p_category:'',
+      p_img:'',
+      p_info:'',
       options: [
         { value: null, text: "카테고리를 선택해주세요" },
         { value: "OUTER", text: "OUTER" },
@@ -181,6 +197,25 @@ export default {
     },
     clearFiles() {
       this.$refs.fileinput.reset();
+    },
+    join1: function(){
+      const form = new URLSearchParams();
+      form.append('p_idx', this.p_idx);
+      form.append('p_name', this.p_name);
+      form.append('p_amount', this.p_amount);
+      form.append('p_price', this.p_price);
+      form.append('p_category', this.p_category);
+      form.append('p_img', this.p_img);
+      alert(this.p_img);
+      form.append('p_info', this.p_info);
+      this.$axios.post('/products', form)
+      .then (res => {
+        if(res.data.result){
+          alert("ok");
+        } else {
+          alert("fail");
+        }
+      });
     }
   }
 };
