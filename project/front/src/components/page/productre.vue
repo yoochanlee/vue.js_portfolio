@@ -50,14 +50,6 @@
         ></b-form-group>
         <b-row class="my-1">
           <b-col sm="1">
-            <label for="input-default">idx</label>
-          </b-col>
-          <b-col sm="8">
-            <b-form-input id="input-default" v-model="p_idx" placeholder="Enter product name" ></b-form-input>
-          </b-col>
-        </b-row>
-        <b-row class="my-1">
-          <b-col sm="1">
             <label for="input-default">상품이름</label>
           </b-col>
           <b-col sm="8">
@@ -100,7 +92,6 @@
               type="file"
               ref="file"
               placeholder="Choose a file or drop it here..."
-              v-model="p_img"
             ></b-form-file>
           </b-col>
           <b-col sm="1">
@@ -114,7 +105,6 @@
           <b-col sm="8">
             <b-form-textarea
               id="textarea-auto-height"
-              v-model="p_info"
               placeholder="Enter Product info"
               rows="3"
               max-rows="8"
@@ -187,7 +177,6 @@ export default {
     add:function(){
       const self = this;
       var p_category = this.selected;
-      alert(self.$refs.file.files.length);
       self.m_idx = sessionStorage.getItem("m_idx");
       const form = new FormData();
       form.append('p_name', self.p_name);

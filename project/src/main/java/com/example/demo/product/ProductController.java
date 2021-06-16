@@ -1,9 +1,7 @@
 package com.example.demo.product;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -13,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -54,9 +53,33 @@ public class ProductController {
 			ff = new File(base_path + pp.getP_idx()+i+str[i]);			
 			f[i].transferTo(ff);
 		    sb.append(ff.getName());
-		    sb.append("/");
+		    if (i < f.length-1) {
+		    	sb.append("/");				
+			}
 			}
 			pp.setP_img(sb.toString());
+			service.editProduct(pp);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = false;
+		}
+		map.put("result", result);
+		return map;
+	}
+	
+	@PutMapping("")
+	public Map editProduct(Product p) {
+		Map map = new HashMap();
+		Product pp = service.getProduct(p.getP_idx());
+		pp.setP_name(p.getP_name());
+		pp.setP_price(p.getP_price());
+		pp.setP_amount(p.getP_amount());
+		pp.setP_category(p.getP_category());
+		pp.setP_info(p.getP_info());
+		pp.setP_img(p.getP_img());
+		
+		boolean result = true;
+		try {
 			service.editProduct(pp);
 		} catch (Exception e) {
 			e.printStackTrace();

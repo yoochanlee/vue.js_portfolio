@@ -8,40 +8,41 @@ public class Product {
 	String p_category;
 	int p_price;
 	int p_amount;
-	MultipartFile file;
-	String p_info;
-	String img_path;
 	String p_img;
+	String p_info;
+	private MultipartFile files[];
+	int m_idx;
 	public Product() {}
 	
-	public Product(int p_idx, String p_name, String p_category, int p_price, int p_amount, MultipartFile file,
-			String img_path, String p_info, String p_img) {
+	
+
+	public MultipartFile[] getFile() {
+		return files;
+	}
+
+
+
+	public void setFile(MultipartFile[] file) {
+		this.files = file;
+	}
+
+
+
+	public Product(int p_idx, String p_name, String p_category, int p_price, int p_amount, String p_img, String p_info,
+			MultipartFile[] files, int m_idx) {
+		super();
 		this.p_idx = p_idx;
 		this.p_name = p_name;
 		this.p_category = p_category;
 		this.p_price = p_price;
 		this.p_amount = p_amount;
-		this.file = file;
-		this.img_path = img_path;
+		this.p_img = p_img;
 		this.p_info = p_info;
-		this.p_img = p_img;
+		this.files = files;
+		this.m_idx = m_idx;
 	}
 
-	public String getP_img() {
-		return p_img;
-	}
 
-	public void setP_img(String p_img) {
-		this.p_img = p_img;
-	}
-
-	public String getImg_path() {
-		return img_path;
-	}
-
-	public void setImg_path(String img_path) {
-		this.img_path = img_path;
-	}
 
 	public int getP_idx() {
 		return p_idx;
@@ -83,12 +84,12 @@ public class Product {
 		this.p_amount = p_amount;
 	}
 
-	public MultipartFile getFile() {
-		return file;
+	public String getP_img() {
+		return p_img;
 	}
 
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setP_img(String p_img) {
+		this.p_img = p_img;
 	}
 
 	public String getP_info() {
@@ -98,12 +99,14 @@ public class Product {
 	public void setP_info(String p_info) {
 		this.p_info = p_info;
 	}
+	
 
-	@Override
-	public String toString() {
-		return "Product [p_idx=" + p_idx + ", p_name=" + p_name + ", p_category=" + p_category + ", p_price=" + p_price
-				+ ", p_amount=" + p_amount + ", file=" + file + ", p_info=" + p_info + ", img_path=" + img_path
-				+ ", p_img=" + p_img + "]";
+	public int getM_idx() {
+		return m_idx;
+	}
+
+	public void setM_idx(int m_idx) {
+		this.m_idx = m_idx;
 	}
 
 }
