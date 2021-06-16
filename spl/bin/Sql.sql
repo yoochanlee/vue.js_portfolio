@@ -3,7 +3,7 @@
 CREATE SEQUENCE product_seq --시퀀스이름 EX_SEQ
 INCREMENT BY 1 --증감숫자 1
 START WITH 1;
-
+select product_seq.CURRVAL FROM s_product;
 create table s_member
 (
 	m_idx number ,
@@ -17,6 +17,7 @@ create table s_member
 	
 
 );
+insert into s_member values(member_seq.NEXTVAL,'admin','admin','admin',2,'admin@gmail.com','010-1235-1235','admin address');
 create table s_product
 (
 	p_idx number ,
@@ -27,15 +28,16 @@ create table s_product
 	p_img varchar2(2000) not null,
 	p_info varchar2(3000) not null
 );
+select product_seq.currval FROM DUAL;
+ALTER TABLE s_product
+ALTER TABLE s_product MODIFY (p_img DEFAULT 'nofile');
 
-ALTER TABLE s_product 
-
-ADD CONSTRAINTS s_member_fk FOREIGN KEY (p_idx) 
+ADD CONSTRAINTS s_member_fk FOREIGN KEY (m_idx) 
 
 REFERENCES s_member(m_idx);
-
 select * from s_product;
-
+INSERT INTO s_member (컬럼1, 컬럼2, 컬럼3......) 
+VALUES (값1, 값2, 값3......)
 ALTER TABLE s_member MODIFY(m_addr VARCHAR2(4000));
 select * from s_member;
 ALTER TABLE s_member MODIFY (m_id NOT NULL);

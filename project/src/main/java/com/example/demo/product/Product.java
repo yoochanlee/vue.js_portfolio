@@ -5,34 +5,34 @@ import org.springframework.web.multipart.MultipartFile;
 public class Product {
 	int p_idx;
 	String p_name;
-	String p_id;
 	String p_category;
 	int p_price;
 	int p_amount;
-	MultipartFile p_img;
+	MultipartFile file;
 	String p_info;
 	String img_path;
+	String p_img;
 	public Product() {}
 	
-	public Product(int p_idx, String p_name, String p_id, String p_category, int p_price, int p_amount, MultipartFile p_img,
-			String img_path, String p_info) {
+	public Product(int p_idx, String p_name, String p_category, int p_price, int p_amount, MultipartFile file,
+			String img_path, String p_info, String p_img) {
 		this.p_idx = p_idx;
 		this.p_name = p_name;
-		this.p_id = p_id;
 		this.p_category = p_category;
 		this.p_price = p_price;
 		this.p_amount = p_amount;
+		this.file = file;
 		this.img_path = img_path;
 		this.p_info = p_info;
 		this.p_img = p_img;
 	}
 
-	public String getP_id() {
-		return p_id;
+	public String getP_img() {
+		return p_img;
 	}
 
-	public void setP_id(String p_id) {
-		this.p_id = p_id;
+	public void setP_img(String p_img) {
+		this.p_img = p_img;
 	}
 
 	public String getImg_path() {
@@ -83,12 +83,12 @@ public class Product {
 		this.p_amount = p_amount;
 	}
 
-	public MultipartFile getP_img() {
-		return  p_img;
+	public MultipartFile getFile() {
+		return file;
 	}
 
-	public void setFile(MultipartFile  p_img) {
-		this. p_img =  p_img;
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 
 	public String getP_info() {
@@ -101,12 +101,9 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [p_idx=" + p_idx + ", p_name=" + p_name + ", p_id=" + p_id + ", p_category=" + p_category
-				+ ", p_price=" + p_price + ", p_amount=" + p_amount + ", p_img=" + p_img + ", p_info=" + p_info
-				+ ", img_path=" + img_path + ", getP_id()=" + getP_id() + ", getImg_path()=" + getImg_path()
-				+ ", getP_idx()=" + getP_idx() + ", getP_name()=" + getP_name() + ", getP_category()=" + getP_category()
-				+ ", getP_price()=" + getP_price() + ", getP_amount()=" + getP_amount() + ", getP_img()=" + getP_img()
-				+ ", getP_info()=" + getP_info() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return "Product [p_idx=" + p_idx + ", p_name=" + p_name + ", p_category=" + p_category + ", p_price=" + p_price
+				+ ", p_amount=" + p_amount + ", file=" + file + ", p_info=" + p_info + ", img_path=" + img_path
+				+ ", p_img=" + p_img + "]";
 	}
+
 }
