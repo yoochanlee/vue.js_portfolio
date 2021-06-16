@@ -78,7 +78,7 @@
             <label for="p_img">카테고리</label>
           </b-col>
           <b-col sm="7">
-            <b-form-select v-model="selected" :options="options" size="lg" class="mt-3"></b-form-select>
+            <b-form-select v-model="p_category" :options="options" size="lg" class="mt-3"></b-form-select>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -114,6 +114,7 @@
         <b-row class="my-1">
           <b-col lg="5" sm="1">
             <b-button variant="dark" style="margin-right:10px;">뒤로</b-button>
+
             <b-button variant="dark" @click="add">등록</b-button>
           </b-col>
         </b-row>
@@ -176,7 +177,6 @@ export default {
     add:function(){
       const self = this;
       var p_category = this.selected;
-      alert(self.$refs.file.files.length);
       self.m_idx = sessionStorage.getItem("m_idx");
       const form = new FormData();
       form.append('p_name', self.p_name);

@@ -26,6 +26,6 @@ public interface ProductDao {
 			void update(Product p);
 
 			// 상품 삭제
-			@Delete("delete from p_member where p_idx=#{p_idx}")
+			@Delete("delete from s_product where p_idx=#{p_idx}")
 			void delete(@Param("p_idx") int p_idx);
 }
