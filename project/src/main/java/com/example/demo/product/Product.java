@@ -1,5 +1,7 @@
 package com.example.demo.product;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Product {
 	int p_idx;
 	String p_name;
@@ -8,10 +10,27 @@ public class Product {
 	int p_amount;
 	String p_img;
 	String p_info;
+	private MultipartFile files[];
+	int m_idx;
 	public Product() {}
 	
-	public Product(int p_idx, String p_name, String p_category, int p_price, int p_amount, String p_img,
-			String p_info) {
+	
+
+	public MultipartFile[] getFile() {
+		return files;
+	}
+
+
+
+	public void setFile(MultipartFile[] file) {
+		this.files = file;
+	}
+
+
+
+	public Product(int p_idx, String p_name, String p_category, int p_price, int p_amount, String p_img, String p_info,
+			MultipartFile[] files, int m_idx) {
+		super();
 		this.p_idx = p_idx;
 		this.p_name = p_name;
 		this.p_category = p_category;
@@ -19,7 +38,11 @@ public class Product {
 		this.p_amount = p_amount;
 		this.p_img = p_img;
 		this.p_info = p_info;
+		this.files = files;
+		this.m_idx = m_idx;
 	}
+
+
 
 	public int getP_idx() {
 		return p_idx;
@@ -76,11 +99,14 @@ public class Product {
 	public void setP_info(String p_info) {
 		this.p_info = p_info;
 	}
-
-	@Override
-	public String toString() {
-		return "product [p_idx=" + p_idx + ", p_name=" + p_name + ", p_category=" + p_category + ", p_price=" + p_price
-				+ ", p_amount=" + p_amount + ", p_img=" + p_img + ", p_info=" + p_info + "]";
-	}
 	
+
+	public int getM_idx() {
+		return m_idx;
+	}
+
+	public void setM_idx(int m_idx) {
+		this.m_idx = m_idx;
+	}
+
 }

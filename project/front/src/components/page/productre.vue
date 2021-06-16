@@ -53,7 +53,7 @@
             <label for="input-default">상품이름</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input id="input-default" placeholder="Enter product name"></b-form-input>
+            <b-form-input id="input-default" placeholder="Enter product name" v-model="p_name"></b-form-input>
           </b-col>
         </b-row>
 
@@ -62,7 +62,7 @@
             <label for="price">상품가격</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input id="price" placeholder="Enter product price"></b-form-input>
+            <b-form-input type="number" id="price" placeholder="Enter product price" v-model="p_price"></b-form-input>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -70,7 +70,7 @@
             <label for="amount">상품수량</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input id="amount" placeholder="Enter product amount"></b-form-input>
+            <b-form-input type="number" id="amount" placeholder="Enter product amount" v-model="p_amount"></b-form-input>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -87,9 +87,10 @@
           </b-col>
           <b-col sm="7">
             <b-form-file
-              multiple
-              :file-name-formatter="formatNames"
-              ref="fileinput"
+              v-model="file"
+              multiple :file-name-formatter="formatNames"
+              type="file"
+              ref="file"
               placeholder="Choose a file or drop it here..."
             ></b-form-file>
           </b-col>
@@ -107,13 +108,13 @@
               placeholder="Enter Product info"
               rows="3"
               max-rows="8"
-            ></b-form-textarea>
+            v-model="p_info"></b-form-textarea>
           </b-col>
         </b-row>
         <b-row class="my-1">
           <b-col lg="5" sm="1">
             <b-button variant="dark" style="margin-right:10px;">뒤로</b-button>
-            <b-button variant="dark">등록</b-button>
+            <b-button variant="dark" @click="add">등록</b-button>
           </b-col>
         </b-row>
       </b-card>
@@ -124,6 +125,12 @@
 export default {
   data() {
     return {
+      p_name:"",
+      p_price:0,
+      p_amount:0,
+      m_idx:"",
+      p_info:"",
+      file:null,
       selected: null,
       options: [
         { value: null, text: "카테고리를 선택해주세요" },
@@ -166,6 +173,34 @@ export default {
     this.startLoading();
   },
   methods: {
+    add:function(){
+      const self = this;
+      var p_category = this.selected;
+      alert(self.$refs.file.files.length);
+      self.m_idx = sessionStorage.getItem("m_idx");
+      const form = new FormData();
+      form.append('p_name', self.p_name);
+      form.append('p_price', self.p_price);
+      form.append('p_amount', self.p_amount);
+      form.append('p_category', p_category);
+      form.append('m_idx', self.m_idx);
+      for( var i = 0; i < self.$refs.file.files.length; i++ ){
+        let file = self.$refs.file.files[i];
+        form.append('file[' + i + ']', file);
+    }
+      form.append('p_info', self.p_info);
+      self.$axios.post('/products',form, {
+        headers:{
+          'Content-Type':'multipart/form-data'
+        }
+      }).then(function(res){
+        if(res.data.result){
+          alert('success');
+        }else{
+          alert('fail');
+        }
+      });
+    },
     clearLoadingTimeInterval() {
       clearInterval(this.$_loadingTimeInterval);
       this.$_loadingTimeInterval = null;
@@ -180,7 +215,7 @@ export default {
         : `${files.length} files selected`;
     },
     clearFiles() {
-      this.$refs.fileinput.reset();
+      this.$refs.file.reset();
     }
   }
 };
