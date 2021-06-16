@@ -87,9 +87,10 @@
           </b-col>
           <b-col sm="7">
             <b-form-file
-              multiple
-              :file-name-formatter="formatNames"
-              ref="fileinput"
+              v-model="file"
+              multiple :file-name-formatter="formatNames"
+              type="file"
+              ref="file"
               placeholder="Choose a file or drop it here..."
             ></b-form-file>
           </b-col>
@@ -127,7 +128,7 @@ export default {
       p_name:"",
       p_price:0,
       p_amount:0,
-      m_idx:'',
+      m_idx:"",
       p_info:"",
       file:null,
       selected: null,
@@ -173,7 +174,32 @@ export default {
   },
   methods: {
     add:function(){
-      alert()
+      const self = this;
+      var p_category = this.selected;
+      alert(self.$refs.file.files.length);
+      self.m_idx = sessionStorage.getItem("m_idx");
+      const form = new FormData();
+      form.append('p_name', self.p_name);
+      form.append('p_price', self.p_price);
+      form.append('p_amount', self.p_amount);
+      form.append('p_category', p_category);
+      form.append('m_idx', self.m_idx);
+      for( var i = 0; i < self.$refs.file.files.length; i++ ){
+        let file = self.$refs.file.files[i];
+        form.append('file[' + i + ']', file);
+    }
+      form.append('p_info', self.p_info);
+      self.$axios.post('/products',form, {
+        headers:{
+          'Content-Type':'multipart/form-data'
+        }
+      }).then(function(res){
+        if(res.data.result){
+          alert('success');
+        }else{
+          alert('fail');
+        }
+      });
     },
     clearLoadingTimeInterval() {
       clearInterval(this.$_loadingTimeInterval);
@@ -189,7 +215,7 @@ export default {
         : `${files.length} files selected`;
     },
     clearFiles() {
-      this.$refs.fileinput.reset();
+      this.$refs.file.reset();
     }
   }
 };

@@ -11,11 +11,11 @@ public class ProductService {
 	@Autowired
 	private ProductDao dao;
 	
-	public void join(Product p) {
-		dao.insert(p);
+	public int join(Product p) {
+		 return dao.insert(p);
 	}
-	public Product getProduct(String p_name) {
-		return dao.select(p_name);
+	public Product getProduct(int p_idx) {
+		return dao.select(p_idx);
 	}
 	public void editProduct(Product p) {
 		dao.update(p);
