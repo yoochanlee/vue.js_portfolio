@@ -18,6 +18,7 @@ import CouponbPage from '../components/page/couponb'
 import MyPageqaPage from '../components/page/mypageqa'
 import Productre from '../components/page/productre'
 import ProductEdit from '../components/page/productedit'
+import AditPage from '../components/page/adit'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,7 @@ export default new VueRouter({
     { path: '/Couponb', component: CouponbPage },
     { path: '/MyPageqa', component: MyPageqaPage },
     { path: '/Oi', component: OiPage },
+    { path: '/Adit', component: AditPage },
     { path: '/Qa', component: QaPage },
     { path: '/productjoin', component: Productre },
     { path: '/productedit', component: ProductEdit },
