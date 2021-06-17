@@ -1,5 +1,7 @@
 package com.example.demo.product;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -20,8 +22,8 @@ public interface ProductDao {
 			@Select("select * from s_product where p_idx=#{p_idx}")
 			Product select(@Param("p_idx") int p_idx);
 
-			@Select("select * from s_product where m_idx=#{m_idx}")
-			Product select1(@Param("m_idx") int m_idx);
+			@Select("select * from s_product")
+			ArrayList<Product> getAll();
 			// 상품 수정 
 			@Update("update s_product set p_name=#{p_name}, p_category=#{p_category}, p_price=#{p_price}, p_amount=#{p_amount}, p_img=#{p_img}, p_info=#{p_info}"
 					+ "  where p_idx=#{p_idx}")

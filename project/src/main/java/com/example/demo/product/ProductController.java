@@ -1,6 +1,7 @@
 package com.example.demo.product;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,13 +74,6 @@ public class ProductController {
 	public Map editProduct(Product p) {
 		Map map = new HashMap();
 		Product pp = service.getProduct(p.getP_idx());
-		pp.setP_name(p.getP_name());
-		pp.setP_price(p.getP_price());
-		pp.setP_amount(p.getP_amount());
-		pp.setP_category(p.getP_category());
-		pp.setP_info(p.getP_info());
-		pp.setP_img(p.getP_img());
-		
 		boolean result = true;
 		try {
 			service.editProduct(pp);
@@ -91,15 +85,15 @@ public class ProductController {
 		return map;
 	}
 	
-	@GetMapping("/{m_idx}")
-	public Map getProduct1(@PathVariable("m_idx") int m_idx) {
+	@GetMapping("")
+	public Map getAll() {
 		Map map = new HashMap();
 		boolean result = false;
-		Product p = null;
+		ArrayList<Product> p = null;
 		try {
-			p = service.getProduct1(m_idx);
+			p = service.getAll();
 			if (p != null) {
-				result = true;
+				result = true;				
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

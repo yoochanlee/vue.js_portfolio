@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h2 style="border-bottom:2px solid #000; text-align:center;">상품 수정</h2>
-		<button v-on:click="del">삭제</button>
+		<button>삭제</button>
 		<div class=body>
 			<table>
 				<tr>
@@ -14,23 +14,22 @@
 				</tr>
 				<tr>
 					<td>
-						 <img  :v-model="p.file" src="">
+						 <img :v-model="p.p_img">
 					</td>
 					<td>
-						<input type="text" name="p_name" id="p_name" v-model="p.p_name">
+						<input type="text" name="p_name" v-model="p.p_name">
 					</td>
 					<td>
-						<input thpe="text" name="p_price" id="p_price" v-model="p.p_price">
+						<input thpe="text" name="p_price" v-model="p.p_price">
 					</td>
 					<td>
-						<input thpe="text" name="p_amount" id="p_amount" v-model="p.p_amount">
+						<input thpe="text" name="p_amount" v-model="p.p_amount">
 					</td>
 					<td>
-						<input thpe="text" name="p_category" id="p_category" v-model="p.p_category">
+						<input thpe="text" name="p_category" v-model="p.p_category">
 					</td>
 					<td>
-						<input thpe="text" name="p_info" id="p_info" v-model="p.p_info">
-						<input type="hidden" name="m_idx" id="tel" class="box" v-model="p.m_idx"/>
+						<input thpe="text" name="p_info" v-model="p.p_info">
 					</td>
 				</tr>
 			</table>
@@ -42,17 +41,15 @@
 export default {
 	data(){
 		return{
-		p:null,
+		p:null
 		}
 	},
 	created:function() {	
-    const self = this;
-	self.m_idx = sessionStorage.getItem("m_idx");
-	alert(this.m_idx);
-    this.$axios.get('/products/' + self.m_idx)
+	const self = this;
+	this.$axios.get('/products/')
       .then(function(res) {
         if (res.data.result) {
-          self.p = res.data.p;
+		  self.p = res.data.p;
         }
       });
   }
