@@ -83,22 +83,6 @@
         </b-row>
         <b-row class="my-1">
           <b-col sm="1">
-            <label for="p_img">이미지파일</label>
-          </b-col>
-          <b-col sm="7">
-            <b-form-file
-              multiple
-              :file-name-formatter="formatNames"
-              ref="fileinput"
-              placeholder="Choose a file or drop it here..."
-            ></b-form-file>
-          </b-col>
-          <b-col sm="1">
-            <b-button @click="clearFiles">Reset</b-button>
-          </b-col>
-        </b-row>
-        <b-row class="my-1">
-          <b-col sm="1">
             <label for="textarea-auto-height">상품정보</label>
           </b-col>
           <b-col sm="8">

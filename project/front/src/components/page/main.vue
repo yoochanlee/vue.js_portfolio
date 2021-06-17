@@ -18,23 +18,19 @@
         <p style="text-align: center">베스트 상품</p>
       </div>
     </div>
-    <div class="main_list">
-      <div class="img_mid">
-        <div class="img_cut" v-for="person in people" v-bind:key="person.id">
+        <div style="display:inline;" v-for="p in list" v-bind:key="p.p_idx">
           <a href="/list_view">
             <img
-              class="img_s"
-              :src="person.profileUrl"
+              class="img"
+              :src='p.path'
             />
           </a>
-          <div class="img_cut2">
-            <div>남자 바지</div>
-            <div>4color</div>
+           <div class="img_cut2">
+            <div>{{p.p_name}}</div>
+            <div>{{p.p_idx}}</div>
             <div>25,300</div>
           </div>
-        </div>
-      </div>
-    </div>
+        </div> 
   </div>
 </template>
 
@@ -46,24 +42,7 @@ export default {
   },
   data() {
     return {
-		people: [
-        {
-          // ... 생략
-          profileUrl: require("../../assets/img/123.jpg")
-		},
-		{
-          // ... 생략
-          profileUrl: require("../../assets/img/123.jpg")
-		},
-		{
-          // ... 생략
-          profileUrl: require("../../assets/img/123.jpg")
-		},
-		{
-          // ... 생략
-          profileUrl: require("../../assets/img/123.jpg")
-		}
-		],
+    list: [],
       swiperOption: {
         slidesPerView: 3,
         centeredSlides: false,
@@ -82,7 +61,24 @@ export default {
         }
       }
     };
+  },
+  created: function() {
+    const self = this;
+    self.$axios.get('/products')
+      .then(function(res) {
+        if (res.data.result) {
+          self.list = res.data.list;
+          var i=0;
+          for(i=0;i<self.list.length;i++){
+            self.list[i].path = 'http://localhost:8888/products/img/' + self.list[i].p_img;
+          }
+        } else {
+          alert('fail');
+        }
+      });
+
   }
+
 };
 </script>
 
@@ -143,14 +139,6 @@ body {
   height: 100%;
   object-fit: cover;
 }
-.main_list {
-  overflow: visible;
-  padding: 0 0 80px;
-  margin: 0 48px;
-  margin-right: 1px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: none;
-}
 .main-container {
   display: block;
   background: white;
@@ -158,37 +146,11 @@ body {
   height: 100%;
   box-sizing: border-box;
 }
-/* 중간 이미지 */
-.img_mid {
-  display: inline-bolck;
-  margin: 10px auto;
-  width: 100%;
-  height: 630px;
-  box-sizing: border-box;
-  text-align: center;
-  background: white;
-}
-/* 중간 이미지 세로 분할 */
-.img_cut {
-  display: inline-bolck;
-  float: left;
-  width: 20%;
-  height: 80%;
-  box-sizing: border-box;
-  margin: 0px 35px;
-}
-/* 중간 이미지 가로 분할 */
-.img_cut2 {
+.img {
   display: bolck;
-  width: 100%;
-  height: 15%;
-  box-sizing: border-box;
-}
-/* 중간 이미지 */
-.img_s {
-  display: bolck;
-  width: 90%;
+  width: 22%;
   height: 60%;
   box-sizing: border-bod;
+  margin: 20px 20px;
 }
 </style>

@@ -1,5 +1,7 @@
 package com.example.demo.product;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -15,6 +17,8 @@ public interface ProductDao {
 			@SelectKey(statement="select product_seq.currval FROM DUAL", keyProperty="p_idx", before=false, resultType=int.class)
 			public int insert(Product p);
 			
+			@Select("select * from s_product order by p_idx")
+			ArrayList<Product> selectAll();
 			
 			// 상품 1개 검색
 			@Select("select * from s_product where p_idx=#{p_idx}")

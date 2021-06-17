@@ -1,5 +1,7 @@
 package com.example.demo.product;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,9 @@ public class ProductService {
 	
 	public int join(Product p) {
 		 return dao.insert(p);
+	}
+	public ArrayList<Product> getAll(){
+		return dao.selectAll();
 	}
 	public Product getProduct(int p_idx) {
 		return dao.select(p_idx);
