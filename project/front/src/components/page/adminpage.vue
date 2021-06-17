@@ -18,12 +18,14 @@
         <span class="font">상품수정</span>
       </div>
       </router-link>
+      <router-link to="/adit">
       <div class="a">
         <div>
           <b-icon icon="envelope-fill" style="width: 80px; height: 80px;"></b-icon>
         </div>
         <span class="font">메일</span>
       </div>
+      </router-link>
       <div class="a">
         <div>
           <b-icon icon="pencil-square" style="width: 80px; height: 80px;"></b-icon>

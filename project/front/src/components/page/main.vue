@@ -18,19 +18,120 @@
         <p style="text-align: center">베스트 상품</p>
       </div>
     </div>
-        <div style="display:inline;" v-for="p in list" v-bind:key="p.p_idx">
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='BAG'">
           <a href="/list_view">
             <img
               class="img"
-              :src='p.path'
+              :src="p.path"
             />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
           </a>
-           <div class="img_cut2">
-            <div>{{p.p_name}}</div>
-            <div>{{p.p_idx}}</div>
-            <div>25,300</div>
           </div>
-        </div> 
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">OUTER</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='OUTER'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">TOP</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='TOP'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">SHIRTS</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='SHIRTS'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">PANTS</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='PANTS'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">SHOES</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='SHOES'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">BAG</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='BAG'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
   </div>
 </template>
 
@@ -70,7 +171,8 @@ export default {
           self.list = res.data.list;
           var i=0;
           for(i=0;i<self.list.length;i++){
-            self.list[i].path = 'http://localhost:8888/products/img/' + self.list[i].p_img;
+            var imgarr = self.list[i].p_img.split('/');
+            self.list[i].path = 'http://localhost:8888/products/img/' + imgarr[0];
           }
         } else {
           alert('fail');
@@ -86,6 +188,16 @@ export default {
 
 
 <style>
+p{
+  
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  
+}
 html,
 body {
   position: relative;
@@ -146,10 +258,25 @@ body {
   height: 100%;
   box-sizing: border-box;
 }
+
 .img {
   display: bolck;
   width: 22%;
   height: 60%;
+}
+.img_box{
+  display: inline-block;
+  width: 22%;
+  height:360px;
+  margin: 20px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.img {
+  display: inline-block;
+  width: 100%;
+  height: 300px;
   box-sizing: border-bod;
   margin: 20px 20px;
 }
