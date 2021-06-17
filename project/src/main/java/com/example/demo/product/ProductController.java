@@ -1,6 +1,9 @@
 package com.example.demo.product;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,11 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -55,9 +61,9 @@ public class ProductController {
 			ff = new File(base_path + pp.getP_idx()+i+str[i]);			
 			f[i].transferTo(ff);
 		    sb.append(ff.getName());
-		    if (i < f.length-1) {
-		    	sb.append("/");				
-			}
+		    if(i<f.length-1) {
+		    	sb.append("/");		    	
+		    }
 			}
 			pp.setP_img(sb.toString());
 			service.editProduct(pp);
@@ -68,45 +74,35 @@ public class ProductController {
 		map.put("result", result);
 		return map;
 	}
-	
-	@PutMapping("")
-	public Map editProduct(Product p) {
+	@GetMapping("")
+	public Map getAll() {
 		Map map = new HashMap();
-		Product pp = service.getProduct(p.getP_idx());
-		pp.setP_name(p.getP_name());
-		pp.setP_price(p.getP_price());
-		pp.setP_amount(p.getP_amount());
-		pp.setP_category(p.getP_category());
-		pp.setP_info(p.getP_info());
-		pp.setP_img(p.getP_img());
-		
 		boolean result = true;
+		ArrayList<Product> list = null;
 		try {
-			service.editProduct(pp);
+		 list = service.getAll();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			result = false;
 		}
 		map.put("result", result);
+		map.put("list", list);
 		return map;
 	}
-	
-	@GetMapping("/{m_idx}")
-	public Map getProduct1(@PathVariable("m_idx") int m_idx) {
-		Map map = new HashMap();
-		boolean result = false;
-		Product p = null;
+	@GetMapping("/img/{img}")
+	public ResponseEntity<byte[]> img(@PathVariable("img") String p_img) {
+		File f = new File(base_path + p_img);
+		HttpHeaders header = new HttpHeaders();
+		ResponseEntity<byte[]> result = null;
+
 		try {
-			p = service.getProduct1(m_idx);
-			if (p != null) {
-				result = true;
-			}
-		} catch (Exception e) {
+			header.add("Content-Type", Files.probeContentType(f.toPath()));// 이 페이지의 마임타입 지정
+			result = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f), header, HttpStatus.OK);
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		map.put("result", result);
-		map.put("p", p);
-		return map;
+		return result;
 	}
 }

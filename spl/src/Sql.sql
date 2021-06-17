@@ -35,7 +35,7 @@ ALTER TABLE s_product MODIFY (p_img DEFAULT 'nofile');
 ADD CONSTRAINTS s_member_fk FOREIGN KEY (m_idx) 
 
 REFERENCES s_member(m_idx);
-select * from s_product;
+select * from s_product order by p_idx;
 INSERT INTO s_member (컬럼1, 컬럼2, 컬럼3......) 
 VALUES (값1, 값2, 값3......)
 ALTER TABLE s_member MODIFY(m_addr VARCHAR2(4000));

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header/>
+    <main>
         <router-view ></router-view>
+    </main>
     <Footer></Footer>
   </div>
 </template>
@@ -49,3 +51,12 @@ export default {
   }   
 }
 </script>
+<style scoped>
+Header {
+height: 263px;
+}
+main {
+background: #ffffff;
+min-height: 100%;
+}
+</style>
