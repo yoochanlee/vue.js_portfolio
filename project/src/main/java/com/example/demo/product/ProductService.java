@@ -14,8 +14,11 @@ public class ProductService {
 	public int join(Product p) {
 		 return dao.insert(p);
 	}
-	public Product getProduct(int p_idx) {
-		return dao.select(p_idx);
+	public Product getProduct(int m_idx) {
+		return dao.select(m_idx);
+	}
+	public Product getProduct1(int m_idx) {
+		return dao.select1(m_idx);
 	}
 	public void editProduct(Product p) {
 		dao.update(p);

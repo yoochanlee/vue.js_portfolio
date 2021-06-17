@@ -18,23 +18,18 @@
         <p style="text-align: center">베스트 상품</p>
       </div>
     </div>
-    <div class="main_list">
-      <div class="img_mid">
-        <div class="img_cut" v-for="person in people" v-bind:key="person.id">
+        <div style="display: inline;" v-for="person in people" v-bind:key="person.id">
+          <div class=img_box>
           <a href="/list_view">
             <img
-              class="img_s"
+              class="img"
               :src="person.profileUrl"
             />
+            <p>가격ddd <br/>
+              금액</p>
           </a>
-          <div class="img_cut2">
-            <div>남자 바지</div>
-            <div>4color</div>
-            <div>25,300</div>
           </div>
         </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -48,6 +43,10 @@ export default {
     return {
 		people: [
         {
+          // ... 생략
+          profileUrl: require("../../assets/img/123.jpg")
+		},
+		{
           // ... 생략
           profileUrl: require("../../assets/img/123.jpg")
 		},
@@ -90,6 +89,16 @@ export default {
 
 
 <style>
+p{
+  
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  
+}
 html,
 body {
   position: relative;
@@ -143,14 +152,6 @@ body {
   height: 100%;
   object-fit: cover;
 }
-.main_list {
-  overflow: visible;
-  padding: 0 0 80px;
-  margin: 0 48px;
-  margin-right: 1px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: none;
-}
 .main-container {
   display: block;
   background: white;
@@ -158,37 +159,19 @@ body {
   height: 100%;
   box-sizing: border-box;
 }
-/* 중간 이미지 */
-.img_mid {
-  display: inline-bolck;
-  margin: 10px auto;
-  width: 100%;
-  height: 630px;
+.img_box{
+  display: inline-block;
+  width: 22%;
+  height:360px;
+  margin: 20px 20px;
   box-sizing: border-box;
   text-align: center;
-  background: white;
 }
-/* 중간 이미지 세로 분할 */
-.img_cut {
-  display: inline-bolck;
-  float: left;
-  width: 20%;
-  height: 80%;
-  box-sizing: border-box;
-  margin: 0px 35px;
-}
-/* 중간 이미지 가로 분할 */
-.img_cut2 {
-  display: bolck;
+
+.img {
+  display: inline-block;
   width: 100%;
-  height: 15%;
-  box-sizing: border-box;
-}
-/* 중간 이미지 */
-.img_s {
-  display: bolck;
-  width: 90%;
-  height: 60%;
+  height: 300px;
   box-sizing: border-bod;
 }
 </style>

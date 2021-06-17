@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -86,6 +88,25 @@ public class ProductController {
 			result = false;
 		}
 		map.put("result", result);
+		return map;
+	}
+	
+	@GetMapping("/{m_idx}")
+	public Map getProduct1(@PathVariable("m_idx") int m_idx) {
+		Map map = new HashMap();
+		boolean result = false;
+		Product p = null;
+		try {
+			p = service.getProduct1(m_idx);
+			if (p != null) {
+				result = true;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		map.put("result", result);
+		map.put("p", p);
 		return map;
 	}
 }
