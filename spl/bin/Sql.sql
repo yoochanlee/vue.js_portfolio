@@ -17,6 +17,44 @@ create table s_member
 	
 
 );
+
+
+
+	
+	
+	
+	
+	
+	
+	private boolean out_flag;// 출고유무
+	
+create table s_cart
+(	
+	c_idx number , 
+	m_idx number ,
+	p_idx number ,
+	c_amount number ,
+	c_pay number ,
+	c_date date ,
+	c_deliver number 	
+
+);	
+ALTER TABLE s_cart ADD CONSTRAINT s_cart_pk PRIMARY KEY (c_idx);
+
+ALTER TABLE s_cart
+ADD CONSTRAINTS s_member_fk1 FOREIGN KEY (m_idx) 
+REFERENCES s_member(m_idx);
+
+ALTER TABLE s_cart
+ADD CONSTRAINTS s_product_fk FOREIGN KEY (p_idx) 
+REFERENCES s_product(p_idx); 
+
+ALTER TABLE 테이블명 
+ADD CONSTRAINTS 외래키 이름 FOREIGN KEY (참조컬럼) 
+REFERENCES 참조 테이블명(참조컬럼)
+
+
+
 insert into s_member values(member_seq.NEXTVAL,'admin','admin','admin',2,'admin@gmail.com','010-1235-1235','admin address');
 create table s_product
 (
@@ -29,12 +67,9 @@ create table s_product
 	p_info varchar2(3000) not null
 );
 select product_seq.currval FROM DUAL;
-ALTER TABLE s_product
 ALTER TABLE s_product MODIFY (p_img DEFAULT 'nofile');
 delete from s_product where p_img = '59.jpg';
 
-ADD CONSTRAINTS s_member_fk FOREIGN KEY (m_idx) 
-REFERENCES s_member(m_idx); 
 select * from s_product order by p_idx;
 INSERT INTO s_member (컬럼1, 컬럼2, 컬럼3......) 
 VALUES (값1, 값2, 값3......)
@@ -46,7 +81,6 @@ ALTER TABLE s_member MODIFY (m_pwd NOT NULL);
 ALTER TABLE s_member MODIFY (m_grade NOT NULL);
 ALTER TABLE s_member MODIFY (m_phone NOT NULL);
 ALTER TABLE s_member MODIFY (m_addr NOT NULL);
-ALTER TABLE s_product ADD CONSTRAINT s_product_pk PRIMARY KEY (p_idx);
 
 
  */
