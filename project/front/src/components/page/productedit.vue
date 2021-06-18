@@ -2,7 +2,7 @@
   <div class="admin-container">
     <div class="admin-head">
       <b-jumbotron bg-variant="gray" text-variant="black" border-variant="dark">
-        <template #header>Product Edit!</template>
+        <template #header>Product Register!</template>
 
         <template #lead>
           <div>
@@ -53,7 +53,7 @@
             <label for="input-default">상품이름</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input id="input-default" placeholder="Enter product name" v-model="p_name"></b-form-input>
+            <b-form-input id="input-default" placeholder="Enter product name" v-model="p.p_name"></b-form-input>
           </b-col>
         </b-row>
 
@@ -62,7 +62,7 @@
             <label for="price">상품가격</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input type="number" id="price" placeholder="Enter product price" v-model="p_price"></b-form-input>
+            <b-form-input type="number" id="price" placeholder="Enter product price" v-model="p.p_price"></b-form-input>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -70,7 +70,7 @@
             <label for="amount">상품수량</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input type="number" id="amount" placeholder="Enter product amount" v-model="p_amount"></b-form-input>
+            <b-form-input type="number" id="amount" placeholder="Enter product amount" v-model="p.p_amount"></b-form-input>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -78,7 +78,7 @@
             <label for="p_img">카테고리</label>
           </b-col>
           <b-col sm="7">
-            <b-form-select v-model="p_category" :options="options" size="lg" class="mt-3"></b-form-select>
+            <b-form-select v-model="p.p_category" :options="options" size="lg" class="mt-3"></b-form-select>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -108,14 +108,14 @@
               placeholder="Enter Product info"
               rows="3"
               max-rows="8"
-            v-model="p_info"></b-form-textarea>
+            v-model="p.p_info"></b-form-textarea>
           </b-col>
         </b-row>
         <b-row class="my-1">
           <b-col lg="5" sm="1">
             <b-button variant="dark" style="margin-right:10px;">뒤로</b-button>
 
-            <b-button variant="dark" @click="edit1">등록</b-button>
+            <b-button variant="dark">등록</b-button>
           </b-col>
         </b-row>
       </b-card>
@@ -126,6 +126,12 @@
 export default {
   data() {
     return {
+      p_name:"",
+      p_price:0,
+      p_amount:0,
+      m_idx:"",
+      p_info:"",
+      file:null,
       selected: null,
       options: [
         { value: null, text: "카테고리를 선택해주세요" },
@@ -141,11 +147,22 @@ export default {
       maxLoadingTime: 3
     };
   },
+    created:function() {
+    const self = this;
+    self.p_idx = sessionStorage.getItem("p_idx");
+    this.$axios.get('/produts/' + self.p_idx)
+      .then(function(res) {
+        if (res.data.result) {
+          self.p = res.data.p;
+          alert(self.p_idx);
+          alert(self.p);
+        }
+      });
+  },
   watch: {
     loading(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.clearLoadingTimeInterval();
-
         if (newValue) {
           this.$_loadingTimeInterval = setInterval(() => {
             this.loadingTime++;
@@ -168,21 +185,7 @@ export default {
     this.startLoading();
   },
   methods: {
-    edit1:function(){
-      const form = new URLSearchParams();
-      form.append('p_name', self.p_name);
-      alert(this.p_name);
-      form.append('p_price', self.p_price);
-      form.append('p_amount', self.p_amount);
-      form.append('p_info', self.p_info);
-      this.$axios.put('/product/' + this.p.p_idx, form)
-      .then(res => {
-        if(res.data.result){
-          this.$router.go(this.$router.push('/mypage'));
-          alert('ok');
-        }
-        alert('no');
-      });
+    
     },
     clearLoadingTimeInterval() {
       clearInterval(this.$_loadingTimeInterval);
@@ -198,9 +201,8 @@ export default {
         : `${files.length} files selected`;
     },
     clearFiles() {
-      this.$refs.fileinput.reset();
+      this.$refs.file.reset();
     }
-  }
 };
 </script>
 <style scoped>

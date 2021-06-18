@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header/>
+    <main>
         <router-view ></router-view>
+    </main>
     <Footer></Footer>
   </div>
 </template>
@@ -35,6 +37,12 @@ export default {
     }else {
       this.login_flag=false;
     }
+    var p_idx = sessionStorage.getItem("p_idx");
+    if(p_idx=='' || p_idx==null){
+      this.login_flag=true;
+    }else {
+      this.login_flag=false;
+    }
   },
   methods:{
     setflag:function(flag){
@@ -49,3 +57,12 @@ export default {
   }   
 }
 </script>
+<style scoped>
+Header {
+height: 263px;
+}
+main {
+background: #ffffff;
+min-height: 100%;
+}
+</style>

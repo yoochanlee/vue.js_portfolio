@@ -18,15 +18,117 @@
         <p style="text-align: center">베스트 상품</p>
       </div>
     </div>
-        <div style="display: inline;" v-for="person in people" v-bind:key="person.id">
-          <div class=img_box>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='BAG'">
           <a href="/list_view">
             <img
               class="img"
-              :src="person.profileUrl"
+              :src="p.path"
             />
-            <p>가격ddd <br/>
-              금액</p>
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">OUTER</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='OUTER'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">TOP</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='TOP'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">SHIRTS</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='SHIRTS'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">PANTS</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='PANTS'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">SHOES</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='SHOES'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
+          </a>
+          </div>
+        </div>
+        <div>
+      <div>
+        <p style="text-align: center">BAG</p>
+      </div>
+    </div>
+        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+          <div class=img_box v-if="p.p_category=='BAG'">
+          <a href="/list_view">
+            <img
+              class="img"
+              :src="p.path"
+            />
+            <p>{{p.p_name}} <br/>
+              {{p.p_price}}</p>
           </a>
           </div>
         </div>
@@ -41,28 +143,7 @@ export default {
   },
   data() {
     return {
-		people: [
-        {
-          // ... 생략
-          profileUrl: require("../../assets/img/123.jpg")
-		},
-		{
-          // ... 생략
-          profileUrl: require("../../assets/img/123.jpg")
-		},
-		{
-          // ... 생략
-          profileUrl: require("../../assets/img/123.jpg")
-		},
-		{
-          // ... 생략
-          profileUrl: require("../../assets/img/123.jpg")
-		},
-		{
-          // ... 생략
-          profileUrl: require("../../assets/img/123.jpg")
-		}
-		],
+    list: [],
       swiperOption: {
         slidesPerView: 3,
         centeredSlides: false,
@@ -81,7 +162,25 @@ export default {
         }
       }
     };
+  },
+  created: function() {
+    const self = this;
+    self.$axios.get('/products')
+      .then(function(res) {
+        if (res.data.result) {
+          self.list = res.data.list;
+          var i=0;
+          for(i=0;i<self.list.length;i++){
+            var imgarr = self.list[i].p_img.split('/');
+            self.list[i].path = 'http://localhost:8888/products/img/' + imgarr[0];
+          }
+        } else {
+          alert('fail');
+        }
+      });
+
   }
+
 };
 </script>
 
@@ -159,6 +258,12 @@ body {
   height: 100%;
   box-sizing: border-box;
 }
+
+.img {
+  display: bolck;
+  width: 22%;
+  height: 60%;
+}
 .img_box{
   display: inline-block;
   width: 22%;
@@ -173,5 +278,6 @@ body {
   width: 100%;
   height: 300px;
   box-sizing: border-bod;
+  margin: 20px 20px;
 }
 </style>
