@@ -40,7 +40,7 @@
       </b-jumbotron>
     </div>
     <div class="product-join">
-      <b-card bg-variant="white">
+      <b-card bg-variant="white" style="margin-top : 100px;">
         <b-form-group
           label-cols-lg="3"
           label="상품등록"
@@ -53,7 +53,7 @@
             <label for="input-default">상품이름</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input id="input-default" placeholder="Enter product name" v-model="p_name"></b-form-input>
+            <b-form-input id="input-default" placeholder="Enter product name" v-model="p.p_name"></b-form-input>
           </b-col>
         </b-row>
 
@@ -62,7 +62,12 @@
             <label for="price">상품가격</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input type="number" id="price" placeholder="Enter product price" v-model="p_price"></b-form-input>
+            <b-form-input
+              type="number"
+              id="price"
+              placeholder="Enter product price"
+              v-model="p.p_price"
+            ></b-form-input>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -70,7 +75,12 @@
             <label for="amount">상품수량</label>
           </b-col>
           <b-col sm="8">
-            <b-form-input type="number" id="amount" placeholder="Enter product amount" v-model="p_amount"></b-form-input>
+            <b-form-input
+              type="number"
+              id="amount"
+              placeholder="Enter product amount"
+              v-model="p.p_amount"
+            ></b-form-input>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -78,24 +88,7 @@
             <label for="p_img">카테고리</label>
           </b-col>
           <b-col sm="7">
-            <b-form-select v-model="p_category" :options="options" size="lg" class="mt-3"></b-form-select>
-          </b-col>
-        </b-row>
-        <b-row class="my-1">
-          <b-col sm="1">
-            <label for="p_img">이미지파일</label>
-          </b-col>
-          <b-col sm="7">
-            <b-form-file
-              v-model="file"
-              multiple :file-name-formatter="formatNames"
-              type="file"
-              ref="file"
-              placeholder="Choose a file or drop it here..."
-            ></b-form-file>
-          </b-col>
-          <b-col sm="1">
-            <b-button @click="clearFiles">Reset</b-button>
+            <b-form-select v-model="p.p_category" :options="options" size="lg" class="mt-3"></b-form-select>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -108,14 +101,15 @@
               placeholder="Enter Product info"
               rows="3"
               max-rows="8"
-            v-model="p_info"></b-form-textarea>
+              v-model="p.p_info"
+            ></b-form-textarea>
           </b-col>
         </b-row>
         <b-row class="my-1">
           <b-col lg="5" sm="1">
-            <b-button variant="dark" style="margin-right:10px;">뒤로</b-button>
+            <b-button variant="dark"  v-on:click="del" style="margin-right:10px;">삭제</b-button>
 
-            <b-button variant="dark" @click="edit1">등록</b-button>
+            <b-button variant="dark" v-on:click="edit">수정</b-button>
           </b-col>
         </b-row>
       </b-card>
@@ -126,7 +120,8 @@
 export default {
   data() {
     return {
-      selected: null,
+      num:this.$route.params.num,
+      p_category: null,
       options: [
         { value: null, text: "카테고리를 선택해주세요" },
         { value: "OUTER", text: "OUTER" },
@@ -161,27 +156,46 @@ export default {
       }
     }
   },
-  created() {
+  created: function() {
+    const self = this;
+    self.$axios.get("/products/" + self.num).then(function(res) {
+      if (res.data.result && res.data.p != null) {
+        self.p = res.data.p;
+      } else {
+        alert("fail");
+      }
+    });
     this.$_loadingTimeInterval = null;
   },
   mounted() {
     this.startLoading();
   },
   methods: {
-    edit1:function(){
+    edit:function(){
       const form = new URLSearchParams();
-      form.append('p_name', self.p_name);
-      alert(this.p_name);
-      form.append('p_price', self.p_price);
-      form.append('p_amount', self.p_amount);
-      form.append('p_info', self.p_info);
-      this.$axios.put('/product/' + this.p.p_idx, form)
+			form.append('p_name', this.p.p_name);
+      form.append('p_price', this.p.p_price);
+      form.append('p_amount', this.p.p_amount);
+      form.append('p_category', this.p.p_category);
+      form.append('p_info', this.p.p_info);
+			this.$axios.put('/products/'+this.p.p_idx, form)
+			.then(res => {
+        if(res.data.result){
+          this.$router.go(this.$router.push('/Adit'));
+        }else{
+          alert('fail');
+        }
+      });
+    },
+    del:function(){
+      this.$axios.delete('/products/'+this.p.p_idx)
       .then(res => {
         if(res.data.result){
-          this.$router.go(this.$router.push('/mypage'));
-          alert('ok');
+          alert(res.data.result);
+          this.$router.go(this.$router.push('/Adit'));
+        }else{
+          alert('fail');
         }
-        alert('no');
       });
     },
     clearLoadingTimeInterval() {
@@ -205,7 +219,7 @@ export default {
 </script>
 <style scoped>
 .col-lg-5 {
-    margin: auto;
+  margin: auto;
 }
 .mt-3 {
   margin-top: 0 !important;

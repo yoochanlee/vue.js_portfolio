@@ -42,7 +42,7 @@ export default new VueRouter({
     { path: '/Adit', component: AditPage },
     { path: '/Qa', component: QaPage },
     { path: '/productjoin', component: Productre },
-    { path: '/productedit', component: ProductEdit },
+    { path: '/productedit', name: 'ProductEdit', component: ProductEdit, props:true },
     { path: '/', name: 'Main', component: Mainpage }
 
   ]

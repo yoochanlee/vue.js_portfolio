@@ -17,9 +17,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -104,5 +106,47 @@ public class ProductController {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	@GetMapping("/{num}")
+	public Map getProduct(@PathVariable("num") int num) {
+		Map map = new HashMap();
+		boolean result = true;
+		Product p = null;
+		try {
+			p = service.getProduct(num);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = false;
+		}
+		map.put("result", result);
+		map.put("p", p);
+		return map;
+	}
+	@PutMapping("/{p_idx}")
+	public Map editProduct(Product p) {
+		Map map = new HashMap();
+		boolean result = true;
+		try {
+			service.editProduct(p);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = false;
+		}
+		map.put("result", result);
+		return map;
+	}
+	@DeleteMapping("/{p_idx}")//삭제. json반환(처리결과(result:true/false))
+	public Map delMember(@PathVariable("p_idx") int p_idx) {
+		Map map = new HashMap();
+		boolean result = false;
+		try {
+			service.delProduct(p_idx);
+			result = true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		map.put("result", result);
+		return map;
 	}
 }
