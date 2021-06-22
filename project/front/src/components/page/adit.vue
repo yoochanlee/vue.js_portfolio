@@ -9,7 +9,6 @@
           <th>상품가격</th>
           <th>상품수량</th>
           <th>카테고리</th>
-          <th>상품정보</th>
           <th>수정</th>
         </tr>
         <tr v-for="p in list" v-bind:key="p.p_idx">
@@ -29,16 +28,12 @@
             {{p.p_category}}
           </td>
           <td>
-            {{p.p_info}}
-          </td>
-          <td>
               <button class="btn btn-primary" v-on:click="edit(p.p_idx)">수정</button>
           </td>
         </tr>
       </table>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -63,7 +58,6 @@ export default {
           alert('fail');
         }
       });
-
   },
   methods:{
     edit:function(num){
@@ -97,7 +91,7 @@ table {
   text-align: center;
 }
 th {
-  width: 13%;
+  width: 16%;
   height: 20px;
   box-sizing: border-box;
   border: 1px solid #000;
@@ -105,12 +99,11 @@ th {
   font-weight: bold;
 }
 td {
-  width: 13%;
+  width: 16%;
   border: 1px solid #000;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-
 }
 .body {
   display: block;
