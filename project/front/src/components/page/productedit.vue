@@ -180,7 +180,7 @@ export default {
 			this.$axios.put('/products/'+this.p.p_idx, form)
 			.then(res => {
         if(res.data.result){
-          this.$router.go(this.$router.push('/Adit'));
+          this.$router.push(this.$router.push('/Adit'));
         }else{
           alert('fail');
         }
@@ -190,8 +190,7 @@ export default {
       this.$axios.delete('/products/'+this.p.p_idx)
       .then(res => {
         if(res.data.result){
-          alert(res.data.result);
-          this.$router.go(this.$router.push('/Adit'));
+          this.$router.push(this.$router.push('/Adit'));
         }else{
           alert('fail');
         }

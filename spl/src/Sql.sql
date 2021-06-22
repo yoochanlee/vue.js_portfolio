@@ -32,7 +32,19 @@ create table s_cart
 	c_date date ,
 	c_deliver number 	
 
-);	
+);
+
+SELECT DISTINCT (emp.deptno), dept.deptno AS 팀번호
+FROM dept LEFT OUTER JOIN emp
+ON emp.deptno = dept.deptno;
+ 
+
+SELECT p.p_price,p.p_img,p.p_name, c.*
+FROM s_cart c LEFT OUTER JOIN s_product p
+ON c.p_idx = p.p_idx;
+ 	
+
+
 ALTER TABLE s_cart ADD CONSTRAINT s_cart_pk PRIMARY KEY (c_idx);
 
 ALTER TABLE s_cart
@@ -57,9 +69,9 @@ create table s_product
 	p_img varchar2(2000) not null,
 	p_info varchar2(3000) not null
 );
-select product_seq.currval FROM DUAL;
+select * FROM s_product;
 ALTER TABLE s_product MODIFY (p_img DEFAULT 'nofile');
-delete from s_product where p_img = '59.jpg';
+delete from s_product where p_img = 'nofile';
 
 select * from s_product order by p_idx;
 INSERT INTO s_member (컬럼1, 컬럼2, 컬럼3......) 

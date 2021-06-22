@@ -3,7 +3,7 @@
     <div class="row">
       <!-- As a link -->
       <b-navbar variant="light" type="light">
-        <b-navbar-brand href="/">Men`s Clothing shore</b-navbar-brand>
+        <b-navbar-brand to="/">Men`s Clothing shore</b-navbar-brand>
         <div style="width: 100%; height: auto;"></div>
         <b-navbar-nav class="ml-auto">
           <b-nav-item @click="showModal" v-if='this.$parent.login_flag'>

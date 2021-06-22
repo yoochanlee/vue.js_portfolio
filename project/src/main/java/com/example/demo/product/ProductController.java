@@ -55,8 +55,9 @@ public class ProductController {
 		StringBuffer sb = new StringBuffer();
 		try {
 			service.join(p);
-			Product pp = service.getProduct(p.getP_idx());
+			Product pp = service.getProduct(p.p_idx);
 			MultipartFile[] f = p.getFile();
+			System.out.println(f[0].getOriginalFilename());
 			for(int i=0; i<f.length;i++) {
 			str[i] = f[i].getOriginalFilename();	
 			str[i] = str[i].substring(str[i].lastIndexOf('.'));

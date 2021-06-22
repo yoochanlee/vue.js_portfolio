@@ -1,5 +1,7 @@
 package com.example.demo.cart;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -10,12 +12,12 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface CartDao {
 	// 한사람 추가 insert()
-		@Insert("insert into s_cart values(cart_seq.NEXTVAL,#{m_idx},#{p_idx},#{c_amount},#{c_pay},#{c_date},#{c_deliver})")
+		@Insert("insert into s_cart values(cart_seq.NEXTVAL,#{m_idx},#{p_idx},#{c_amount},#{c_pay},sysdate,#{c_deliver})")
 		void insert(Cart c);
 
 		// 한사람 검색 select(String id) id로 검색
 		@Select("select * from s_cart where m_idx=#{m_idx}")
-		Cart select(@Param("m_idx") int m_idx);
+		ArrayList<Cart> select(@Param("m_idx") int m_idx);
 
 		// 한사람 수정 update(member m) id로 검색해서 pwd 수정
 		@Update("update s_cart set c_amount=#{c_amount} where c_idx=#{c_idx}")
