@@ -20,14 +20,14 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='BAG'">
-          <a href="/list_view">
+            <router-link to="/list_view">
             <img
               class="img"
               :src="p.path"
             />
             <p>{{p.p_name}} <br/>
               {{p.p_price}}</p>
-          </a>
+          </router-link>
           </div>
         </div>
         <div>
@@ -37,14 +37,14 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='OUTER'">
-          <a href="/list_view">
+          <router-link to="/list_view">
             <img
               class="img"
               :src="p.path"
             />
             <p>{{p.p_name}} <br/>
               {{p.p_price}}</p>
-          </a>
+          </router-link>
           </div>
         </div>
         <div>
@@ -54,14 +54,14 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='TOP'">
-          <a href="/list_view">
+          <router-link to="/list_view2">
             <img
               class="img"
               :src="p.path"
             />
             <p>{{p.p_name}} <br/>
               {{p.p_price}}</p>
-          </a>
+          </router-link>
           </div>
         </div>
         <div>
@@ -71,14 +71,14 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='SHIRTS'">
-          <a href="/list_view">
+          <router-link to="/list_view">
             <img
               class="img"
               :src="p.path"
             />
             <p>{{p.p_name}} <br/>
               {{p.p_price}}</p>
-          </a>
+          </router-link>
           </div>
         </div>
         <div>
@@ -88,14 +88,14 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='PANTS'">
-          <a href="/list_view">
+          <router-link to="/list_view">
             <img
               class="img"
               :src="p.path"
             />
             <p>{{p.p_name}} <br/>
               {{p.p_price}}</p>
-          </a>
+          </router-link>
           </div>
         </div>
         <div>
@@ -105,14 +105,14 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='SHOES'">
-          <a href="/list_view">
+          <router-link to="/list_view">
             <img
               class="img"
               :src="p.path"
             />
             <p>{{p.p_name}} <br/>
               {{p.p_price}}</p>
-          </a>
+          </router-link>
           </div>
         </div>
         <div>
@@ -122,14 +122,14 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='BAG'">
-          <a href="/list_view">
+          <router-link to="/list_view">
             <img
               class="img"
               :src="p.path"
             />
             <p>{{p.p_name}} <br/>
               {{p.p_price}}</p>
-          </a>
+          </router-link>
           </div>
         </div>
   </div>

@@ -25,7 +25,7 @@ public interface ProductDao {
 			Product select(@Param("p_idx") int p_idx);
 
 			// 상품 수정 
-			@Update("update s_product set p_name=#{p_name}, p_category=#{p_category}, p_price=#{p_price}, p_amount=#{p_amount}, p_info=#{p_info} where p_idx=#{p_idx}")
+			@Update("update s_product set p_name=#{p_name}, p_category=#{p_category}, p_price=#{p_price},p_img=#{p_img}, p_amount=#{p_amount}, p_info=#{p_info} where p_idx=#{p_idx}")
 			void update(Product p);
 
 			// 상품 삭제

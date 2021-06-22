@@ -78,7 +78,7 @@
             <label for="p_img">카테고리</label>
           </b-col>
           <b-col sm="7">
-            <b-form-select v-model="p_category" :options="options" size="lg" class="mt-3"></b-form-select>
+            <b-form-select v-model="selected" :options="options" size="lg" class="mt-3"></b-form-select>
           </b-col>
         </b-row>
         <b-row class="my-1">
@@ -195,7 +195,7 @@ export default {
         }
       }).then(function(res){
         if(res.data.result){
-          alert('success');
+        this.$router.push(this.$router.push('/'));
         }else{
           alert('fail');
         }

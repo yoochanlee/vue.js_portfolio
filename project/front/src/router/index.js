@@ -4,6 +4,7 @@ import Mainpage from '../components/page/main'
 import JoinPage from '../components/page/join'
 import CartPage from '../components/page/cart'
 import List_ViewPage from '../components/page/list_view'
+import List_ViewPage2 from '../components/page/list_view2'
 import Adminpage from '../components/page/adminpage'
 import MyPagePage from '../components/page/mypage'
 import ReViewPage from '../components/page/review'
@@ -27,7 +28,8 @@ export default new VueRouter({
   routes: [
     { path: '/Join', component: JoinPage },
     { path: '/Cart', component: CartPage },
-    { path: '/List_View', component: List_ViewPage },
+    { path: '/List_View', component: List_ViewPage, props:true, name: 'List_ViewPage'},
+    { path: '/List_View2', component: List_ViewPage2, props:true, name: 'List_ViewPage2'},
     { path: '/admin', component: Adminpage },
     { path: '/MyPage', component: MyPagePage },
     { path: '/MyPageedit', component: MyPageeditPage },

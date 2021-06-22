@@ -103,7 +103,7 @@ export default {
 			this.$axios.put('/members/'+this.m.m_idx, form)
 			.then(res => {
         if(res.data.result){
-          this.$router.go(this.$router.push('/mypage'));
+          this.$router.push(this.$router.push('/mypage'));
         }else{
           alert('fail');
         }
@@ -117,7 +117,7 @@ export default {
           sessionStorage.removeItem("login_id");
           sessionStorage.removeItem("grade");
           sessionStorage.removeItem('m_idx');
-          this.$router.go(this.$router.push('/'));
+          this.$router.push(this.$router.push('/'));
         }else{
           alert('fail');
         }
