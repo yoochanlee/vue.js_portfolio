@@ -1,40 +1,139 @@
 <template>
-	<div>
+	<div class=body>
 		<div class=font>장바구니</div>
-		<div style="margin-top:100px; border-top:1px solid #BDBDBD; border-bottom: 1px solid #BDBDBD;">
-			<table summary="번호, 사진, 제품명, 수량, 가격, 배송비, 취소">
+		<div>
+			<table>
 				<thead>
 					<tr class=tr>
-						<th>
+						<th class=th1>
 							<input type="checkbox" name="all_check">
 						</th>
 						<th scope="col">
-							<div class=td>번호</div>
+							<div class=th>번호</div>
 						</th>
 						<th scope="col">
-							<div class=td>사진</div>
+							<div class=th>사진</div>
 						</th>
 						<th scope="col">
-							<div class=td>제품명</div>
+							<div class=th>제품명</div>
 						</th>
 						<th scope="col">
-							<div class=td>수량</div>
+							<div class=th>수량</div>
 						</th>
 						<th scope="col">
-							<div class=td>가격</div>
+							<div class=th>가격</div>
 						</th>
 						<th scope="col">
-							<div class=td>배송비</div>
+							<div class=th>배송비</div>
 						</th>
 						<th scope="col">
-							<div class=td>취소</div>
+							<div class=th>취소</div>
 						</th>
 					</tr>
 				</thead>
 				<tfoot>
 					<tr>
-						<td colspan="9">
-							<div style="text-align: center; padding: 10px;">장바구니에 담긴 상품이 없습니다.</div>
+						<td class=th1>
+							<input type="checkbox" name="all_check">
+						</td>
+						<td>
+							3
+						</td>
+						<td>
+							<img src="../../assets/img/123.jpg">
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							<button class=b>취소</button>
+						</td>
+					</tr>
+					<tr>
+						<td class=th1>
+							<input type="checkbox" name="all_check">
+						</td>
+						<td>
+							3
+						</td>
+						<td>
+							<img src="../../assets/img/123.jpg">
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							<button class=b>취소</button>
+						</td>
+					</tr>
+					<tr>
+						<td class=th1>
+							<input type="checkbox" name="all_check">
+						</td>
+						<td>
+							3
+						</td>
+						<td>
+							<img src="../../assets/img/123.jpg">
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							<button class=b>취소</button>
+						</td>
+					</tr>
+					<tr>
+						<td class=th1>
+							<input type="checkbox" name="all_check">
+						</td>
+						<td>
+							3
+						</td>
+						<td>
+							<img src="../../assets/img/123.jpg">
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							ddd
+						</td>
+						<td>
+							<button class=b>취소</button>
 						</td>
 					</tr>
 				</tfoot>
@@ -75,22 +174,50 @@ export default {
 	color: purple;
 	display: blcok;
 	margin-top: 40px;
+	margin-bottom: 90px;
 }
-.tb{
+.b{
+	width: 100%;
+	height: 100px;
+}
+tfoot{
 	text-align: center;
+	font-size: 20px;
+	font-weight: 400;
+	color: #000;
+}
+td{
+	padding: 5px;
+	border-bottom: 2px solid #dbdbdb;
+}
+.th{
+	width: 200px;
+	height: 40px;
+}
+.th1{
+	width: 50px;
+	height: 40px;
+}
+input{
+	width: 20px;
+	height: 20px;
 }
 table {
 	width: 100%;
+	height: 100%;
 	border-collapse: collapse;
 	border-spacing: 0;
 	table-layout: fixed;
 	word-wrap: break-word;
 	word-break: keep-all;
+	margin: auto;
 }
 .tr{
 	padding:10px;
-	border-bottom: 1px solid #DBDBDB;
+	border-top: 3px solid #000;
+	border-bottom: 3px solid #000;
 	height: 41px;
+	text-align: center;
 }
 button {
 	background: black;
@@ -101,5 +228,15 @@ button {
 	font-weight: bold;
 	font-size: 20px;
 	color:#ffffff;
+}
+.body{
+	display: block;
+	width: 1400px;
+	height: 100%;
+	margin: auto;
+}
+img{
+	width: 100%;
+	height: 100px;
 }
 </style>

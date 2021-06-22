@@ -92,6 +92,7 @@ public class ProductController {
 		map.put("list", list);
 		return map;
 	}
+
 	@GetMapping("/img/{img}")
 	public ResponseEntity<byte[]> img(@PathVariable("img") String p_img) {
 		File f = new File(base_path + p_img);
@@ -102,6 +103,7 @@ public class ProductController {
 			header.add("Content-Type", Files.probeContentType(f.toPath()));// 이 페이지의 마임타입 지정
 			result = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f), header, HttpStatus.OK);
 		} catch (IOException e) {
+
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
