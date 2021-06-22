@@ -40,7 +40,7 @@
       </b-jumbotron>
     </div>
     <div class="product-join">
-      <b-card bg-variant="white">
+      <b-card bg-variant="white" style="margin-top : 100px;">
         <b-form-group
           label-cols-lg="3"
           label="상품등록"

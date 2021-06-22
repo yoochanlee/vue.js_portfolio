@@ -12,7 +12,6 @@
           <th>상품정보</th>
           <th>수정</th>
         </tr>
-		<tbody>
         <tr v-for="p in list" v-bind:key="p.p_idx">
           <td>
             <img :src="p.path" />
@@ -33,12 +32,9 @@
             {{p.p_info}}
           </td>
           <td>
-            <router-link to="/productedit">
-              <button class="btn btn primary">수정</button>
-            </router-link>
+              <button class="btn btn-primary" v-on:click="edit(p.p_idx)">수정</button>
           </td>
         </tr>
-		</tbody>
       </table>
     </div>
   </div>
@@ -63,12 +59,21 @@ export default {
             var imgarr = self.list[i].p_img.split('/');
             self.list[i].path = 'http://localhost:8888/products/img/' + imgarr[0];
           }
-          
         } else {
           alert('fail');
         }
       });
 
+  },
+  methods:{
+    edit:function(num){
+      this.$router.push({
+        name:'ProductEdit',
+        params:{
+          num:num
+        }
+      });
+   }
   }
 };
 </script>
