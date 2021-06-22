@@ -2,7 +2,7 @@
   <div class="admin-container">
     <div class="admin-head">
       <b-jumbotron bg-variant="gray" text-variant="black" border-variant="dark">
-        <template #header>Product Edit!</template>
+        <template #header>Product Register!</template>
 
         <template #lead>
           <div>
@@ -108,7 +108,6 @@
         <b-row class="my-1">
           <b-col lg="5" sm="1">
             <b-button variant="dark"  v-on:click="del" style="margin-right:10px;">삭제</b-button>
-
             <b-button variant="dark" v-on:click="edit">수정</b-button>
           </b-col>
         </b-row>
@@ -140,7 +139,6 @@ export default {
     loading(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.clearLoadingTimeInterval();
-
         if (newValue) {
           this.$_loadingTimeInterval = setInterval(() => {
             this.loadingTime++;
@@ -212,7 +210,7 @@ export default {
         : `${files.length} files selected`;
     },
     clearFiles() {
-      this.$refs.fileinput.reset();
+      this.$refs.file.reset();
     }
   }
 };

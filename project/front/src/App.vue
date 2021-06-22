@@ -37,6 +37,12 @@ export default {
     }else {
       this.login_flag=false;
     }
+    var p_idx = sessionStorage.getItem("p_idx");
+    if(p_idx=='' || p_idx==null){
+      this.login_flag=true;
+    }else {
+      this.login_flag=false;
+    }
   },
   methods:{
     setflag:function(flag){

@@ -90,6 +90,7 @@ export default {
       .then(function(res) {
         if (res.data.result) {
           self.m = res.data.m;
+          alert(self.m);
         }
       });
   },
