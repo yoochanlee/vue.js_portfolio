@@ -1,9 +1,13 @@
 /* select * from member;
 
-CREATE SEQUENCE product_seq --시퀀스이름 EX_SEQ
+CREATE SEQUENCE cart_seq --시퀀스이름 EX_SEQ
 INCREMENT BY 1 --증감숫자 1
 START WITH 1;
+
 select product_seq.CURRVAL FROM s_product;
+
+SELECT * FROM USER_SEQUENCES;
+
 create table s_member
 (
 	m_idx number ,
@@ -17,16 +21,6 @@ create table s_member
 	
 
 );
-
-
-
-	
-	
-	
-	
-	
-	
-	private boolean out_flag;// 출고유무
 	
 create table s_cart
 (	
@@ -53,9 +47,6 @@ ALTER TABLE 테이블명
 ADD CONSTRAINTS 외래키 이름 FOREIGN KEY (참조컬럼) 
 REFERENCES 참조 테이블명(참조컬럼)
 
-
-
-insert into s_member values(member_seq.NEXTVAL,'admin','admin','admin',2,'admin@gmail.com','010-1235-1235','admin address');
 create table s_product
 (
 	p_idx number ,
