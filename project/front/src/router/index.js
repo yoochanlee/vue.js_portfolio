@@ -4,7 +4,12 @@ import Mainpage from '../components/page/main'
 import JoinPage from '../components/page/join'
 import CartPage from '../components/page/cart'
 import List_ViewPage from '../components/page/list_view'
-import List_ViewPage2 from '../components/page/list_view2'
+import List_TopPage from '../components/page/list_toppage.vue'
+import List_ShoesPage from '../components/page/list_shoespage.vue'
+import List_ShirtsPage from '../components/page/list_shirtspage.vue'
+import List_PantsPage from '../components/page/list_pantspage.vue'
+import List_OuterPage from '../components/page/list_outerpage.vue'
+import List_BagPage from '../components/page/list_bagpage.vue'
 import Adminpage from '../components/page/adminpage'
 import MyPagePage from '../components/page/mypage'
 import ReViewPage from '../components/page/review'
@@ -29,7 +34,12 @@ export default new VueRouter({
     { path: '/Join', component: JoinPage },
     { path: '/Cart', component: CartPage },
     { path: '/List_View', component: List_ViewPage, props:true, name: 'List_ViewPage'},
-    { path: '/List_View2/:p_idx', component: List_ViewPage2,name: 'List_ViewPage2'},
+    { path: '/List_TopPage/:p_idx', component: List_TopPage,name: 'List_TopPage'},
+    { path: '/List_ShoesPage/:p_idx', component: List_ShoesPage,name: 'List_ShoesPage'},
+    { path: '/List_PantsPage/:p_idx', component: List_PantsPage,name: 'List_PantsPage'},
+    { path: '/List_ShirtsPage/:p_idx', component: List_ShirtsPage,name: 'List_ShirtsPage'},
+    { path: '/List_OuterPage/:p_idx', component: List_OuterPage,name: 'List_OuterPage'},
+    { path: '/List_BagPage/:p_idx', component: List_BagPage,name: 'List_BagPage'},
     { path: '/admin', component: Adminpage },
     { path: '/MyPage', component: MyPagePage },
     { path: '/MyPageedit', component: MyPageeditPage },
