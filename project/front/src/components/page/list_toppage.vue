@@ -8,11 +8,11 @@
       <div class="top_box_cut">
         <div class="top_aa">
           <h2>
-            [단독특가]올시즌 스탠다드 핏 슬랙스{{p.p_name}}
+            [단독특가]올시즌 {{p.p_name}}
             <br />(시그니쳐 합섬)- 블랙[레가시]
           </h2>
           <span style="margin-right:4px; color: #d3a164; font-size:25px;">33%</span>
-          <strong style="margin-right:6px; color: #000; font-size:25px;">52,900</strong>
+          <strong style="margin-right:6px; color: #000; font-size:25px;">{{p.p_price}}</strong>
           <del>79,000원</del>
           <div style="margin-bottom: 15px">
             <strong class="top_font">쿠폰적용가 42,320</strong>
@@ -32,12 +32,12 @@
             <div class="box2">전상품 무료배송!!</div>
           </div>
           <div>
-            <div class="box1">리뷰정보</div>
-            <div class="box2">XX개 리뷰보기</div>
-          </div>
-          <div>
             <div class="box1">정품인증</div>
             <div class="box2">모든 상품은 100%정품입니다.</div>
+          </div>
+          <div>
+            <div class="box1">리뷰정보</div>
+            <input class="box2" type="number">
           </div>
         </div>
         <div>
