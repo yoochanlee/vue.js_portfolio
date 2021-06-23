@@ -111,7 +111,8 @@ export default {
     return {
       c_amount:1,
       imgarr2: [],
-      p: null
+      p: null,
+      c: null
     };
   },
   created: function() {

@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface CartDao {
 	// 한사람 추가 insert()
-		@Insert("insert into s_cart values(cart_seq.NEXTVAL,#{m_idx},#{p_idx},#{c_amount},#{c_pay},sysdate,#{c_deliver})")
+		@Insert("insert into s_cart values(cart_seq.NEXTVAL,#{m_idx},#{p_idx},#{c_amount},#{p_price},sysdate,#{c_deliver})")
 		void insert(Cart c);
 
 		 
