@@ -19,7 +19,7 @@
       </div>
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
-          <div class=img_box v-if="p.p_category=='BAG'">
+          <div class=img_box>
             <router-link to="/list_view">
             <img
               class="img"
@@ -37,7 +37,7 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='OUTER'">
-          <router-link to="/list_view">
+          <router-link :to="{ name:'List_OuterPage',params:{ p_idx: p.p_idx }}">
             <img
               class="img"
               :src="p.path"
@@ -54,7 +54,7 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='TOP'">
-          <router-link to="/list_view2">
+          <router-link :to="{ name:'List_TopPage',params:{ p_idx: p.p_idx }}">
             <img
               class="img"
               :src="p.path"
@@ -71,7 +71,7 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='SHIRTS'">
-          <router-link to="/list_view">
+          <router-link :to="{ name:'List_ShirtsPage',params:{ p_idx: p.p_idx }}">
             <img
               class="img"
               :src="p.path"
@@ -88,7 +88,7 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='PANTS'">
-          <router-link to="/list_view">
+          <router-link :to="{ name:'List_PantsPage',params:{ p_idx: p.p_idx }}">
             <img
               class="img"
               :src="p.path"
@@ -105,7 +105,7 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='SHOES'">
-          <router-link to="/list_view">
+          <router-link :to="{ name:'List_ShoesPage',params:{ p_idx: p.p_idx }}">
             <img
               class="img"
               :src="p.path"
@@ -122,7 +122,7 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='BAG'">
-          <router-link to="/list_view">
+          <router-link :to="{ name:'List_BagPage',params:{ p_idx: p.p_idx }}">
             <img
               class="img"
               :src="p.path"

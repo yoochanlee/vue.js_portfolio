@@ -178,7 +178,7 @@ export default {
       form.append('p_category', this.p.p_category);
       form.append('p_info', this.p.p_info);
       form.append('p_img', this.p.p_img);
-      this.$axios.put('/products/'+this.p.p_idx, form)
+			this.$axios.put('/products/'+this.p.p_idx, form)
 			.then(res => {
         if(res.data.result){
           this.$router.push(this.$router.push('/Adit'));

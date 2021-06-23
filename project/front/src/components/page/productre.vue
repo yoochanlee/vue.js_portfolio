@@ -193,7 +193,7 @@ export default {
         headers:{
           'Content-Type':'multipart/form-data'
         }
-      }).then(function(res){
+      }).then(res =>{
         if(res.data.result){
         this.$router.push(this.$router.push('/'));
         }else{
