@@ -54,7 +54,7 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='TOP'">
-          <router-link to="/list_view2">
+          <router-link :to="{ name:'List_ViewPage2',params:{ p_idx: p.p_idx }}">
             <img
               class="img"
               :src="p.path"

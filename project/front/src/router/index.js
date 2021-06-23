@@ -29,7 +29,7 @@ export default new VueRouter({
     { path: '/Join', component: JoinPage },
     { path: '/Cart', component: CartPage },
     { path: '/List_View', component: List_ViewPage, props:true, name: 'List_ViewPage'},
-    { path: '/List_View2', component: List_ViewPage2, props:true, name: 'List_ViewPage2'},
+    { path: '/List_View2/:p_idx', component: List_ViewPage2,name: 'List_ViewPage2'},
     { path: '/admin', component: Adminpage },
     { path: '/MyPage', component: MyPagePage },
     { path: '/MyPageedit', component: MyPageeditPage },
