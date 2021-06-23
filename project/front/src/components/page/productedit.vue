@@ -177,7 +177,8 @@ export default {
       form.append('p_amount', this.p.p_amount);
       form.append('p_category', this.p.p_category);
       form.append('p_info', this.p.p_info);
-			this.$axios.put('/products/'+this.p.p_idx, form)
+      form.append('p_img', this.p.p_img);
+      this.$axios.put('/products/'+this.p.p_idx, form)
 			.then(res => {
         if(res.data.result){
           this.$router.push(this.$router.push('/Adit'));
@@ -190,7 +191,7 @@ export default {
       this.$axios.delete('/products/'+this.p.p_idx)
       .then(res => {
         if(res.data.result){
-          this.$router.push(this.$router.push('/Adit'));
+          this.$router.push(this.$router.push('/del'));
         }else{
           alert('fail');
         }
