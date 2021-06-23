@@ -132,12 +132,6 @@
           </router-link>
           </div>
         </div>
-        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
-            <img
-              class="img"
-              :src="p.path"
-            />
-        </div>
   </div>
 </template>
 

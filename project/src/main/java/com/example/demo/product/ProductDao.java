@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface ProductDao {
 			// 상품 1개 추가 insert()
-			@Insert("insert into s_product (p_idx,p_name,p_category,p_price,p_amount,p_info,m_idx)values(product_seq.NEXTVAL,#{p_name},#{p_category},#{p_price},#{p_amount},#{p_info},#{m_idx})")
+			@Insert("insert into s_product (p_idx,p_name,p_category,p_price,p_amount,p_info,m_idx,p_deliver)values(product_seq.NEXTVAL,#{p_name},#{p_category},#{p_price},#{p_amount},#{p_info},#{m_idx},#{p_deliver})")
 			@SelectKey(statement="select product_seq.currval FROM DUAL", keyProperty="p_idx", before=false, resultType=int.class)
 			public int insert(Product p);
 			

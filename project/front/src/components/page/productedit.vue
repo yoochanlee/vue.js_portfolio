@@ -191,7 +191,7 @@ export default {
       this.$axios.delete('/products/'+this.p.p_idx)
       .then(res => {
         if(res.data.result){
-          this.$router.push(this.$router.push('/del'));
+          this.$router.push(this.$router.push('/Adit'));
         }else{
           alert('fail');
         }

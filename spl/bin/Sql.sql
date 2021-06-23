@@ -41,7 +41,7 @@ ON emp.deptno = dept.deptno;
 
 SELECT p.p_price,p.p_img,p.p_name, c.*
 FROM s_cart c LEFT OUTER JOIN s_product p
-ON c.p_idx = p.p_idx;
+ON c.p_idx = p.p_idx where c.m_idx = 31;
  	
 
 
@@ -71,6 +71,8 @@ create table s_product
 );
 select * FROM s_product;
 ALTER TABLE s_product MODIFY (p_img DEFAULT 'nofile');
+ALTER TABLE s_cart MODIFY (c_pay DEFAULT 0);
+ALTER TABLE s_product ADD(p_deliver number DEFAULT 0); 
 delete from s_product where p_img = 'nofile';
 
 select * from s_product order by p_idx;
