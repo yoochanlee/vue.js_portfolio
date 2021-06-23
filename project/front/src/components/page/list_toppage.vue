@@ -8,7 +8,7 @@
       <div class="top_box_cut">
         <div class="top_aa">
           <h2>
-            [단독특가]올시즌 스탠다{{p.p_name}}
+            {{p.p_name}}
             <br />(시그니쳐 합섬)- 블랙[레가시]
           </h2>
           <span style="margin-right:4px; color: #d3a164; font-size:25px;">33%</span>
@@ -29,7 +29,8 @@
           </div>
           <div>
             <div class="box1">배송비</div>
-            <div class="box2">전상품 무료배송!!</div>
+            <div class="box2" v-if="p.p_deliver==0">무료배송!!</div>
+            <div class="box2" v-if="!p.p_deliver==0">{{p.p_deliver}}</div>
           </div>
           <div>
             <div class="box1">정품인증</div>
@@ -37,7 +38,7 @@
           </div>
           <div>
             <div class="box1">수량</div>
-            <input class=box002 type="text" v-model="c_amount" placeholder="수량을 적어주세요.">
+            <input class=box002 type="number" v-model="c_amount" placeholder="수량을 적어주세요.">
           </div>
         </div>
         <div>
@@ -56,9 +57,7 @@
           <div class="rmador1">0원</div>
         </div>
         <div style="text-aling:center;">
-          <router-link to="/cart">
           <button class="shop_box" v-on:click="join">장바구니</button>
-          </router-link>
           <button class="shop_box">바로구매</button>
         </div>
       </div>
@@ -110,6 +109,7 @@ export default {
   name: "List_ViewPage2",
   data() {
     return {
+      c_amount:1,
       imgarr2: [],
       p: null,
       c: null
@@ -132,19 +132,21 @@ export default {
         }
       });
   },
-  methods:{
-    join:function(){
-      const form = new URLSearchParams();
-      form.append('m_idx', this.p.m_idx);
-			form.append('p_idx', this.p.p_idx);
-      form.append('c_amount', this.c_amount);
-      form.append('p_price', this.p.p_price);
-			this.$axios.post('/carts/', form)
-			.then(res => {
-        if(res.data.result){
-          this.$router.push(this.$router.push('/mypage'));
-        }else{
-          alert('fail');
+  methods: {
+    join: function() {
+      this.m_idx = sessionStorage.getItem("m_idx");
+      const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
+      var c_pay = this.c_amount * this.p.p_price;
+      form.append("m_idx", this.m_idx);
+      form.append("p_idx", this.$route.params.p_idx);
+      form.append("c_amount", this.c_amount);
+      form.append("c_deliver", this.p.p_deliver);
+      form.append("c_pay", c_pay);
+      this.$axios.post("/carts", form).then(res => {
+        if (res.data.result) {
+          this.$router.replace("/");
+        } else {
+          alert("fail");
         }
       });
     }

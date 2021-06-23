@@ -7,15 +7,23 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CartService {
-
-	@Autowired
-	private CartDao dao;
 	
-	public void join(Cart c) {
+	@Autowired
+	CartDao dao;
+	
+	public void insert(Cart c) {
 		dao.insert(c);
 	}
 	
-	public ArrayList<Cart> getCart(int m_idx) {
+	public ArrayList<Cart> getAll(int m_idx){
 		return dao.select(m_idx);
+	}
+	
+	public void update(Cart c) {
+		dao.update(c);
+	}
+	
+	public void delete(int c_idx) {
+		dao.delete(c_idx);
 	}
 }

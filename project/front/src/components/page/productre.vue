@@ -75,6 +75,14 @@
         </b-row>
         <b-row class="my-1">
           <b-col sm="1">
+            <label for="deliver">배송비</label>
+          </b-col>
+          <b-col sm="8">
+            <b-form-input type="number" id="deliver" placeholder="Enter product delivery pay" v-model="p_deliver"></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row class="my-1">
+          <b-col sm="1">
             <label for="p_img">카테고리</label>
           </b-col>
           <b-col sm="7">
@@ -182,6 +190,7 @@ export default {
       form.append('p_name', self.p_name);
       form.append('p_price', self.p_price);
       form.append('p_amount', self.p_amount);
+      form.append('p_deliver', self.p_deliver);
       form.append('p_category', p_category);
       form.append('m_idx', self.m_idx);
       for( var i = 0; i < self.$refs.file.files.length; i++ ){
