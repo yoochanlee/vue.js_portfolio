@@ -120,59 +120,36 @@
         <div class="dropdown">
           <button class="dropdown-button">BEST</button>
         </div>
+        <router-link to="mainouter">
         <div class="dropdown">
           <button class="dropdown-button">OUTER</button>
-          <div class="dropdown-content">
-            <a href="#">재킷</a>
-            <a href="#">가디건</a>
-            <a href="#">코트</a>
-            <a href="#">블레이져</a>
-          </div>
         </div>
+        </router-link>
+        <router-link to="maintop">
         <div class="dropdown">
           <button class="dropdown-button">TOP</button>
-          <div class="dropdown-content">
-            <a href="#">반판티</a>
-            <a href="#">니트</a>
-            <a href="#">맨투맨</a>
-            <a href="#">후드티</a>
-          </div>
         </div>
+        </router-link>
+        <router-link to="mainshirts">
         <div class="dropdown">
           <button class="dropdown-button">SHIRTS</button>
-          <div class="dropdown-content">
-            <a href="#">기본</a>
-            <a href="#">체크</a>
-            <a href="#">헨리넥</a>
-            <a href="#">스트라이프</a>
-          </div>
         </div>
+        </router-link>
+        <router-link to="mainpants">
         <div class="dropdown">
           <button class="dropdown-button">PANTS</button>
-          <div class="dropdown-content">
-            <a href="#">반바지</a>
-            <a href="#">청바지</a>
-            <a href="#">슬렉스</a>
-            <a href="#">트레이닝</a>
-          </div>
         </div>
+        </router-link>
+        <router-link to="mainshoes">
         <div class="dropdown">
           <button class="dropdown-button">SHOES</button>
-          <div class="dropdown-content">
-            <a href="#">운동화</a>
-            <a href="#">스니커즈</a>
-            <a href="#">구두/로퍼</a>
-            <a href="#">샌들/슬리퍼</a>
-          </div>
         </div>
+        </router-link>
+        <router-link to="mainbag">
         <div class="dropdown">
           <button class="dropdown-button">BAG</button>
-          <div class="dropdown-content">
-            <a href="#">에코백</a>
-            <a href="#">백팩</a>
-            <a href="#">크로스백</a>
-          </div>
         </div>
+        </router-link>
       </div>
     </div>
   </header>
@@ -240,38 +217,6 @@ export default {
   position: relative;
   margin: auto;
   display: inline-block;
-}
-.dropdown-content {
-  display: none;
-  text-align: center;
-  margin: 0px auto;
-  position: absolute;
-  background-color: #ffffff;
-  min-width: 80px;
-  padding: 5px;
-  box-shadow: 0px 16px 16px 0px rgba(0, 0, 0, 0.3);
-  font-size: 25px;
-  z-index: 9999;
-}
-.dropdown-content a {
-  color: black;
-  padding: 8px;
-  text-decoration: none;
-  display: block;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  text-align: center;
-}
-.dropdown-content a:hover {
-  background-color: raba(255, 255, 255, 0);
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown:hover .dropdown-button {
-  background-color: #ffffff;
 }
 /* header */
 .modal-content {

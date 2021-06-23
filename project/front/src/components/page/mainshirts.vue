@@ -13,57 +13,6 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
-    <div>
-      <div>
-        <p style="text-align: center">베스트 상품</p>
-      </div>
-    </div>
-        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
-          <div class=img_box>
-            <router-link to="/list_view">
-            <img
-              class="img"
-              :src="p.path"
-            />
-            <p>{{p.p_name}} <br/>
-              {{p.p_price}}</p>
-          </router-link>
-          </div>
-        </div>
-        <div>
-      <div>
-        <p style="text-align: center">OUTER</p>
-      </div>
-    </div>
-        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
-          <div class=img_box v-if="p.p_category=='OUTER'">
-          <router-link :to="{ name:'List_OuterPage',params:{ p_idx: p.p_idx }}">
-            <img
-              class="img"
-              :src="p.path"
-            />
-            <p>{{p.p_name}} <br/>
-              {{p.p_price}}</p>
-          </router-link>
-          </div>
-        </div>
-        <div>
-      <div>
-        <p style="text-align: center">TOP</p>
-      </div>
-    </div>
-        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
-          <div class=img_box v-if="p.p_category=='TOP'">
-          <router-link :to="{ name:'List_TopPage',params:{ p_idx: p.p_idx }}">
-            <img
-              class="img"
-              :src="p.path"
-            />
-            <p>{{p.p_name}} <br/>
-              {{p.p_price}}</p>
-          </router-link>
-          </div>
-        </div>
         <div>
       <div>
         <p style="text-align: center">SHIRTS</p>
@@ -81,58 +30,6 @@
           </router-link>
           </div>
         </div>
-        <div>
-      <div>
-        <p style="text-align: center">PANTS</p>
-      </div>
-    </div>
-        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
-          <div class=img_box v-if="p.p_category=='PANTS'">
-          <router-link :to="{ name:'List_PantsPage',params:{ p_idx: p.p_idx }}">
-            <img
-              class="img"
-              :src="p.path"
-            />
-            <p>{{p.p_name}} <br/>
-              {{p.p_price}}</p>
-          </router-link>
-          </div>
-        </div>
-        <div>
-      <div>
-        <p style="text-align: center">SHOES</p>
-      </div>
-    </div>
-        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
-          <div class=img_box v-if="p.p_category=='SHOES'">
-          <router-link :to="{ name:'List_ShoesPage',params:{ p_idx: p.p_idx }}">
-            <img
-              class="img"
-              :src="p.path"
-            />
-            <p>{{p.p_name}} <br/>
-              {{p.p_price}}</p>
-          </router-link>
-          </div>
-        </div>
-        <div>
-      <div>
-        <p style="text-align: center">BAG</p>
-      </div>
-    </div>
-        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
-          <div class=img_box v-if="p.p_category=='BAG'">
-          <router-link :to="{ name:'List_BagPage',params:{ p_idx: p.p_idx }}">
-            <img
-              class="img"
-              :src="p.path"
-            />
-            <p>{{p.p_name}} <br/>
-              {{p.p_price}}</p>
-          </router-link>
-          </div>
-        </div>
-        
   </div>
 </template>
 

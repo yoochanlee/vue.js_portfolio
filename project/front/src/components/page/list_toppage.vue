@@ -8,7 +8,7 @@
       <div class="top_box_cut">
         <div class="top_aa">
           <h2>
-            [단독특가]올시즌 랙스{{p.p_name}}
+            [단독특가]올시즌 스탠다{{p.p_name}}
             <br />(시그니쳐 합섬)- 블랙[레가시]
           </h2>
           <span style="margin-right:4px; color: #d3a164; font-size:25px;">33%</span>
@@ -32,12 +32,12 @@
             <div class="box2">전상품 무료배송!!</div>
           </div>
           <div>
-            <div class="box1">리뷰정보</div>
-            <div class="box2">XX개 리뷰보기</div>
-          </div>
-          <div>
             <div class="box1">정품인증</div>
             <div class="box2">모든 상품은 100%정품입니다.</div>
+          </div>
+          <div>
+            <div class="box1">수량</div>
+            <input class=box002 type="text" v-model="c_amount" placeholder="수량을 적어주세요.">
           </div>
         </div>
         <div>
@@ -56,7 +56,9 @@
           <div class="rmador1">0원</div>
         </div>
         <div style="text-aling:center;">
-          <button class="shop_box">장바구니</button>
+          <router-link to="/cart">
+          <button class="shop_box" v-on:click="join">장바구니</button>
+          </router-link>
           <button class="shop_box">바로구매</button>
         </div>
       </div>
@@ -109,7 +111,8 @@ export default {
   data() {
     return {
       imgarr2: [],
-      p: null
+      p: null,
+      c: null
     };
   },
   created: function() {
@@ -128,6 +131,23 @@ export default {
           alert("fail");
         }
       });
+  },
+  methods:{
+    join:function(){
+      const form = new URLSearchParams();
+      form.append('m_idx', this.p.m_idx);
+			form.append('p_idx', this.p.p_idx);
+      form.append('c_amount', this.c_amount);
+      form.append('p_price', this.p.p_price);
+			this.$axios.post('/carts/', form)
+			.then(res => {
+        if(res.data.result){
+          this.$router.push(this.$router.push('/mypage'));
+        }else{
+          alert('fail');
+        }
+      });
+    }
   }
 };
 </script>
@@ -205,6 +225,16 @@ export default {
   box-sizing: border-box;
   font-size: 16px;
   color: black;
+}
+.box002 {
+  display: inline-block;
+  width: 80%;
+  height: 25%;
+  padding: 16px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: black;
+  border:#ffffff;
 }
 .option_box {
   display: block;

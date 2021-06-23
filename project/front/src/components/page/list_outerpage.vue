@@ -52,7 +52,9 @@
 					<div class=rmador1>0원</div>
 				</div>
 				<div style="text-aling:center;">
+					<router-link to="/cart">
 					<button class=shop_box>장바구니</button>
+					</router-link>
 					<button class=shop_box>바로구매</button>
 				</div>
 			</div>

@@ -32,105 +32,27 @@
 					</tr>
 				</thead>
 				<tfoot>
-					<tr>
-						<td class=th1>
-							<input type="checkbox" name="all_check">
+					<tr v-for="c in c" v-bind:key="c.c_idx">
+						<td class="th1">
+						<input type="checkbox" name="all_check" />
 						</td>
 						<td>
-							3
+							{{c.c_idx}}
 						</td>
 						<td>
-							<img src="../../assets/img/123.jpg">
+							<img :src="c.path">
 						</td>
 						<td>
-							ddd
+							{{c.p_name}}
 						</td>
 						<td>
-							ddd
+							{{c.c_amount}}
 						</td>
 						<td>
-							ddd
+							{{c.c_pay}}
 						</td>
 						<td>
-							ddd
-						</td>
-						<td>
-							<button class=b>취소</button>
-						</td>
-					</tr>
-					<tr>
-						<td class=th1>
-							<input type="checkbox" name="all_check">
-						</td>
-						<td>
-							3
-						</td>
-						<td>
-							<img src="../../assets/img/123.jpg">
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							<button class=b>취소</button>
-						</td>
-					</tr>
-					<tr>
-						<td class=th1>
-							<input type="checkbox" name="all_check">
-						</td>
-						<td>
-							3
-						</td>
-						<td>
-							<img src="../../assets/img/123.jpg">
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							<button class=b>취소</button>
-						</td>
-					</tr>
-					<tr>
-						<td class=th1>
-							<input type="checkbox" name="all_check">
-						</td>
-						<td>
-							3
-						</td>
-						<td>
-							<img src="../../assets/img/123.jpg">
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							ddd
-						</td>
-						<td>
-							ddd
+							dd
 						</td>
 						<td>
 							<button class=b>취소</button>
@@ -159,10 +81,30 @@
 <script>
 export default {
 	name: 'Cart',
-	props: {
-    msg: String
-  }
-}
+	data(){
+		return {
+		c:null,
+		list:[]
+		};
+	},
+	created: function() {
+	const self = this;
+	self.m_idx = sessionStorage.getItem("m_idx");
+	self.$axios.get("/carts/" + self.m_idx)
+	.then(function(res) {
+      if (res.data.result) {
+		self.c = res.data.c;
+		var i = 0;
+        for (i = 0; i < self.c.length; i++) {
+          var imgarr = self.c[i].p_img.split("/");
+          self.c[i].path = "http://localhost:8888/products/img/" + imgarr[0];
+        }
+      } else {
+        alert("fail");
+      }
+    });
+	}
+};
 </script>
 
 <style scoped>
