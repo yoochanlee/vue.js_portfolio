@@ -12,10 +12,9 @@ public class Product {
 	String p_info;
 	private MultipartFile files[];
 	int m_idx;
+	int p_deliver;
 	public Product() {}
 	
-	
-
 	public MultipartFile[] getFile() {
 		return files;
 	}
@@ -27,9 +26,20 @@ public class Product {
 	}
 
 
+	public int getP_deliver() {
+		return p_deliver;
+	}
+
+
+
+	public void setP_deliver(int p_deliver) {
+		this.p_deliver = p_deliver;
+	}
+
+
 
 	public Product(int p_idx, String p_name, String p_category, int p_price, int p_amount, String p_img, String p_info,
-			MultipartFile[] files, int m_idx) {
+			MultipartFile[] files, int m_idx, int p_deliver) {
 		super();
 		this.p_idx = p_idx;
 		this.p_name = p_name;
@@ -40,6 +50,7 @@ public class Product {
 		this.p_info = p_info;
 		this.files = files;
 		this.m_idx = m_idx;
+		this.p_deliver = p_deliver;
 	}
 
 

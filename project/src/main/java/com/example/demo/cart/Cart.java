@@ -11,12 +11,19 @@ public class Cart {
 	private int c_pay;
 	private Date c_date;
 	private int c_deliver;
+	String p_name;
+	int p_deliver;
+	String p_img;
+	int p_price;
 
 	public Cart() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cart(int c_idx, int m_idx, int p_idx, int c_amount, int c_pay, Date c_date, int c_deliver) {
+	
+
+	public Cart(int c_idx, int m_idx, int p_idx, int c_amount, int c_pay, Date c_date, int c_deliver, String p_name,
+			int p_deliver, String p_img, int p_price) {
 		super();
 		this.c_idx = c_idx;
 		this.m_idx = m_idx;
@@ -25,7 +32,61 @@ public class Cart {
 		this.c_pay = c_pay;
 		this.c_date = c_date;
 		this.c_deliver = c_deliver;
+		this.p_name = p_name;
+		this.p_deliver = p_deliver;
+		this.p_img = p_img;
+		this.p_price = p_price;
 	}
+		
+    
+
+	public String getP_name() {
+		return p_name;
+	}
+
+
+
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+
+
+
+	public int getP_deliver() {
+		return p_deliver;
+	}
+
+
+
+	public void setP_deliver(int p_deliver) {
+		this.p_deliver = p_deliver;
+	}
+
+
+
+	public String getP_img() {
+		return p_img;
+	}
+
+
+
+	public void setP_img(String p_img) {
+		this.p_img = p_img;
+	}
+
+
+
+	public int getP_price() {
+		return p_price;
+	}
+
+
+
+	public void setP_price(int p_price) {
+		this.p_price = p_price;
+	}
+
+
 
 	public int getC_idx() {
 		return c_idx;
