@@ -92,7 +92,6 @@ public class ProductController {
 		map.put("list", list);
 		return map;
 	}
-
 	@GetMapping("/img/{img}")
 	public ResponseEntity<byte[]> img(@PathVariable("img") String p_img) {
 		File f = new File(base_path + p_img);

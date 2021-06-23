@@ -8,11 +8,11 @@
       <div class="top_box_cut">
         <div class="top_aa">
           <h2>
-            [단독특가]올시즌 스탠다드 핏 슬랙스{{p.p_name}}
+            [단독특가]올시즌 랙스{{p.p_name}}
             <br />(시그니쳐 합섬)- 블랙[레가시]
           </h2>
           <span style="margin-right:4px; color: #d3a164; font-size:25px;">33%</span>
-          <strong style="margin-right:6px; color: #000; font-size:25px;">52,900</strong>
+          <strong style="margin-right:6px; color: #000; font-size:25px;">{{p.p_price}}</strong>
           <del>79,000원</del>
           <div style="margin-bottom: 15px">
             <strong class="top_font">쿠폰적용가 42,320</strong>
