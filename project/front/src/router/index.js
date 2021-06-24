@@ -25,6 +25,12 @@ import MyPageqaPage from '../components/page/mypageqa'
 import Productre from '../components/page/productre'
 import ProductEdit from '../components/page/productedit'
 import AditPage from '../components/page/adit'
+import MainOuterPage from '../components/page/mainouter'
+import MainTopPage from '../components/page/maintop'
+import MainShirtsPage from '../components/page/mainshirts'
+import MainPantsPage from '../components/page/mainpants'
+import MainShoesPage from '../components/page/mainshoes'
+import MainBagPage from '../components/page/mainbag'
 
 Vue.use(VueRouter)
 
@@ -53,6 +59,12 @@ export default new VueRouter({
     { path: '/Oi', component: OiPage },
     { path: '/Adit', component: AditPage },
     { path: '/Qa', component: QaPage },
+    { path: '/MainOuter', component: MainOuterPage },
+    { path: '/MainTop', component: MainTopPage },
+    { path: '/MainShirts', component: MainShirtsPage },
+    { path: '/MainPants', component: MainPantsPage },
+    { path: '/MainShoes', component: MainShoesPage },
+    { path: '/MainBag', component: MainBagPage },
     { path: '/productjoin', component: Productre },
     { path: '/productedit', name: 'ProductEdit', component: ProductEdit, props:true },
     { path: '/', name: 'Main', component: Mainpage }
