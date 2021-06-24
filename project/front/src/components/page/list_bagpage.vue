@@ -3,16 +3,16 @@
     <div class="top_box">
       <img
         class="img_top"
-        src="https://kr.louisvuitton.com/images/is/image/lv/1/PP_VP_L/%EB%A3%A8%EC%9D%B4-%EB%B9%84%ED%86%B5-%EB%8D%94%EB%B8%94-%EB%B8%8C%EB%A0%88%EC%8A%A4%ED%8B%B0%EB%93%9C-%ED%85%8C%EC%9D%BC%EB%9F%AC%EB%93%9C-%EC%BD%94%ED%8A%B8-%EC%9D%98%EB%A5%98--HHC40EJPX900_PM2_Front%20view.png?wid=656&hei=656"
+        :src="imgarr2[0]"
       />
       <div class="top_box_cut">
         <div class="top_aa">
           <h2>
-            [단독특가]올시즌 스탠다드 핏 슬랙스
+            {{p.p_name1}}
             <br />(시그니쳐 합섬)- 블랙[레가시]
           </h2>
           <span style="margin-right:4px; color: #d3a164; font-size:25px;">33%</span>
-          <strong style="margin-right:6px; color: #000; font-size:25px;">52,900</strong>
+          <strong style="margin-right:6px; color: #000; font-size:25px;">{{p.p_price}}</strong>
           <del>79,000원</del>
           <div style="margin-bottom: 15px">
             <strong class="top_font">쿠폰적용가 42,320</strong>
@@ -29,15 +29,16 @@
           </div>
           <div>
             <div class="box1">배송비</div>
-            <div class="box2">전상품 무료배송!!</div>
-          </div>
-          <div>
-            <div class="box1">리뷰정보</div>
-            <div class="box2">XX개 리뷰보기</div>
+            <div class="box2" v-if="p.p_deliver==0">무료배송!!</div>
+            <div class="box2" v-if="!p.p_deliver==0">{{p.p_deliver}}</div>
           </div>
           <div>
             <div class="box1">정품인증</div>
             <div class="box2">모든 상품은 100%정품입니다.</div>
+          </div>
+          <div>
+            <div class="box1">수량</div>
+            <input class=box002 type="number" v-model="c_amount" placeholder="수량을 적어주세요.">
           </div>
         </div>
         <div>
@@ -56,7 +57,7 @@
           <div class="rmador1">0원</div>
         </div>
         <div style="text-aling:center;">
-          <button class="shop_box">장바구니</button>
+          <button class="shop_box" v-on:click="join">장바구니</button>
           <button class="shop_box">바로구매</button>
         </div>
       </div>
@@ -73,9 +74,12 @@
         <div class="box02">주문정보</div>
       </router-link>
     </div>
-    <div class="bt" v-bind:key="p.p_idx">
-      <img class="bt_img_p" :src="p.path[1]" />
-      <img class="bt_img" :src="p.path[2]" />
+    <div class="bt">
+      <img class="bt_img_p" :src="imgarr2[1]" />
+      <img
+        class="bt_img"
+        :src="imgarr2[2]"
+      />
       <img
         class="bt_img"
         src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg"
@@ -102,33 +106,52 @@
 
 <script>
 export default {
-  name: "List_View",
-  props: {
-    msg: String
-  },
+  name: "List_ViewPage2",
   data() {
-    return {};
+    return {
+      c_amount:1,
+      imgarr2: [],
+      p: null
+    };
   },
   created: function() {
     const self = this;
-    self.$axios.get("/products").then(function(res) {
-      if (res.data.result) {
-		self.list = res.data.list;
-		alert(self.list);
-        var i = 0;
-        var imgarr = self.list[i].p_img.split("/");
-        for (i = 0; i < self.list.length; i++) {
-        self.path[i] = "http://localhost:8888/products/img/" + imgarr[i];
-        alert(self.path);
+    self.$axios
+      .get("/products/" + self.$route.params.p_idx)
+      .then(function(res) {
+        if (res.data.result && res.data.p != null) {
+          self.p = res.data.p;
+          var i = 0;
+          var imgarr = self.p.p_img.split("/");
+          for (i = 0; i < imgarr.length; i++) {
+            self.imgarr2[i] = "http://localhost:8888/products/img/" + imgarr[i];
+          }
+        } else {
+          alert("fail");
         }
-      } else {
-        alert("fail");
-      }
-    });
+      });
+  },
+  methods: {
+    join: function() {
+      this.m_idx = sessionStorage.getItem("m_idx");
+      const form = new URLSearchParams(); // eslint-disable-line no-unused-vars
+      var c_pay = this.c_amount * this.p.p_price;
+      form.append("m_idx", this.m_idx);
+      form.append("p_idx", this.$route.params.p_idx);
+      form.append("c_amount", this.c_amount);
+      form.append("c_deliver", this.p.p_deliver);
+      form.append("c_pay", c_pay);
+      this.$axios.post("/carts", form).then(res => {
+        if (res.data.result) {
+          this.$router.replace("/");
+        } else {
+          alert("fail");
+        }
+      });
+    }
   }
 };
 </script>
-
 <style scoped>
 /* 상단 박스 */
 .top_box {
@@ -203,6 +226,16 @@ export default {
   box-sizing: border-box;
   font-size: 16px;
   color: black;
+}
+.box002 {
+  display: inline-block;
+  width: 80%;
+  height: 25%;
+  padding: 16px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: black;
+  border:#ffffff;
 }
 .option_box {
   display: block;

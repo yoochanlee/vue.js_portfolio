@@ -8,7 +8,7 @@
       <div class="top_box_cut">
         <div class="top_aa">
           <h2>
-            {{p.p_name}}
+            {{p.p_name1}}
             <br />(시그니쳐 합섬)- 블랙[레가시]
           </h2>
           <span style="margin-right:4px; color: #d3a164; font-size:25px;">33%</span>

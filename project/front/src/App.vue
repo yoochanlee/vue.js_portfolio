@@ -21,38 +21,16 @@ export default {
   },
   data(){
     return{
-      login_flag:true
+       login_id:sessionStorage.getItem("login_id"),
+       garde:sessionStorage.getItem("grade")
     };
   },
-  created:function(){
-    var login_id = sessionStorage.getItem("login_id");
-    if(login_id=='' || login_id==null){
-      this.login_flag=true;
-    }else {
-      this.login_flag=false;
-    }
-    var m_idx = sessionStorage.getItem("m_idx");
-    if(m_idx=='' || m_idx==null){
-      this.login_flag=true;
-    }else {
-      this.login_flag=false;
-    }
-    var p_idx = sessionStorage.getItem("p_idx");
-    if(p_idx=='' || p_idx==null){
-      this.login_flag=true;
-    }else {
-      this.login_flag=false;
-    }
-  },
   methods:{
-    setflag:function(flag){
-      this.login_flag=flag;
-   },
     logout:function(){
-      this.login_flag=true;
       sessionStorage.removeItem("login_id");
       sessionStorage.removeItem("grade");
       sessionStorage.removeItem('m_idx');
+      this.$router.go('/');
    }
   }   
 }

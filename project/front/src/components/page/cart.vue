@@ -98,7 +98,7 @@ export default {
     del: function(num) {
       this.$axios.delete("/carts/" + num).then(res => {
         if (res.data.result) {
-          this.$router.go(this.$router.replace("/cart"));
+          this.$router.go('/cart');
         } else {
           alert("fail");
         }

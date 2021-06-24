@@ -39,7 +39,7 @@ export default new VueRouter({
   routes: [
     { path: '/Join', component: JoinPage },
     { path: '/Cart', component: CartPage },
-    { path: '/List_View', component: List_ViewPage, props:true, name: 'List_ViewPage'},
+    { path: '/List_View/:p_idx', component: List_ViewPage,name: 'List_ViewPage'},
     { path: '/List_TopPage/:p_idx', component: List_TopPage,name: 'List_TopPage'},
     { path: '/List_ShoesPage/:p_idx', component: List_ShoesPage,name: 'List_ShoesPage'},
     { path: '/List_PantsPage/:p_idx', component: List_PantsPage,name: 'List_PantsPage'},
@@ -71,4 +71,16 @@ export default new VueRouter({
 
   ]
 })
+
+// const requireAuth = () => (to, from, next) => {
+//     let login_id = sessionStorage.getItem('login_id');
+//     let m_idx = sessionStorage.getItem('m_idx');
+    
+//     if(login_id && m_idx) {
+//         return next();
+//     } else {
+//         sessionStorage.clear();
+//         return next('/');
+//     }
+// };
 

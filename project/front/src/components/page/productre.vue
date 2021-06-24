@@ -56,7 +56,14 @@
             <b-form-input id="input-default" placeholder="Enter product name" v-model="p_name"></b-form-input>
           </b-col>
         </b-row>
-
+        <b-row class="my-1">
+          <b-col sm="1">
+            <label for="input-default">상품디테일이름</label>
+          </b-col>
+          <b-col sm="8">
+            <b-form-input id="input-default" placeholder="Enter product detail name" v-model="p_name1"></b-form-input>
+          </b-col>
+        </b-row>
         <b-row class="my-1">
           <b-col sm="1">
             <label for="price">상품가격</label>
@@ -188,6 +195,7 @@ export default {
       self.m_idx = sessionStorage.getItem("m_idx");
       const form = new FormData();
       form.append('p_name', self.p_name);
+      form.append('p_name1', self.p_name1);
       form.append('p_price', self.p_price);
       form.append('p_amount', self.p_amount);
       form.append('p_deliver', self.p_deliver);

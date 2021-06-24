@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class Product {
 	int p_idx;
 	String p_name;
+	String p_name1;
 	String p_category;
 	int p_price;
 	int p_amount;
@@ -13,36 +14,40 @@ public class Product {
 	private MultipartFile files[];
 	int m_idx;
 	int p_deliver;
-	public Product() {}
-	
+
+	public Product() {
+	}
+
 	public MultipartFile[] getFile() {
 		return files;
 	}
-
-
 
 	public void setFile(MultipartFile[] file) {
 		this.files = file;
 	}
 
-
 	public int getP_deliver() {
 		return p_deliver;
 	}
-
-
 
 	public void setP_deliver(int p_deliver) {
 		this.p_deliver = p_deliver;
 	}
 
+	public String getP_name1() {
+		return p_name1;
+	}
 
+	public void setP_name1(String p_name1) {
+		this.p_name1 = p_name1;
+	}
 
-	public Product(int p_idx, String p_name, String p_category, int p_price, int p_amount, String p_img, String p_info,
-			MultipartFile[] files, int m_idx, int p_deliver) {
+	public Product(int p_idx, String p_name, String p_name1, String p_category, int p_price, int p_amount, String p_img,
+			String p_info, MultipartFile[] files, int m_idx, int p_deliver) {
 		super();
 		this.p_idx = p_idx;
 		this.p_name = p_name;
+		this.p_name1 = p_name1;
 		this.p_category = p_category;
 		this.p_price = p_price;
 		this.p_amount = p_amount;
@@ -52,8 +57,6 @@ public class Product {
 		this.m_idx = m_idx;
 		this.p_deliver = p_deliver;
 	}
-
-
 
 	public int getP_idx() {
 		return p_idx;
@@ -110,7 +113,6 @@ public class Product {
 	public void setP_info(String p_info) {
 		this.p_info = p_info;
 	}
-	
 
 	public int getM_idx() {
 		return m_idx;
