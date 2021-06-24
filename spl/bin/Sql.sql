@@ -72,7 +72,9 @@ create table s_product
 select * FROM s_product;
 ALTER TABLE s_product MODIFY (p_img DEFAULT 'nofile');
 ALTER TABLE s_cart MODIFY (c_pay DEFAULT 0);
-ALTER TABLE s_product ADD(p_deliver number DEFAULT 0); 
+ALTER TABLE s_product ADD(p_deliver number DEFAULT 0);
+ALTER TABLE s_product ADD(p_hit number DEFAULT 0);
+ALTER TABLE s_product ADD(p_name1 varchar2(500) DEFAULT 'noname'); 
 delete from s_product where p_img = 'nofile';
 
 select * from s_product order by p_idx;

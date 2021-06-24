@@ -6,42 +6,42 @@
         <b-navbar-brand to="/">Men`s Clothing shore</b-navbar-brand>
         <div style="width: 100%; height: auto;"></div>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item @click="showModal" v-if='this.$parent.login_flag'>
+          <b-nav-item @click="showModal" v-if='this.$parent.login_id==null||""'>
             <a class="top">
               <p class="h4 mb-2">
                 <b-icon icon="box-arrow-in-right"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item @click="this.$parent.logout" v-if='!this.$parent.login_flag'>
+          <b-nav-item @click="this.$parent.logout" v-if='this.$parent.login_id!=null||""'>
             <a class="top">
               <p class="h4 mb-2">
                 <b-icon icon="arrow-left-square-fill"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/join">
+          <b-nav-item to="/join" v-if='this.$parent.login_id==null||""'>
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="person-square"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/cart" v-if='!this.$parent.login_flag'>
+          <b-nav-item to="/cart" v-if='this.$parent.login_id!=null||""'>
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="bucket-fill"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/mypage" v-if='!this.$parent.login_flag'>
+          <b-nav-item to="/mypage" v-if='this.$parent.login_id!=null||""'>
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="person-lines-fill"></b-icon>
               </p>
             </a>
           </b-nav-item>
-          <b-nav-item to="/admin" v-if='!this.$parent.login_flag'>
+          <b-nav-item to="/admin" v-if='this.$parent.garde==2'>
             <a class="top">
               <p class="h5 mb-2">
                 <b-icon icon="bell-fill"></b-icon>
@@ -92,6 +92,7 @@
                   <b-form-input
                     id="input-small"
                     size="sm"
+                    type="password"
                     v-model="m_pwd"
                     placeholder="Enter your password"
                   ></b-form-input>
@@ -213,8 +214,7 @@ export default {
                sessionStorage.setItem('grade', res.data.m.m_grade);
                sessionStorage.setItem('m_idx', res.data.m.m_idx);
                sessionStorage.setItem("login_id", self.m_id);
-               self.$parent.setflag(false);
-               self.$router.push('/');
+               self.$router.go('/');
                self.hideModal();
             } else {
               alert('비밀번호 다름');

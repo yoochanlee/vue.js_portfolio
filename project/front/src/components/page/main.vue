@@ -15,12 +15,12 @@
     </swiper>
     <div>
       <div>
-        <p style="text-align: center">베스트 상품</p>
+        <p style="text-align: center">Best Item</p>
       </div>
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box>
-            <router-link to="/list_view">
+            <router-link :to="{ name:'List_ViewPage',params:{ p_idx: p.p_idx }}">
             <img
               class="img"
               :src="p.path"
