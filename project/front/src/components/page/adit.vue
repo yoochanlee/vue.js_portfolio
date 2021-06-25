@@ -28,7 +28,7 @@
             {{p.p_category}}
           </td>
           <td>
-              <button class="btn btn-primary" v-on:click="edit(p.p_idx)">수정</button>
+              <button v-on:click="edit(p.p_idx)">수정</button>
           </td>
         </tr>
       </table>

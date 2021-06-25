@@ -1,6 +1,6 @@
 /* select * from member;
 
-CREATE SEQUENCE cart_seq --시퀀스이름 EX_SEQ
+CREATE SEQUENCE product_seq --시퀀스이름 EX_SEQ
 INCREMENT BY 1 --증감숫자 1
 START WITH 1;
 
@@ -8,6 +8,7 @@ select product_seq.CURRVAL FROM s_product;
 
 SELECT * FROM USER_SEQUENCES;
 
+insert into s_member values(member_seq.NEXTVAL,'admin','관리자','admin',2,'admin@gmail.com','010-1111-2222','서울시 한남동 한남더힐 101동 101호');
 create table s_member
 (
 	m_idx number ,
@@ -75,11 +76,14 @@ ALTER TABLE s_cart MODIFY (c_pay DEFAULT 0);
 ALTER TABLE s_product ADD(p_deliver number DEFAULT 0);
 ALTER TABLE s_product ADD(p_hit number DEFAULT 0);
 ALTER TABLE s_product ADD(p_name1 varchar2(500) DEFAULT 'noname'); 
-delete from s_product where p_img = 'nofile';
-
+delete from s_product;
+delete from s_cart;
+delete from s_member;
 select * from s_product order by p_hit desc;
 INSERT INTO s_member (컬럼1, 컬럼2, 컬럼3......) 
 VALUES (값1, 값2, 값3......)
+select * from s_member;
+insert into s_member ()
 ALTER TABLE s_product MODIFY(p_name VARCHAR2(4000));
 select * from s_member;
 ALTER TABLE s_member MODIFY (m_id NOT NULL);
@@ -88,6 +92,25 @@ ALTER TABLE s_member MODIFY (m_pwd NOT NULL);
 ALTER TABLE s_member MODIFY (m_grade NOT NULL);
 ALTER TABLE s_member MODIFY (m_phone NOT NULL);
 ALTER TABLE s_member MODIFY (m_addr NOT NULL);
+
+drop sequence Product_seq;
+drop sequence member_seq;
+drop sequence cart_seq;
+
+SELECT LAST_NUMBER 
+FROM USER_SEQUENCES 
+WHERE SEQUENCE_NAME = "CART_SEQ";
+
+ALTER SEQUENCE CART_SEQ INCREMENT BY -19;
+
+SELECT CART_SEQ.NEXTVAL 
+  FROM DUAL
+
+SELECT CART_SEQ.CURRVAL 
+FROM DUAL;
+
+ALTER SEQUENCE TB_ZZTRACE_SQ01 INCREMENT BY 1
+
 
 
  */
