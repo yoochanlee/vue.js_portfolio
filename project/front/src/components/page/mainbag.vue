@@ -20,7 +20,7 @@
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='BAG'">
-          <router-link :to="{ name:'List_BagPage',params:{ p_idx: p.p_idx }}">
+          <router-link :to="{ name:'List_BagPage',params:{ p_idx: p.p_idx }}" style="text-decoration: none">
             <img
               class="img"
               :src="p.path"
