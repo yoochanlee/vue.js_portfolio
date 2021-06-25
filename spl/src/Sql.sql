@@ -69,7 +69,7 @@ create table s_product
 	p_img varchar2(2000) not null,
 	p_info varchar2(3000) not null
 );
-select * FROM s_product;
+select * FROM (select * from s_product) where rownum <=8 order by p_hit desc;
 ALTER TABLE s_product MODIFY (p_img DEFAULT 'nofile');
 ALTER TABLE s_cart MODIFY (c_pay DEFAULT 0);
 ALTER TABLE s_product ADD(p_deliver number DEFAULT 0);
@@ -77,10 +77,10 @@ ALTER TABLE s_product ADD(p_hit number DEFAULT 0);
 ALTER TABLE s_product ADD(p_name1 varchar2(500) DEFAULT 'noname'); 
 delete from s_product where p_img = 'nofile';
 
-select * from s_product order by p_idx;
+select * from s_product order by p_hit desc;
 INSERT INTO s_member (컬럼1, 컬럼2, 컬럼3......) 
 VALUES (값1, 값2, 값3......)
-ALTER TABLE s_member MODIFY(m_addr VARCHAR2(4000));
+ALTER TABLE s_product MODIFY(p_name VARCHAR2(4000));
 select * from s_member;
 ALTER TABLE s_member MODIFY (m_id NOT NULL);
 ALTER TABLE s_member MODIFY (m_name NOT NULL);

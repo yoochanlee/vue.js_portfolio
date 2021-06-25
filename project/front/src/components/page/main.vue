@@ -1,14 +1,13 @@
 <template>
   <div class="main-container">
     <swiper class="swiper" :options="swiperOption">
-      <swiper-slide>
-        <img src="http://lorempixel.com/580/250/nature/1" />
-      </swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/2" /></swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/3" /></swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/4" /></swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/2" /></swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/3" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/1.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/2.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/3.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/4.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/5.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/6.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/7.jpg" /></swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
@@ -18,15 +17,15 @@
         <p style="text-align: center">Best Item</p>
       </div>
     </div>
-        <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
+        <div style="display: inline;" v-for="b in bestlist" v-bind:key="b.p_idx">
           <div class=img_box>
-            <router-link :to="{ name:'List_ViewPage',params:{ p_idx: p.p_idx }}">
+            <router-link :to="{ name:'List_ViewPage',params:{ p_idx: b.p_idx }}">
             <img
               class="img"
-              :src="p.path"
+              :src="b.path"
             />
-            <p>{{p.p_name}} <br/>
-              {{p.p_price}}</p>
+            <p>{{b.p_name}} <br/>
+              {{b.p_price}}</p>
           </router-link>
           </div>
         </div>
@@ -145,7 +144,7 @@ export default {
     return {
     list: [],
       swiperOption: {
-        slidesPerView: 3,
+        slidesPerView: 2,
         centeredSlides: false,
         slideShadows : true,
         autoplay: {
@@ -163,21 +162,28 @@ export default {
       }
     };
   },
-  created: function() {
+  created () {
     const self = this;
     self.$axios.get('/products')
       .then(function(res) {
         if (res.data.result) {
+          self.bestlist = res.data.bestlist;
           self.list = res.data.list;
           var i=0;
           for(i=0;i<self.list.length;i++){
             var imgarr = self.list[i].p_img.split('/');
             self.list[i].path = 'http://localhost:8888/products/img/' + imgarr[0];
           }
+          for(i=0;i<self.bestlist.length;i++){
+            var imgarr1 = self.bestlist[i].p_img.split('/');
+            self.bestlist[i].path = 'http://localhost:8888/products/img/' + imgarr1[0];
+          }
         } else {
           alert('fail');
         }
       });
+
+   
 
   }
 
@@ -215,7 +221,7 @@ body {
 
 .swiper-container {
   width: 100%;
-  height: 8%;
+  height: 100%;
 }
 
 .swiper-slide {
@@ -236,13 +242,6 @@ body {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  width: 80%;
-}
-.swiper-slide:nth-child(2n) {
-    width: 60%;
-  }
-.swiper-slide:nth-child(3n) {
-    width: 40%;
 }
 
 .swiper-slide img {

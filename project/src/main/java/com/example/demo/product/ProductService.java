@@ -17,6 +17,9 @@ public class ProductService {
 	public ArrayList<Product> getAll(){
 		return dao.selectAll();
 	}
+	public ArrayList<Product> getBest(){
+		return dao.selectBest();
+	}
 	public Product getProduct(int p_idx) {
 		return dao.select(p_idx);
 	}

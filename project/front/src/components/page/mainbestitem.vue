@@ -14,12 +14,12 @@
     </swiper>
         <div>
       <div>
-        <p style="text-align: center">OUTER</p>
+        <p style="text-align: center">BestItem</p>
       </div>
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
-          <div class=img_box v-if="p.p_category=='OUTER'">
-          <router-link :to="{ name:'List_OuterPage',params:{ p_idx: p.p_idx }}">
+          <div class=img_box>
+          <router-link :to="{ name:'List_ViewPage',params:{ p_idx: p.p_idx }}">
             <img
               class="img"
               :src="p.path"
@@ -29,8 +29,6 @@
           </router-link>
           </div>
         </div>
-        <div>
-      </div>
   </div>
 </template>
 
@@ -137,7 +135,6 @@ body {
   align-items: center;
   width: 80%;
 }
-
 
 .swiper-slide img {
   display: block;

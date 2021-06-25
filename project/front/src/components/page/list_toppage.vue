@@ -118,7 +118,7 @@ export default {
   created: function() {
     const self = this;
     self.$axios
-      .get("/products/" + self.$route.params.p_idx)
+      .get("/products/detail/" + self.$route.params.p_idx)
       .then(function(res) {
         if (res.data.result && res.data.p != null) {
           self.p = res.data.p;
