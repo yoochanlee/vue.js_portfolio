@@ -31,6 +31,7 @@ import MainShirtsPage from '../components/page/mainshirts'
 import MainPantsPage from '../components/page/mainpants'
 import MainShoesPage from '../components/page/mainshoes'
 import MainBagPage from '../components/page/mainbag'
+import MainBestItem from '../components/page/mainbestitem.vue'
 
 Vue.use(VueRouter)
 
@@ -65,6 +66,7 @@ export default new VueRouter({
     { path: '/MainPants', component: MainPantsPage },
     { path: '/MainShoes', component: MainShoesPage },
     { path: '/MainBag', component: MainBagPage },
+    { path: '/MainBestitem', component: MainBestItem },
     { path: '/productjoin', component: Productre },
     { path: '/productedit', name: 'ProductEdit', component: ProductEdit, props:true },
     { path: '/', name: 'Main', component: Mainpage }

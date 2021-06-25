@@ -81,14 +81,16 @@ public class ProductController {
 		Map map = new HashMap();
 		boolean result = true;
 		ArrayList<Product> list = null;
+		ArrayList<Product> list1 = null;
 		try {
 			list = service.getAll();
-
+			list1 = service.getBest();
 		} catch (Exception e) {
 			e.printStackTrace();
 			result = false;
 		}
 		map.put("result", result);
+		map.put("bestlist", list1);
 		map.put("list", list);
 		return map;
 	}
@@ -116,6 +118,25 @@ public class ProductController {
 		Product p = null;
 		try {
 			p = service.getProduct(num);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = false;
+		}
+		map.put("result", result);
+		map.put("p", p);
+		return map;
+	}
+	
+	@GetMapping("/detail/{num}")
+	public Map getProductHit(@PathVariable("num") int num) {
+		Map map = new HashMap();
+		boolean result = true;
+		Product p = null;
+		try {
+			p = service.getProduct(num);
+			int hit = p.getP_hit()+1;
+			p.setP_hit(hit);
+			service.editProduct(p);
 		} catch (Exception e) {
 			e.printStackTrace();
 			result = false;
