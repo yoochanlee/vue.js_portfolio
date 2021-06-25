@@ -75,30 +75,22 @@
       </router-link>
     </div>
     <div class="bt">
-      <img class="bt_img_p" :src="imgarr2[1]" />
+      <img class="bt_img1" :src="imgarr2[1]" />
       <img
-        class="bt_img"
+        class="bt_img2"
         :src="imgarr2[2]"
       />
       <img
-        class="bt_img"
-        src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg"
+        class="bt_img3"
+        :src="imgarr2[3]"
       />
       <img
-        class="bt_img"
-        src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg"
+        class="bt_img4"
+        :src="imgarr2[4]"
       />
       <img
-        class="bt_img"
-        src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg"
-      />
-      <img
-        class="bt_img"
-        src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg"
-      />
-      <img
-        class="bt_img2"
-        src="https://image.brandi.me/cproductdetail/2021/06/02/0ad982b20e407b9e94aced7f7db0e54a.png"
+        class="bt_img5"
+        :src="imgarr2[5]"
       />
     </div>
   </div>
@@ -308,7 +300,7 @@ export default {
   margin: auto;
   box-sizing: border-box;
 }
-.bt_img {
+.bt_img1 {
   display: block;
   width: 1000px;
   height: 1350px;
@@ -317,7 +309,26 @@ export default {
 .bt_img2 {
   display: block;
   width: 1000px;
-  height: 10192px;
+  height: 6000px;
   margin: auto;
 }
+.bt_img3 {
+  display: block;
+  width: 1000px;
+  height: 6000px;
+  margin: auto;
+}
+.bt_img4 {
+  display: block;
+  width: 1000px;
+  height: 1000px;
+  margin: auto;
+}
+.bt_img5 {
+  display: block;
+  width: 1000px;
+  height: 3000px;
+  margin: auto;
+}
+
 </style>

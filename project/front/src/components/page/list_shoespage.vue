@@ -9,7 +9,6 @@
         <div class="top_aa">
           <h2>
             {{p.p_name1}}
-            <br />(시그니쳐 합섬)- 블랙[레가시]
           </h2>
           <span style="margin-right:4px; color: #d3a164; font-size:25px;">33%</span>
           <strong style="margin-right:6px; color: #000; font-size:25px;">{{p.p_price}}</strong>
@@ -75,31 +74,20 @@
       </router-link>
     </div>
     <div class="bt">
-      <img class="bt_img_p" :src="imgarr2[1]" />
+      <img class="bt_img" :src="imgarr2[1]" />
       <img
-        class="bt_img"
+        class="bt_img1"
         :src="imgarr2[2]"
       />
       <img
-        class="bt_img"
-        src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg"
-      />
-      <img
-        class="bt_img"
-        src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg"
-      />
-      <img
-        class="bt_img"
-        src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg"
-      />
-      <img
-        class="bt_img"
-        src="https://image.brandi.me/cproductdetail/2021/01/14/b74f67441c9f4706a0fe7bf8228aee4e.jpg"
+        class="bt_img2"
+        :src="imgarr2[3]"
       />
       <img
         class="bt_img2"
-        src="https://image.brandi.me/cproductdetail/2021/06/02/0ad982b20e407b9e94aced7f7db0e54a.png"
+        :src="imgarr2[4]"
       />
+      
     </div>
   </div>
 </template>
@@ -311,13 +299,19 @@ export default {
 .bt_img {
   display: block;
   width: 1000px;
-  height: 1350px;
+  height: 3000px;
+  margin: auto;
+}
+.bt_img1 {
+  display: block;
+  width: 1000px;
+  height: 10192px;
   margin: auto;
 }
 .bt_img2 {
   display: block;
   width: 1000px;
-  height: 10192px;
+  height: 3000px;
   margin: auto;
 }
 </style>
