@@ -195,14 +195,12 @@ export default {
 
 <style>
 p{
-  
   font-size: 20px;
   font-weight: bold;
   color: #000;
   text-align: center;
   width: 100%;
   height: 40px;
-  
 }
 html,
 body {
@@ -257,16 +255,10 @@ body {
   height: 100%;
   box-sizing: border-box;
 }
-
-.img {
-  display: bolck;
-  width: 22%;
-  height: 60%;
-}
 .img_box{
   display: inline-block;
   width: 22%;
-  height:360px;
+  height: 600px!important;
   margin: 20px 20px;
   box-sizing: border-box;
   text-align: center;
@@ -275,7 +267,7 @@ body {
 .img {
   display: inline-block;
   width: 100%;
-  height: 300px;
+  height: 500px!important;
   box-sizing: border-bod;
   margin: 20px 20px;
 }
