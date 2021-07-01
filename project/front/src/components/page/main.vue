@@ -14,12 +14,12 @@
     </swiper>
     <div>
       <div>
-        <p style="text-align: center">Best Item</p>
+        <p style="text-align: center; font-size:45px; margin-top:30px;">Best Item</p>
       </div>
     </div>
         <div style="display: inline;" v-for="b in bestlist" v-bind:key="b.p_idx">
           <div class=img_box>
-            <router-link :to="{ name:'List_ViewPage',params:{ p_idx: b.p_idx }}">
+            <router-link :to="{ name:'List_ViewPage',params:{ p_idx: b.p_idx }}" style="text-decoration: none">
             <img
               class="img"
               :src="b.path"
@@ -31,12 +31,12 @@
         </div>
         <div>
       <div>
-        <p style="text-align: center">OUTER</p>
+        <p style="text-align: center; font-size:45px;"> O U T E R </p>
       </div>
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='OUTER'">
-          <router-link :to="{ name:'List_OuterPage',params:{ p_idx: p.p_idx }}">
+          <router-link :to="{ name:'List_OuterPage',params:{ p_idx: p.p_idx }}" style="text-decoration: none">
             <img
               class="img"
               :src="p.path"
@@ -48,12 +48,12 @@
         </div>
         <div>
       <div>
-        <p style="text-align: center">TOP</p>
+        <p style="text-align: center; font-size:45px;"> T O P </p>
       </div>
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='TOP'">
-          <router-link :to="{ name:'List_TopPage',params:{ p_idx: p.p_idx }}">
+          <router-link :to="{ name:'List_TopPage',params:{ p_idx: p.p_idx }}" style="text-decoration: none">
             <img
               class="img"
               :src="p.path"
@@ -65,12 +65,12 @@
         </div>
         <div>
       <div>
-        <p style="text-align: center">SHIRTS</p>
+        <p style="text-align: center; font-size:45px;"> S H I R T S </p>
       </div>
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='SHIRTS'">
-          <router-link :to="{ name:'List_ShirtsPage',params:{ p_idx: p.p_idx }}">
+          <router-link :to="{ name:'List_ShirtsPage',params:{ p_idx: p.p_idx }}" style="text-decoration: none">
             <img
               class="img"
               :src="p.path"
@@ -82,12 +82,12 @@
         </div>
         <div>
       <div>
-        <p style="text-align: center">PANTS</p>
+        <p style="text-align: center; font-size:45px;"> P A N T S </p>
       </div>
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='PANTS'">
-          <router-link :to="{ name:'List_PantsPage',params:{ p_idx: p.p_idx }}">
+          <router-link :to="{ name:'List_PantsPage',params:{ p_idx: p.p_idx }}" style="text-decoration: none">
             <img
               class="img"
               :src="p.path"
@@ -99,12 +99,12 @@
         </div>
         <div>
       <div>
-        <p style="text-align: center">SHOES</p>
+        <p style="text-align: center; font-size:45px;"> S H O E S </p>
       </div>
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='SHOES'">
-          <router-link :to="{ name:'List_ShoesPage',params:{ p_idx: p.p_idx }}">
+          <router-link :to="{ name:'List_ShoesPage',params:{ p_idx: p.p_idx }}" style="text-decoration: none">
             <img
               class="img"
               :src="p.path"
@@ -116,12 +116,12 @@
         </div>
         <div>
       <div>
-        <p style="text-align: center">BAG</p>
+        <p style="text-align: center; font-size:45px;"> B A G </p>
       </div>
     </div>
         <div style="display: inline;" v-for="p in list" v-bind:key="p.p_idx">
           <div class=img_box v-if="p.p_category=='BAG'">
-          <router-link :to="{ name:'List_BagPage',params:{ p_idx: p.p_idx }}">
+          <router-link :to="{ name:'List_BagPage',params:{ p_idx: p.p_idx }}" style="text-decoration: none">
             <img
               class="img"
               :src="p.path"
@@ -194,6 +194,9 @@ export default {
 
 
 <style>
+router-link{
+  text-decoration: none;
+}
 p{
   font-size: 20px;
   font-weight: bold;
@@ -215,6 +218,7 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
+  text-decoration: none!important;
 }
 
 .swiper-container {

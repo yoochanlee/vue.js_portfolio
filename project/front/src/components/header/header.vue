@@ -211,9 +211,10 @@ export default {
 .dropdown-button {
   background-color: #ffffff;
   padding: 8px;
-  font-size: 30px;
+  font-size: 35px;
   border: none;
   margin: 0px 25px;
+  font-weight: bold;
 }
 .dropdown {
   position: relative;

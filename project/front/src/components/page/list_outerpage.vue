@@ -119,6 +119,7 @@ export default {
       var c_pay = this.c_amount * this.p.p_price;
       form.append("m_idx", this.m_idx);
       form.append("p_idx", this.$route.params.p_idx);
+      form.append("c_pay", this.p.p_price);
       form.append("c_amount", this.c_amount);
       form.append("c_deliver", this.p.p_deliver);
       form.append("c_pay", c_pay);

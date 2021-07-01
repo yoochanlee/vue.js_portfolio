@@ -107,7 +107,7 @@
         </b-row>
         <b-row class="my-1">
           <b-col lg="5" sm="1">
-            <b-button variant="dark"  v-on:click="del" style="margin-right:10px;">삭제</b-button>
+            <b-button variant="dark"  v-on:click="del">삭제</b-button>
 
             <b-button variant="dark" v-on:click="edit">수정</b-button>
           </b-col>
