@@ -1,14 +1,13 @@
 <template>
   <div class="main-container">
     <swiper class="swiper" :options="swiperOption">
-      <swiper-slide>
-        <img src="http://lorempixel.com/580/250/nature/1" />
-      </swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/2" /></swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/3" /></swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/4" /></swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/2" /></swiper-slide>
-      <swiper-slide><img src="http://lorempixel.com/580/250/nature/3" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/1.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/2.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/3.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/4.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/5.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/6.jpg" /></swiper-slide>
+      <swiper-slide><img src="../../assets/img/7.jpg" /></swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
@@ -43,7 +42,7 @@ export default {
     return {
     list: [],
       swiperOption: {
-        slidesPerView: 3,
+        slidesPerView: 2,
         centeredSlides: false,
         slideShadows : true,
         autoplay: {
@@ -113,7 +112,7 @@ body {
 
 .swiper-container {
   width: 100%;
-  height: 8%;
+  height: 100%;
 }
 
 .swiper-slide {
@@ -135,12 +134,6 @@ body {
   -webkit-align-items: center;
   align-items: center;
   width: 80%;
-}
-.swiper-slide:nth-child(2n) {
-    width: 60%;
-  }
-.swiper-slide:nth-child(3n) {
-    width: 40%;
 }
 
 .swiper-slide img {

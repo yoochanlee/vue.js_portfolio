@@ -118,9 +118,11 @@
         />
       </div>
       <div style="text-align: center; margin: 20px">
+        <router-link to="/MainBestitem">
         <div class="dropdown">
           <button class="dropdown-button">BEST</button>
         </div>
+        </router-link>
         <router-link to="mainouter">
         <div class="dropdown">
           <button class="dropdown-button">OUTER</button>
@@ -209,9 +211,10 @@ export default {
 .dropdown-button {
   background-color: #ffffff;
   padding: 8px;
-  font-size: 30px;
+  font-size: 35px;
   border: none;
   margin: 0px 25px;
+  font-weight: bold;
 }
 .dropdown {
   position: relative;

@@ -127,8 +127,8 @@ ul{
 }
 .img {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 100px!important;
+  height: 100px!important;
   margin: auto;
 }
 .font {

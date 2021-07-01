@@ -91,13 +91,14 @@ export default {
     return {
       c_amount:1,
       imgarr2: [],
-      p: null
+      p: null,
+      c: null
     };
   },
   created: function() {
     const self = this;
     self.$axios
-      .get("/products/" + self.$route.params.p_idx)
+      .get("/products/detail/" + self.$route.params.p_idx)
       .then(function(res) {
         if (res.data.result && res.data.p != null) {
           self.p = res.data.p;
@@ -118,6 +119,7 @@ export default {
       var c_pay = this.c_amount * this.p.p_price;
       form.append("m_idx", this.m_idx);
       form.append("p_idx", this.$route.params.p_idx);
+      form.append("c_pay", this.p.p_price);
       form.append("c_amount", this.c_amount);
       form.append("c_deliver", this.p.p_deliver);
       form.append("c_pay", c_pay);

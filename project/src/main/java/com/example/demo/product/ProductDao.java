@@ -17,15 +17,18 @@ public interface ProductDao {
 			@SelectKey(statement="select product_seq.currval FROM DUAL", keyProperty="p_idx", before=false, resultType=int.class)
 			public int insert(Product p);
 			
-			@Select("select * from s_product order by p_idx")
+			@Select("select * from s_product order by p_hit desc")
 			ArrayList<Product> selectAll();
+			
+			@Select("select * FROM (select * from s_product) where rownum <=8 order by p_hit desc")
+			ArrayList<Product> selectBest();
 			
 			// 상품 1개 검색
 			@Select("select * from s_product where p_idx=#{p_idx}")
 			Product select(@Param("p_idx") int p_idx);
 			
 			// 상품 수정 
-			@Update("update s_product set p_name=#{p_name}, p_category=#{p_category}, p_price=#{p_price}, p_img=#{p_img}, p_amount=#{p_amount}, p_info=#{p_info} where p_idx=#{p_idx}")
+			@Update("update s_product set p_name=#{p_name}, p_category=#{p_category}, p_price=#{p_price}, p_img=#{p_img}, p_amount=#{p_amount}, p_info=#{p_info}, p_hit=#{p_hit} where p_idx=#{p_idx}")
 			void update(Product p);
 
 			// 상품 삭제
